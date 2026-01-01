@@ -105,136 +105,416 @@
     z-index: 1;
 }
 
-/* Visual Story */
+/* Why I Do This - Bento Redesign */
 .about-visual-story {
-    padding: var(--spacing-2xl) 0;
+    padding: 160px 0;
     background-color: var(--white);
-}
-
-.story-grid-new {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-2xl);
-    align-items: center;
-}
-
-.story-image-overlap {
-    position: relative;
-    padding-right: var(--spacing-xl);
-}
-
-.story-main-img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-}
-
-.serene-inset {
-    position: absolute;
-    bottom: -40px;
-    right: 0;
-    width: 50%;
-    padding: 10px;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-}
-
-.serene-inset img {
-    width: 100%;
-    border-radius: 2px;
-}
-
-.story-content-new h2 {
-    font-size: 42px;
-    margin-bottom: var(--spacing-md);
-    letter-spacing: -1px;
-}
-
-.story-content-new p {
-    font-size: 17px;
-    line-height: 1.8;
-    color: var(--text-muted);
-    margin-bottom: var(--spacing-md);
-}
-
-.story-quote-new {
-    font-family: var(--font-heading);
-    font-size: 24px;
-    font-style: italic;
-    color: var(--accent);
-    margin-top: var(--spacing-lg);
-    padding-left: var(--spacing-md);
-    border-left: 2px solid var(--accent-light);
-}
-
-/* YouTube Aesthetic Section */
-.about-youtube-aesthetic {
-    padding: var(--spacing-2xl) 0;
-    background-color: var(--white);
-}
-
-.youtube-editorial-card {
-    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-    padding: var(--spacing-2xl);
-    border-radius: 24px;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: var(--spacing-xl);
-    align-items: center;
     position: relative;
     overflow: hidden;
-    border: 1px solid var(--divider);
 }
 
-.youtube-editorial-content {
+.story-header-centered {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.story-header-centered h2 {
+    font-size: 56px;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.story-lead-max {
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.motivation-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 240px;
+    gap: 30px;
+}
+
+.bento-tile {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--divider);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tile-main {
+    grid-column: span 8;
+    grid-row: span 2;
+    display: flex;
+    align-items: flex-end;
+}
+
+.bento-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 1.2s ease;
+}
+
+.tile-main:hover .bento-bg-img {
+    transform: scale(1.05);
+}
+
+.bento-overlay-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+    color: white;
+    width: 100%;
+}
+
+.bento-overlay-content h3 {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.bento-overlay-content p {
+    font-size: 16px;
+    opacity: 0.9;
+    max-width: 400px;
+}
+
+.tile-vertical {
+    grid-column: span 4;
+    grid-row: span 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-text-box {
+    padding: 40px;
+    flex-grow: 1;
+}
+
+.bento-icon-gold {
+    color: var(--accent);
+    margin-bottom: 24px;
+}
+
+.bento-icon-gold svg {
+    width: 42px;
+    height: 42px;
+}
+
+.bento-text-box h4 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.bento-text-box p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.bento-sub-img {
+    height: 40%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.tile-layers-meaning {
+    display: flex;
+    align-items: flex-end;
+    background-color: #0c1a22;
+    /* Dark background for the gaps */
+}
+
+.img-full-height {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    /* Show full image bottom to top */
+    background-color: #0c1a22;
+}
+
+.tile-layers-meaning .bento-overlay-content {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+}
+
+.tile-horizontal {
+    grid-column: span 8;
+    grid-row: span 1;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.reveal-content h4 {
+    font-size: 24px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.reveal-content p {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.tile-quote {
+    grid-column: span 12;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    text-align: center;
+}
+
+.bento-quote-inner {
+    max-width: 700px;
+    position: relative;
+}
+
+.quote-mark {
+    font-size: 120px;
+    font-family: serif;
+    color: var(--accent);
+    opacity: 0.1;
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    line-height: 1;
+}
+
+.bento-quote-inner p {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.bento-quote-inner cite {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    opacity: 0.5;
+    font-style: normal;
+}
+
+@media (max-width: 992px) {
+    .motivation-bento-grid {
+        grid-auto-rows: auto;
+    }
+
+    .tile-main,
+    .tile-vertical,
+    .tile-horizontal {
+        grid-column: span 12;
+        grid-row: auto;
+    }
+
+    .bento-sub-img {
+        height: 250px;
+    }
+
+    .tile-horizontal {
+        padding: 40px;
+    }
+}
+
+/* Vibrant YouTube Showcase - High Energy Redesign */
+.about-youtube-vibrant {
+    padding: 160px 0;
+    background-color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.youtube-card-vibrant {
+    background: linear-gradient(135deg, #1d3847 0%, #0c1a22 100%);
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    padding: 100px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 50px 120px rgba(0, 0, 0, 0.4);
+}
+
+.vibrant-youtube-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 100% 0%, rgba(255, 0, 0, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.vibrant-content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 100px;
+    align-items: center;
     position: relative;
     z-index: 2;
 }
 
-.youtube-editorial-content h2 {
-    font-size: 42px;
-    margin-bottom: var(--spacing-md);
-    letter-spacing: -1.5px;
+.vibrant-text h2 {
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    letter-spacing: -3px;
+    line-height: 1;
 }
 
-.youtube-editorial-content p {
-    font-size: 18px;
-    line-height: 1.7;
-    color: var(--text-muted);
-    margin-bottom: var(--spacing-xl);
-    max-width: 500px;
+.vibrant-text h2 span {
+    color: #FF0000;
 }
 
-.btn-youtube-aesthetic {
+.vibrant-text p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 50px;
+    max-width: 550px;
+}
+
+.vibrant-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #FF0000;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.btn-vibrant-yt {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px 32px;
-    background-color: var(--accent);
+    gap: 15px;
+    padding: 22px 45px;
+    background-color: #FF0000;
     color: white;
     text-decoration: none;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.btn-youtube-aesthetic:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(29, 56, 71, 0.2);
-    background-color: #2d4a5a;
+.btn-vibrant-yt:hover {
+    background-color: #CC0000;
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(255, 0, 0, 0.5);
 }
 
-.youtube-editorial-decoration {
+.vibrant-visual-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.youtube-glow-orb {
     position: absolute;
-    right: -40px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--accent);
-    opacity: 0.03;
     width: 300px;
-    z-index: 1;
-    pointer-events: none;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: pulse-red 4s infinite alternate ease-in-out;
+}
+
+.yt-icon-massive {
+    width: 180px;
+    height: 180px;
+    color: #FF0000;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.4));
+    animation: float-yt 6s infinite ease-in-out;
+}
+
+@keyframes pulse-red {
+    from {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+@keyframes float-yt {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+@media (max-width: 1024px) {
+    .youtube-card-vibrant {
+        padding: 60px;
+    }
+
+    .vibrant-content-grid {
+        gap: 60px;
+        grid-template-columns: 1fr;
+    }
+
+    .vibrant-text h2 {
+        font-size: 48px;
+    }
+
+    .yt-icon-massive {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-youtube-vibrant {
+        padding: 100px 0;
+    }
+
+    .youtube-card-vibrant {
+        border-radius: 30px;
+        padding: 40px;
+    }
+
+    .vibrant-text h2 {
+        font-size: 36px;
+    }
+
+    .vibrant-text p {
+        font-size: 17px;
+    }
 }
 
 /* Infinite Marquee Credentials */

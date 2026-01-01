@@ -31,22 +31,24 @@ const Home = () => {
 
     const features = [
         {
-            number: '01',
             title: 'Psychology-Informed Approach',
             description: 'Grounded in counseling principles and research. We don\'t just talk about goals; we understand the psychological patterns that drive your behavior and influence your growth.',
             accent: 'var(--accent)'
         },
         {
-            number: '02',
             title: 'Meaning over Motivation',
             description: 'Motivation is fleeting; meaning is enduring. We follow Viktor Frankl\'s principles to help you discover a purpose that sustains you through life\'s inevitable challenges.',
             accent: '#2d4a5a'
         },
         {
-            number: '03',
             title: 'Academic & Clinical Depth',
             description: 'With a Master\'s in Counselling, I bring a level of depth and ethical responsibility that goes far beyond generic life coaching. This is evidenced-based guidance for real progression.',
             accent: '#1a2b34'
+        },
+        {
+            title: 'Holistic Integration',
+            description: 'We don\'t look at challenges in isolation. We integrate your professional ambitions, personal relationships, and mental well-being into a singular, cohesive architecture of life.',
+            accent: '#a48e6c'
         }
     ];
 
@@ -195,8 +197,8 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* What Makes This Different */}
-            <section className="features-section">
+            {/* What Makes This Different - Infinite Carousel Redesign */}
+            <section className="features-carousel-section">
                 <div className="container">
                     <motion.div
                         className="section-header-centered"
@@ -205,35 +207,35 @@ const Home = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
+                        <span className="aesthetic-badge-cinematic">THE DISTINCTION</span>
                         <h2>What Makes This Different</h2>
                         <p className="section-subtitle-large">
                             Not motivational speaking. Not generic coaching. Not quick fixes.<br />
                             This is psychology-informed guidance for people who are ready to go deeper.
                         </p>
                     </motion.div>
+                </div>
 
-                    <div className="diff-layout">
-                        {features.map((feature, i) => (
-                            <motion.div
-                                key={i}
-                                className={`diff-item ${i % 2 === 1 ? 'reverse' : ''}`}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: i * 0.1 }}
-                            >
-                                <div className="diff-number-side">
-                                    <span className="diff-number-large" style={{ color: feature.accent }}>{feature.number}</span>
-                                    <div className="diff-decoration" style={{ backgroundColor: feature.accent }}></div>
-                                </div>
-                                <div className="diff-content-side">
+                <div className="infinite-feature-wrapper">
+                    <motion.div
+                        className="feature-marquee-track"
+                        animate={{ x: ["0%", "-50%"] }}
+                        transition={{
+                            duration: 30,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    >
+                        {[...features, ...features].map((feature, i) => (
+                            <div key={i} className="feature-carousel-card">
+                                <div className="carousel-card-content">
                                     <h3>{feature.title}</h3>
                                     <p>{feature.description}</p>
-                                    <div className="diff-accent-line" style={{ backgroundColor: feature.accent }}></div>
+                                    <div className="carousel-accent-line" style={{ backgroundColor: feature.accent }}></div>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 

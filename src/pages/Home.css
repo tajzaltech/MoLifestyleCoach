@@ -420,124 +420,82 @@
     box-shadow: 0 8px 24px rgba(255, 0, 0, 0.4);
 }
 
-/* Features Section - Redesigned (Premium 2D Asymmetric) */
-.features-section {
-    padding: var(--spacing-2xl) 0;
+/* Features Carousel Section - Infinite Marquee Redesign */
+.features-carousel-section {
+    padding: 160px 0;
     background-color: var(--white);
     position: relative;
     overflow: hidden;
 }
 
-.diff-layout {
+.infinite-feature-wrapper {
+    width: 100%;
+    position: relative;
+    padding: 60px 0;
+}
+
+.feature-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 40px;
+}
+
+.feature-carousel-card {
+    width: 450px;
+    flex-shrink: 0;
+    background-color: var(--bg-main);
+    padding: 60px;
+    border-radius: 20px;
+    border: 1px solid var(--divider);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2xl);
-    margin-top: var(--spacing-xl);
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.diff-item {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xl);
+.feature-carousel-card:hover {
+    transform: translateY(-20px);
+    border-color: var(--accent);
+    box-shadow: 0 40px 100px rgba(29, 56, 71, 0.08);
 }
 
-.diff-item.reverse {
-    flex-direction: row-reverse;
-    text-align: right;
-}
-
-.diff-number-side {
+.carousel-card-content {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 140px;
+    z-index: 2;
 }
 
-.diff-number-large {
-    font-size: 120px;
-    font-weight: 900;
-    line-height: 1;
-    font-family: var(--font-heading);
-    opacity: 0.1;
-    transition: opacity 0.4s ease;
-}
-
-.diff-item:hover .diff-number-large {
-    opacity: 0.25;
-}
-
-.diff-decoration {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    opacity: 0.1;
-    z-index: -1;
-    transition: transform 0.6s ease;
-}
-
-.diff-item:hover .diff-decoration {
-    transform: scale(1.5);
-}
-
-.diff-content-side {
-    flex: 1;
-    position: relative;
-}
-
-.diff-content-side h3 {
+.carousel-card-content h3 {
     font-size: 32px;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 20px;
     color: var(--text-primary);
     font-weight: 700;
 }
 
-.diff-content-side p {
-    font-size: 17px;
+.carousel-card-content p {
+    font-size: 18px;
     line-height: 1.8;
     color: var(--text-muted);
-    margin-bottom: var(--spacing-sm);
 }
 
-.diff-accent-line {
-    width: 40px;
-    height: 3px;
+.carousel-accent-line {
+    width: 60px;
+    height: 4px;
     border-radius: 2px;
-    margin-top: 12px;
-    transition: width 0.4s ease;
+    margin-top: 30px;
 }
 
-.diff-item.reverse .diff-accent-line {
-    margin-left: auto;
-}
-
-.diff-item:hover .diff-accent-line {
-    width: 80px;
-}
-
-/* Mobile Responsive For Diff Section */
 @media (max-width: 768px) {
-    .diff-item {
-        flex-direction: column !important;
-        text-align: left !important;
-        gap: var(--spacing-md);
+    .feature-carousel-card {
+        width: 320px;
+        padding: 40px;
     }
 
-    .diff-number-side {
-        justify-content: flex-start;
-        min-width: auto;
+    .carousel-number {
+        font-size: 100px;
     }
 
-    .diff-number-large {
-        font-size: 80px;
-    }
-
-    .diff-accent-line {
-        margin-left: 0 !important;
+    .features-carousel-section {
+        padding: 100px 0;
     }
 }
 

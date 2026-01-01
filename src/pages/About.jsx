@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import moazHero from '../assets/moaz-hero.png';
-import lifestyleImage from '../assets/lifestyle-window.png';
+import lifestyleImage from '../assets/peace-architecture-v3.jpg';
 import workspaceImage from '../assets/workspace.png';
+import peaceArchitecture from '../assets/peace-architecture-v4.jpg';
 import './About.css';
 
 const About = () => {
@@ -15,39 +16,39 @@ const About = () => {
 
     const credentials = [
         {
-            title: 'Master\'s in Counselling',
+            title: 'Masters in Counselling & Mental Health',
             institution: 'University of Aberdeen',
-            description: 'Refined understanding of human psychology and mental health.'
+            description: 'I hold a Master’s degree in Psychological Studies (Mental Health), with formal training in counselling, wellbeing, and human behaviour.'
         },
         {
-            title: 'Logotherapy Specialist',
-            institution: 'Viktor Frankl Institute',
-            description: 'Meaning-centered therapy focus: finding purpose in life.'
+            title: 'Meaning-Centred Method (Not Motivation Talk)',
+            institution: 'MoLifestyle Approach',
+            description: 'My work blends counselling, coaching, and logotherapy—focused on clarity, responsibility, and finding meaning in real life situations.'
         },
         {
-            title: 'Clarity Guide',
-            institution: 'MoLifestyle Coach',
-            description: 'Helping individuals navigate confusion and discover inner direction.'
+            title: 'Personalised Sessions Built Around You',
+            institution: 'Customized Stage of Life',
+            description: 'No fixed formula. Every session and plan is customised to your situation, goals, and current stage of life.'
         },
         {
-            title: 'Meaning-Centered Coach',
-            institution: 'Logotherapy Practice',
-            description: 'Applying existential philosophy to practical life coaching.'
+            title: 'For Real-Life Struggles',
+            institution: 'Human Concerns',
+            description: 'Career confusion, emotional overwhelm, relationships, identity, purpose, direction—this work is designed for everyday human struggles.'
         },
         {
-            title: 'Advanced Psychology',
-            institution: 'Academic Research',
-            description: 'Deep dive into behavioral patterns and cognitive development.'
+            title: 'Human-Centred Practitioner',
+            institution: 'Global Recognition',
+            description: 'Working with people across the world. The focus will be on you as a whole person, not just a problem — your life, your potential, and what truly matters to you.'
         },
         {
-            title: 'Humanistic Practitioner',
-            institution: 'Global Outreach',
-            description: 'Focusing on the whole person and their unique potential.'
+            title: 'A Calm, Non-Judgemental Space',
+            institution: 'The Safe Space',
+            description: 'No pressure. No labels. No rushing. Just a safe, respectful space to think, speak, and understand yourself better.'
         },
         {
-            title: 'Ethical Guidance',
-            institution: 'Professional Standards',
-            description: 'Committed to the highest standards of mental health partnership.'
+            title: 'Growth That Is Sustainable & Grounded',
+            institution: 'Long-Term Impact',
+            description: 'This isn’t about quick fixes. It’s about building long-term clarity, emotional stability, and inner strength.'
         }
     ];
 
@@ -102,65 +103,132 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Visual Story Section */}
+            {/* Why I Do This - Editorial Bento Redesign */}
             <section className="about-visual-story">
                 <div className="container">
-                    <div className="story-grid-new">
-                        <motion.div className="story-image-overlap" {...fadeUp}>
-                            <img src={workspaceImage} alt="Consultation Space" className="story-main-img" />
-                            <div className="serene-inset">
-                                <img src={lifestyleImage} alt="Calm View" />
+                    <motion.div
+                        className="story-header-centered"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <span className="aesthetic-badge-cinematic">The Mission</span>
+                        <h2>Why I Do This</h2>
+                        <p className="story-lead-max">
+                            Transformation isn't about trying harder; it's about seeing clearer. My work is dedicated
+                            to helping you bridge the gap between where you are and where you find meaning.
+                        </p>
+                    </motion.div>
+
+                    <div className="motivation-bento-grid">
+                        <motion.div
+                            className="bento-tile tile-main"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{ once: true }}
+                        >
+                            <img src={peaceArchitecture} alt="Architecture of Peace" className="bento-bg-img" />
+                            <div className="bento-overlay-content">
+                                <h3>The Architecture of Peace</h3>
+                                <p>We create the mental space required for honest reflection and unshakeable clarity.</p>
                             </div>
                         </motion.div>
 
-                        <motion.div className="story-content-new" {...fadeUp}>
-                            <h2>Why I Do This</h2>
-                            <p>
-                                After years of observing human patterns, I realized that most people are
-                                stuck not because they lack motivation, but because they are disconnected
-                                from their own sense of meaning.
-                            </p>
-                            <p>
-                                My mission is to bridge that gap. By combining academic counselling roots
-                                with real-world guidance, I help you uncover the layers that are clouding
-                                your vision.
-                            </p>
-                            <div className="story-quote-new">
-                                "Clarity is not found by looking harder, but by seeing differently."
+                        <motion.div
+                            className="bento-tile tile-vertical tile-layers-meaning"
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: 0.1 }}
+                            viewport={{ once: true }}
+                        >
+                            <img src={lifestyleImage} alt="Layers of Meaning" className="bento-bg-img img-full-height" />
+                            <div className="bento-overlay-content">
+                                <div className="bento-icon-gold">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                    </svg>
+                                </div>
+                                <h4>Layers of Meaning</h4>
+                                <p>Peeling back the societal expectations to find the truth that anchors your soul.</p>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            className="bento-tile tile-horizontal"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className="bento-action-reveal">
+                                <div className="reveal-content">
+                                    <h4>Decoupling Success from Worth</h4>
+                                    <p>Helping visionaries find a sense of self that isn't tied to their latest achievement.</p>
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            className="bento-tile tile-quote"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className="bento-quote-inner">
+                                <div className="quote-mark">"</div>
+                                <p>Clarity is not found by looking harder, but by seeing differently.</p>
+                                <cite>— The MoLifestyle Philosophy</cite>
                             </div>
                         </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* Aesthetic YouTube Section */}
-            <section className="about-youtube-aesthetic">
+            {/* Vibrant YouTube Showcase - Redesign */}
+            <section className="about-youtube-vibrant">
                 <div className="container">
-                    <motion.div className="youtube-editorial-card" {...fadeUp}>
-                        <div className="youtube-editorial-content">
-                            <span className="aesthetic-badge">Video Insights</span>
-                            <h2>Sharing the Journey on YouTube</h2>
-                            <p>
-                                I believe in making psychological depth accessible. Every week, I share
-                                reflections, practical strategies, and deep dives into the science of
-                                meaning and human growth.
-                            </p>
-                            <a
-                                href="https://youtube.com/@Molifestylecoach/videos"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-youtube-aesthetic"
-                            >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                                </svg>
-                                <span>Watch Latest Videos</span>
-                            </a>
-                        </div>
-                        <div className="youtube-editorial-decoration">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                            </svg>
+                    <motion.div
+                        className="youtube-card-vibrant"
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <div className="vibrant-youtube-overlay"></div>
+                        <div className="vibrant-content-grid">
+                            <div className="vibrant-text">
+                                <span className="vibrant-badge">Premium Content</span>
+                                <h2>The <span>Video Insights</span> Series</h2>
+                                <p>
+                                    I believe in making psychological depth accessible. Every week, I share
+                                    reflections, practical strategies, and deep dives into the science of
+                                    meaning and human growth on my YouTube channel.
+                                </p>
+                                <motion.a
+                                    href="https://youtube.com/@Molifestylecoach/videos"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-vibrant-yt"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                                    </svg>
+                                    Join the Community
+                                </motion.a>
+                            </div>
+
+                            <div className="vibrant-visual-side">
+                                <div className="youtube-glow-orb"></div>
+                                <div className="yt-icon-massive">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
                 </div>
