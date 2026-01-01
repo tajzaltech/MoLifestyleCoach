@@ -227,36 +227,6 @@
     pointer-events: none;
 }
 
-@media (max-width: 768px) {
-    .youtube-editorial-card {
-        grid-template-columns: 1fr;
-        padding: var(--spacing-xl);
-        text-align: center;
-    }
-
-    .youtube-editorial-content h2 {
-        font-size: 32px;
-    }
-
-    .youtube-editorial-content p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .btn-youtube-aesthetic {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .youtube-editorial-decoration {
-        right: 0;
-        top: 0;
-        transform: none;
-        width: 150px;
-        opacity: 0.05;
-    }
-}
-
 /* Infinite Marquee Credentials */
 .about-marquee-credentials {
     padding: var(--spacing-2xl) 0;
@@ -474,53 +444,6 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     user-select: none;
-}
-
-@media (max-width: 1024px) {
-    .kamal-headline {
-        font-size: 72px;
-        letter-spacing: -3px;
-    }
-
-    .floating-text {
-        font-size: 80px;
-    }
-}
-
-@media (max-width: 768px) {
-    .kamal-content-wrap {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .kamal-headline {
-        font-size: 56px;
-        letter-spacing: -2px;
-    }
-
-    .kamal-line {
-        margin: 0 auto var(--spacing-lg);
-    }
-
-    .kamal-lead {
-        font-size: 18px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .kamal-cta-aesthetic {
-        align-items: center;
-    }
-
-    .kamal-visual-accent {
-        display: none;
-    }
-
-    .kamal-main-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 20px 30px;
-    }
 }
 
 /* Academic Foundation Journey */
@@ -756,50 +679,7 @@
     border-color: white;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .journey-line {
-        left: 20px;
-    }
-
-    .journey-node {
-        justify-content: flex-start;
-        padding-left: 50px;
-        padding-right: 0;
-        text-align: left !important;
-    }
-
-    .journey-node:nth-child(even) {
-        padding-left: 50px;
-    }
-
-    .node-content {
-        width: 100%;
-    }
-
-    .node-connector {
-        left: -36px !important;
-        right: auto !important;
-    }
-
-    .honesty-content h2 {
-        font-size: 36px;
-    }
-
-    .honesty-content p {
-        font-size: 16px;
-    }
-
-    .reflection-cta-row {
-        flex-direction: column;
-    }
-
-    .premium-btn {
-        width: 100%;
-    }
-}
-
-/* Credentials Aesthetic */
+/* Credentials Aesthetic (Extra items if any) */
 .about-cred-minimal {
     padding: var(--spacing-2xl) 0;
     background-color: var(--bg-main);
@@ -854,6 +734,10 @@
     line-height: 1;
 }
 
+.cred-detail {
+    text-align: left;
+}
+
 .cred-detail h3 {
     font-size: 20px;
     margin-bottom: 4px;
@@ -873,7 +757,7 @@
     color: var(--text-muted);
 }
 
-/* Final Reflection */
+/* Final Reflection Section */
 .about-final-reflection {
     padding: var(--spacing-2xl) 0;
 }
@@ -913,29 +797,31 @@
     flex-wrap: wrap;
 }
 
-.aesthetic-btn {
-    padding: 16px 32px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 4px;
-}
-
-.reflection-card .btn-primary {
-    background-color: white;
-    color: var(--accent);
-    border-color: white;
-}
-
-.reflection-card .btn-secondary {
-    background-color: transparent;
-    color: white;
-    border-color: white;
-}
-
 /* Mobile Responsive */
+@media (max-width: 1024px) {
+    .kamal-headline {
+        font-size: 72px;
+        letter-spacing: -3px;
+    }
+
+    .floating-text {
+        font-size: 80px;
+    }
+}
+
 @media (max-width: 768px) {
+    .about-hero-aesthetic {
+        padding: 80px 0;
+        min-height: auto;
+    }
+
     .editorial-headline {
-        font-size: 48px;
+        font-size: 38px;
+        letter-spacing: -1.5px;
+    }
+
+    .editorial-lead {
+        font-size: 17px;
     }
 
     .hero-editorial {
@@ -951,27 +837,175 @@
     .editorial-image-side {
         order: 1;
         justify-content: center;
-        margin-bottom: var(--spacing-lg);
+        margin-bottom: 40px;
+    }
+
+    .small-portrait {
+        max-width: 280px;
+    }
+
+    .about-visual-story {
+        padding: 80px 0;
     }
 
     .story-grid-new {
         grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .story-content-new h2 {
+        font-size: 32px;
+        letter-spacing: -1.5px;
     }
 
     .story-image-overlap {
         padding-right: 0;
-        margin-bottom: var(--spacing-xl);
+        margin-bottom: 20px;
+    }
+
+    .story-quote-new {
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .youtube-editorial-card {
+        padding: 40px 24px;
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .youtube-editorial-content h2 {
+        font-size: 32px;
+    }
+
+    .youtube-editorial-content p {
+        margin: 0 auto 30px;
+    }
+
+    .btn-youtube-aesthetic {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .marquee-header h2 {
+        font-size: 32px;
+    }
+
+    .marquee-card {
+        width: 260px;
+    }
+
+    .about-kamal-finale {
+        padding: 80px 0;
+        min-height: auto;
+    }
+
+    .kamal-content-wrap {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .kamal-headline {
+        font-size: 42px;
+        letter-spacing: -2px;
+        margin-bottom: 25px;
+    }
+
+    .kamal-line {
+        margin: 0 auto 25px;
+    }
+
+    .kamal-lead {
+        font-size: 18px;
+        margin: 0 auto 40px;
+    }
+
+    .kamal-cta-aesthetic {
+        align-items: center;
+    }
+
+    .kamal-visual-accent {
+        display: none;
+    }
+
+    .kamal-main-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 18px 30px;
+        font-size: 16px;
+    }
+
+    .about-cred-aesthetic {
+        padding: 80px 0;
+    }
+
+    .header-aesthetic h2 {
+        font-size: 32px;
+    }
+
+    .journey-line {
+        left: 20px;
+    }
+
+    .journey-node {
+        justify-content: flex-start;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left !important;
+    }
+
+    .journey-node:nth-child(even) {
+        padding-left: 50px;
+    }
+
+    .node-content {
+        width: 100%;
+        padding: 24px;
+    }
+
+    .node-year {
+        font-size: 32px;
+        top: 15px;
+        right: 15px;
+    }
+
+    .node-connector {
+        left: -36px !important;
+        right: auto !important;
+    }
+
+    .honesty-card {
+        padding: 40px 24px;
+    }
+
+    .honesty-content h2 {
+        font-size: 32px;
+    }
+
+    .honesty-content p {
+        font-size: 16px;
+    }
+
+    .reflection-footer {
+        padding: 24px;
+    }
+
+    .reflection-card {
+        padding: 60px 24px;
     }
 
     .reflection-card h2 {
         font-size: 32px;
+        letter-spacing: -1.5px;
     }
 
     .reflection-buttons {
         flex-direction: column;
+        gap: 15px;
     }
 
     .aesthetic-btn {
         width: 100%;
+        justify-content: center;
     }
 }

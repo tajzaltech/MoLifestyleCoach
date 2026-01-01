@@ -84,49 +84,113 @@ const Connect = () => {
                 </div>
             </section>
 
-            {/* Booking Section */}
-            <section className="booking-section">
+            {/* Booking Section - LIVE EXPERIENCE */}
+            <section className="booking-section-live">
+                <div className="booking-live-glow"></div>
                 <div className="container">
-                    <motion.div className="booking-card" {...fadeUp}>
-                        <div className="booking-header">
-                            <div className="booking-icon">📅</div>
-                            <div>
-                                <h2>Book a 1-to-1 Session</h2>
-                                <p className="booking-subtitle">
-                                    Ready to start your journey toward clarity and meaning?
-                                </p>
+                    <motion.div
+                        className="booking-card-cinematic"
+                        initial={{ opacity: 0, scale: 0.98, y: 30 }}
+                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+                    >
+                        {/* Live Header Status */}
+                        <div className="booking-live-header">
+                            <div className="status-indicator">
+                                <span className="pulsing-dot"></span>
+                                <span className="status-label">Accepting New Clients This Week</span>
+                            </div>
+                            <div className="social-proof-banner">
+                                <span className="proof-item">⭐ 4.9/5 Rating</span>
+                                <span className="proof-dot"></span>
+                                <span className="proof-item">👥 500+ Lives Impacted</span>
                             </div>
                         </div>
 
-                        <div className="booking-content">
-                            <div className="booking-info">
-                                <h3>What to Expect</h3>
-                                <ul className="booking-list">
-                                    <li>✓ 60-minute reflective conversation</li>
-                                    <li>✓ Safe, confidential space to explore</li>
-                                    <li>✓ Psychology-informed guidance</li>
-                                    <li>✓ Personalized to your situation</li>
-                                </ul>
-                                <p className="booking-note">
-                                    <strong>Not therapy.</strong> This is guidance, education, and meaning-centered exploration.
+                        <div className="booking-inner-grid">
+                            {/* LEFT: CRAFTING THE JOURNEY */}
+                            <div className="booking-narrative">
+                                <span className="premium-accent-tag">1-TO-1 SESSIONS</span>
+                                <h2>Your Architecture of <span>Clarity</span></h2>
+                                <p className="narrative-text">
+                                    Move beyond simple advice. Experience a <strong>rigorous self-discovery session</strong>
+                                    grounded in existential psychology.
                                 </p>
+
+                                <div className="key-pillars">
+                                    <motion.div className="pillar-node" whileHover={{ x: 10 }}>
+                                        <div className="node-icon-svg">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </div>
+                                        <div className="node-info">
+                                            <h4>Psychological Audit</h4>
+                                            <p>We map your internal architecture with surgical precision.</p>
+                                        </div>
+                                    </motion.div>
+                                    <motion.div className="pillar-node" whileHover={{ x: 10 }}>
+                                        <div className="node-icon-svg">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                            </svg>
+                                        </div>
+                                        <div className="node-info">
+                                            <h4>Meaning Roadmap</h4>
+                                            <p>Create a concrete path toward your unique existential 'Why'.</p>
+                                        </div>
+                                    </motion.div>
+                                    <motion.div className="pillar-node" whileHover={{ x: 10 }}>
+                                        <div className="node-icon-svg">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                            </svg>
+                                        </div>
+                                        <div className="node-info">
+                                            <h4>Safe Space</h4>
+                                            <p>A 100% confidential environment for your deepest work.</p>
+                                        </div>
+                                    </motion.div>
+                                </div>
                             </div>
 
-                            <div className="booking-action">
-                                <a
-                                    href="https://calendly.com/molifestylecoaching/30min"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="booking-icon-wrapper"
-                                >
-                                    <div className="icon-3d-container">
-                                        <span className="icon-3d-emoji">📅</span>
+                            {/* RIGHT: INTERACTIVE ACTION BOX */}
+                            <div className="booking-focus-box">
+                                <div className="glass-booking-card">
+                                    <div className="icon-main-ref">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                            <line x1="16" y1="2" x2="16" y2="6" />
+                                            <line x1="8" y1="2" x2="8" y2="6" />
+                                            <line x1="3" y1="10" x2="21" y2="10" />
+                                            <circle cx="12" cy="16" r="2" fill="currentColor" fillOpacity="0.8" />
+                                        </svg>
                                     </div>
-                                    <span className="booking-link-text">Schedule Your Session</span>
-                                </a>
-                                <p className="booking-footer-note">
-                                    Choose a time that works for you. Easy online booking.
-                                </p>
+                                    <h3>Start Your Transformation</h3>
+                                    <p>Select a 30-minute discovery slot to begin the process.</p>
+
+                                    <motion.a
+                                        href="https://calendly.com/molifestylecoaching/30min"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="cta-book-ultimate"
+                                        whileHover={{ scale: 1.03, y: -5 }}
+                                        whileTap={{ scale: 0.97 }}
+                                    >
+                                        <span>Secure Your Session</span>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+                                    </motion.a>
+
+                                    <div className="guarantee-line">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm-2 16l-4-4 1.41-1.41L10 15.17l7.59-7.59L19 9l-9 9z" />
+                                        </svg>
+                                        <span>Guaranteed Meaning-Centered Shift</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </motion.div>

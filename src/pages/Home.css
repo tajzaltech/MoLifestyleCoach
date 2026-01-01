@@ -190,11 +190,63 @@
 
 @media (max-width: 1024px) {
     .kamal-hero-headline {
-        font-size: 64px;
+        font-size: 56px;
     }
 
     .kamal-float-text {
-        font-size: 8rem;
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .kamal-hero-new {
+        padding: 120px 0 80px;
+        min-height: auto;
+    }
+
+    .kamal-hero-headline {
+        font-size: 42px;
+        letter-spacing: -2px;
+        margin-bottom: 25px;
+    }
+
+    .kamal-hero-lead {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .kamal-btn-group {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .kamal-cta-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kamal-hero-visual {
+        margin-top: 60px;
+        justify-content: center;
+    }
+
+    .kamal-image-frame {
+        padding: 10px;
+    }
+
+    .kamal-hero-img {
+        max-width: 300px;
+    }
+
+    .kamal-quote-tag {
+        left: 0;
+        bottom: -20px;
+        font-size: 11px;
+    }
+
+    .kamal-float-text {
+        font-size: 4rem;
+        bottom: 20px;
     }
 }
 
