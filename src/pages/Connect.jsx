@@ -51,20 +51,19 @@ const Connect = () => {
             color: '#E1306C'
         },
         {
-            platform: 'Email',
+            platform: 'Gmail',
             icon: (
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                    <rect width="32" height="32" rx="8" fill="#1d3847" />
-                    <path d="M6 10L16 18L26 10V24H6V10Z" stroke="white" strokeWidth="2" fill="none" />
-                    <path d="M6 10L16 18L26 10" stroke="white" strokeWidth="2" fill="none" />
+                    <rect width="32" height="32" rx="8" fill="#EA4335" />
+                    <path d="M7 9V23H11V14L16 18L21 14V23H25V9H21L16 13L11 9H7Z" fill="white" />
                 </svg>
             ),
             title: 'Direct Contact',
             description: 'For inquiries, collaborations, or personal guidance',
             url: 'mailto:hello@molifestylecoach.com',
             buttonText: 'Send Email',
-            gradient: 'linear-gradient(135deg, #791710ff 0%, #791710ff 100%)',
-            color: '#791710ff'
+            gradient: 'linear-gradient(135deg, #EA4335 0%, #C5221F 100%)',
+            color: '#EA4335'
         }
     ];
 
