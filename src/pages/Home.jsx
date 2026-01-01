@@ -80,8 +80,8 @@ const Home = () => {
                         <motion.div className="kamal-hero-content" {...fadeUp}>
                             <span className="kamal-badge">Premium Psychology-Informed Coaching</span>
                             <h1 className="kamal-hero-headline">
-                                Find Clarity.<br />
-                                <span>Discover</span> Meaning.<br />
+                                Find <span>Clarity.</span><br />
+                                Discover <span>Meaning</span><br />
                                 Live with <span>Purpose.</span>
                             </h1>
                             <div className="kamal-hero-divider"></div>
