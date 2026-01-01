@@ -10,6 +10,50 @@ const Connect = () => {
         transition: { duration: 0.6, ease: 'easeOut' }
     };
 
+    const sessionPillars = [
+        {
+            title: 'Being Heard',
+            desc: 'You talk freely. I listen fully. No rushing, fixing, or interrupting.',
+            icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" y1="19" x2="12" y2="23" />
+                    <line x1="8" y1="23" x2="16" y2="23" />
+                </svg>
+            )
+        },
+        {
+            title: 'Finding Clarity',
+            desc: 'We gently unpack what’s weighing on you and bring clarity to your thoughts.',
+            icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                </svg>
+            )
+        },
+        {
+            title: 'Personalised Direction',
+            desc: 'Together, we shape a way forward that fits your situation, pace, and reality.',
+            icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            )
+        },
+        {
+            title: 'Staying With You',
+            desc: 'Support doesn’t end when the session ends. I stay with you as things shift.',
+            icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="M12 8v4l3 3" />
+                </svg>
+            )
+        }
+    ];
+
     const socialLinks = [
         {
             platform: 'YouTube',
@@ -69,128 +113,95 @@ const Connect = () => {
 
     return (
         <div className="connect-page-new">
-            {/* Hero Section */}
+            {/* Hero Section - Cinematic Entry */}
             <section className="connect-hero">
-                <div className="connect-hero-pattern"></div>
+                <div className="connect-hero-glow"></div>
                 <div className="container">
-                    <motion.div className="connect-hero-content" {...fadeUp}>
-                        <span className="connect-badge">Let's Connect</span>
-                        <h1>You Don't Have to<br />Do This Alone</h1>
-                        <p className="connect-lead">
-                            Whether you're seeking clarity, have questions about guidance,<br />
-                            or just want to start a conversation—I'm here.
-                        </p>
-                    </motion.div>
+                    <div className="connect-hero-content">
+                        <motion.span
+                            className="connect-badge-cinematic"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: 'easeOut' }}
+                        >
+                            Let's Connect
+                        </motion.span>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
+                        >
+                            You Don’t Have to<br /><span>Do This Alone</span>
+                        </motion.h1>
+                        <motion.p
+                            className="connect-lead-cinematic"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                        >
+                            Whether you're seeking clarity, have questions about guidance,
+                            or just want to start a conversation — I am here to listen.
+                        </motion.p>
+                    </div>
                 </div>
             </section>
 
-            {/* Booking Section - LIVE EXPERIENCE */}
-            <section className="booking-section-live">
-                <div className="booking-live-glow"></div>
+            {/* Compact 1-to-1 Sessions - 70/30 Split */}
+            <section className="booking-section-compact">
                 <div className="container">
                     <motion.div
-                        className="booking-card-cinematic"
-                        initial={{ opacity: 0, scale: 0.98, y: 30 }}
-                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                        className="sessions-split-layout"
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
                     >
-                        {/* Live Header Status */}
-                        <div className="booking-live-header">
-                            <div className="status-indicator">
-                                <span className="pulsing-dot"></span>
-                                <span className="status-label">Accepting New Clients This Week</span>
-                            </div>
-                            <div className="social-proof-banner">
-                                <span className="proof-item">⭐ 4.9/5 Rating</span>
-                                <span className="proof-dot"></span>
-                                <span className="proof-item">👥 500+ Lives Impacted</span>
+                        {/* LEFT SIDE (70%): Narrative & Pillars */}
+                        <div className="sessions-main-content">
+                            <span className="premium-label">1-TO-1 SESSIONS</span>
+                            <h2 className="sessions-compact-title">A space to talk things through</h2>
+                            <p className="sessions-compact-desc">
+                                If life feels heavy, confusing, or stuck, these sessions give you a calm space to talk openly,
+                                feel heard, and slowly make sense of what’s going on — without pressure or judgement.
+                            </p>
+
+                            <div className="pillars-compact-grid">
+                                {sessionPillars.map((pillar, i) => (
+                                    <div key={i} className="pillar-item-mini">
+                                        <div className="pillar-icon-mini">{pillar.icon}</div>
+                                        <div className="pillar-text-mini">
+                                            <h4>{pillar.title}</h4>
+                                            <p>{pillar.desc}</p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
 
-                        <div className="booking-inner-grid">
-                            {/* LEFT: CRAFTING THE JOURNEY */}
-                            <div className="booking-narrative">
-                                <span className="premium-accent-tag">1-TO-1 SESSIONS</span>
-                                <h2>Your Architecture of <span>Clarity</span></h2>
-                                <p className="narrative-text">
-                                    Move beyond simple advice. Experience a <strong>rigorous self-discovery session</strong>
-                                    grounded in existential psychology.
-                                </p>
-
-                                <div className="key-pillars">
-                                    <motion.div className="pillar-node" whileHover={{ x: 10 }}>
-                                        <div className="node-icon-svg">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                        </div>
-                                        <div className="node-info">
-                                            <h4>Psychological Audit</h4>
-                                            <p>We map your internal architecture with surgical precision.</p>
-                                        </div>
-                                    </motion.div>
-                                    <motion.div className="pillar-node" whileHover={{ x: 10 }}>
-                                        <div className="node-icon-svg">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                            </svg>
-                                        </div>
-                                        <div className="node-info">
-                                            <h4>Meaning Roadmap</h4>
-                                            <p>Create a concrete path toward your unique existential 'Why'.</p>
-                                        </div>
-                                    </motion.div>
-                                    <motion.div className="pillar-node" whileHover={{ x: 10 }}>
-                                        <div className="node-icon-svg">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                            </svg>
-                                        </div>
-                                        <div className="node-info">
-                                            <h4>Safe Space</h4>
-                                            <p>A 100% confidential environment for your deepest work.</p>
-                                        </div>
-                                    </motion.div>
+                        {/* RIGHT SIDE (30%): The Action Hub */}
+                        <div className="sessions-action-hub">
+                            <div className="action-hub-inner">
+                                <div className="live-status-pill">
+                                    <span className="dot-pulse-mini"></span>
+                                    <span>Available This Week</span>
                                 </div>
-                            </div>
+                                <h3>Ready to begin?</h3>
+                                <p>Select your discovery slot to start the process.</p>
 
-                            {/* RIGHT: INTERACTIVE ACTION BOX */}
-                            <div className="booking-focus-box">
-                                <div className="glass-booking-card">
-                                    <div className="icon-main-ref">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                            <circle cx="12" cy="16" r="2" fill="currentColor" fillOpacity="0.8" />
-                                        </svg>
-                                    </div>
-                                    <h3>Start Your Transformation</h3>
-                                    <p>Select a 30-minute discovery slot to begin the process.</p>
-
-                                    <motion.a
-                                        href="https://calendly.com/molifestylecoaching/30min"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="cta-book-ultimate"
-                                        whileHover={{ scale: 1.03, y: -5 }}
-                                        whileTap={{ scale: 0.97 }}
-                                    >
-                                        <span>Secure Your Session</span>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                                            <path d="M5 12h14M12 5l7 7-7 7" />
-                                        </svg>
-                                    </motion.a>
-
-                                    <div className="guarantee-line">
-                                        <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm-2 16l-4-4 1.41-1.41L10 15.17l7.59-7.59L19 9l-9 9z" />
-                                        </svg>
-                                        <span>Guaranteed Meaning-Centered Shift</span>
-                                    </div>
-                                </div>
+                                <motion.a
+                                    href="https://calendly.com/molifestylecoaching/30min"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-compact-book"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    Book Discovery
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </motion.a>
+                                <span className="confidential-tag">100% Confidential & Secure</span>
                             </div>
                         </div>
                     </motion.div>
@@ -214,8 +225,13 @@ const Connect = () => {
                                 className="social-card"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ y: -10, scale: 1.02 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                transition={{
+                                    opacity: { duration: 0.6, delay: index * 0.1 },
+                                    y: { duration: 0.6, delay: index * 0.1 },
+                                    default: { type: 'spring', stiffness: 300, damping: 25 }
+                                }}
                                 style={{ '--card-gradient': link.gradient }}
                             >
                                 <div className="social-card-header">
@@ -248,89 +264,101 @@ const Connect = () => {
                 </div>
             </section>
 
-            {/* Why Reach Out */}
+            {/* Why Reach Out - Refined Editorial Design */}
             <section className="why-reach-section">
                 <div className="container">
                     <div className="why-reach-grid">
                         <motion.div
-                            className="why-reach-image"
+                            className="why-reach-visual"
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 1 }}
                         >
-                            <img src={workspaceImage} alt="Calm workspace" className="reach-image" />
-                        </motion.div>
-
-                        <motion.div
-                            className="why-reach-content"
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <h2>Why People Reach Out</h2>
-                            <p className="why-intro">
-                                You don't need to have everything figured out to start. Most people who reach
-                                out are in one of these situations:
-                            </p>
-
-                            <div className="why-reasons-architectural">
-                                <div className="reason-node">
-                                    <div className="reason-icon-svg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                            <circle cx="12" cy="12" r="10" />
-                                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                                            <line x1="12" y1="17" x2="12.01" y2="17" />
-                                        </svg>
-                                    </div>
-                                    <div className="reason-text">
-                                        <h4>Feeling Stuck</h4>
-                                        <p>You know something needs to change, but you're not sure how.</p>
-                                    </div>
-                                </div>
-
-                                <div className="reason-node">
-                                    <div className="reason-icon-svg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                                        </svg>
-                                    </div>
-                                    <div className="reason-text">
-                                        <h4>Seeking Clarity</h4>
-                                        <p>Life feels overwhelming and you need to make sense of it all.</p>
-                                    </div>
-                                </div>
-
-                                <div className="reason-node">
-                                    <div className="reason-icon-svg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                            <circle cx="12" cy="12" r="10" />
-                                            <line x1="22" y1="12" x2="18" y2="12" />
-                                            <line x1="6" y1="12" x2="2" y2="12" />
-                                            <line x1="12" y1="2" x2="12" y2="6" />
-                                            <line x1="12" y1="22" x2="12" y2="18" />
-                                        </svg>
-                                    </div>
-                                    <div className="reason-text">
-                                        <h4>Looking for Meaning</h4>
-                                        <p>Success isn't enough. You want work and life with purpose.</p>
-                                    </div>
-                                </div>
-
-                                <div className="reason-node">
-                                    <div className="reason-icon-svg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                                        </svg>
-                                    </div>
-                                    <div className="reason-text">
-                                        <h4>Ready for Growth</h4>
-                                        <p>You've done the surface work. Now you want depth.</p>
-                                    </div>
-                                </div>
+                            <div className="reach-portrait-frame">
+                                <img src={workspaceImage} alt="Consultation Space" className="reach-image-refined" />
+                                <div className="reach-image-accent"></div>
                             </div>
                         </motion.div>
+
+                        <div className="why-reach-content-refined">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                            >
+                                <span className="premium-label">COMMON STARTING POINTS</span>
+                                <h2>Why People Reach Out</h2>
+                                <p className="why-intro-refined">
+                                    You don't need to have everything figured out to start. Most people who reach
+                                    out are in one of these situations:
+                                </p>
+                            </motion.div>
+
+                            <div className="why-reasons-refined-grid">
+                                {[
+                                    {
+                                        title: 'Feeling Stuck',
+                                        desc: 'You know something needs to change, but you\'re not sure how.',
+                                        icon: (
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                                <circle cx="12" cy="12" r="10" />
+                                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                                <line x1="12" y1="17" x2="12.01" y2="17" />
+                                            </svg>
+                                        )
+                                    },
+                                    {
+                                        title: 'Seeking Clarity',
+                                        desc: 'Life feels overwhelming and you need to make sense of it all.',
+                                        icon: (
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                                            </svg>
+                                        )
+                                    },
+                                    {
+                                        title: 'Looking for Meaning',
+                                        desc: 'Success isn\'t enough. You want work and life with purpose.',
+                                        icon: (
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                                <circle cx="12" cy="12" r="10" />
+                                                <line x1="22" y1="12" x2="18" y2="12" />
+                                                <line x1="6" y1="12" x2="2" y2="12" />
+                                                <line x1="12" y1="2" x2="12" y2="6" />
+                                                <line x1="12" y1="22" x2="12" y2="18" />
+                                            </svg>
+                                        )
+                                    },
+                                    {
+                                        title: 'Ready for Growth',
+                                        desc: 'You\'ve done the surface work. Now you want depth.',
+                                        icon: (
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                                            </svg>
+                                        )
+                                    }
+                                ].map((reason, i) => (
+                                    <motion.div
+                                        key={i}
+                                        className="reason-card-aesthetic"
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        whileHover={{ y: -5, borderColor: 'var(--accent)' }}
+                                        transition={{ duration: 0.5, delay: i * 0.1 }}
+                                        viewport={{ once: true }}
+                                    >
+                                        <div className="reason-icon-accent">{reason.icon}</div>
+                                        <div className="reason-info-aesthetic">
+                                            <h4>{reason.title}</h4>
+                                            <p>{reason.desc}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

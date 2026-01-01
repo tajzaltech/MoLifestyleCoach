@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import moazHero from '../assets/moaz-hero.png';
 import lifestyleImage from '../assets/lifestyle-window.png';
 import workspaceImage from '../assets/workspace.png';
@@ -52,36 +53,49 @@ const About = () => {
 
     return (
         <div className="about-page-new">
-            {/* Aesthetic Hero Section */}
+            {/* Cinematic Hero Section - Editorial Redesign */}
             <section className="about-hero-aesthetic">
+                <div className="about-hero-glow"></div>
                 <div className="container">
                     <div className="hero-editorial">
-                        <motion.div
-                            className="editorial-text-side"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                        >
-                            <span className="aesthetic-badge">The Heart Behind the Work</span>
-                            <h1 className="editorial-headline">
+                        <div className="editorial-text-side">
+                            <motion.span
+                                className="aesthetic-badge-cinematic"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8 }}
+                            >
+                                The Heart Behind the Work
+                            </motion.span>
+                            <motion.h1
+                                className="editorial-headline-cinematic"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.1 }}
+                            >
                                 I don't give answers.<br />
                                 I help you find <span>yours.</span>
-                            </h1>
-                            <p className="editorial-lead">
+                            </motion.h1>
+                            <motion.p
+                                className="editorial-lead-cinematic"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
+                            >
                                 True guidance isn't about telling you what to do. It's about creating a safe,
                                 reflective space where your own clarity can finally emerge.
-                            </p>
-                        </motion.div>
+                            </motion.p>
+                        </div>
 
                         <motion.div
                             className="editorial-image-side"
-                            initial={{ opacity: 0, scale: 0.98 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1, ease: 'easeOut' }}
+                            initial={{ opacity: 0, scale: 0.98, x: 20 }}
+                            animate={{ opacity: 1, scale: 1, x: 0 }}
+                            transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
                         >
-                            <div className="framed-portrait">
-                                <img src={moazHero} alt="Moaz" className="small-portrait" />
-                                <div className="portrait-accent"></div>
+                            <div className="framed-portrait-aesthetic">
+                                <img src={moazHero} alt="Moaz" className="portrait-img-refined" />
+                                <div className="portrait-frame-accent"></div>
                             </div>
                         </motion.div>
                     </div>
@@ -199,18 +213,18 @@ const About = () => {
                         </p>
 
                         <div className="kamal-cta-aesthetic">
-                            <motion.a
-                                href="/connect"
-                                className="kamal-main-btn"
+                            <motion.div
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
-                                Start Your Reflection
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </motion.a>
-                            <a href="/guidance" className="kamal-secondary-link">See How We Work Together →</a>
+                                <Link to="/connect" className="kamal-main-btn">
+                                    Start Your Reflection
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </Link>
+                            </motion.div>
+                            <Link to="/guidance" className="kamal-secondary-link">See How We Work Together →</Link>
                         </div>
                     </motion.div>
 

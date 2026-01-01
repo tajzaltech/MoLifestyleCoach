@@ -1,23 +1,29 @@
 /* Connect Page - World-Class Design */
 
-/* Hero Section */
+.connect-page-new {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* Hero Section - Cinematic Entry */
 .connect-hero {
-    min-height: 70vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(135deg, rgba(29, 56, 71, 0.03) 0%, var(--bg-main) 100%);
+    background-color: var(--bg-main);
     overflow: hidden;
-    padding: var(--spacing-2xl) 0;
+    padding: 120px 0;
 }
 
-.connect-hero-pattern {
+.connect-hero-glow {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(circle at 30% 40%, rgba(29, 56, 71, 0.08) 0%, transparent 50%);
+    background: radial-gradient(circle at 50% 50%, rgba(29, 56, 71, 0.04) 0%, transparent 70%);
     z-index: 0;
 }
 
@@ -25,96 +31,171 @@
     position: relative;
     z-index: 1;
     text-align: center;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
-.connect-badge {
+.connect-badge-cinematic {
     display: inline-block;
-    padding: 8px 20px;
-    background-color: var(--accent-light);
+    padding: 10px 24px;
+    background-color: white;
     color: var(--accent);
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 700;
+    border: 1px solid var(--divider);
+    border-radius: 40px;
+    font-size: 11px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: var(--spacing-md);
-    border: 1px solid rgba(29, 56, 71, 0.15);
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
 .connect-hero-content h1 {
-    font-size: 64px;
-    line-height: 1.1;
-    margin-bottom: var(--spacing-md);
-    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: clamp(48px, 8vw, 84px);
+    line-height: 0.95;
+    font-weight: 800;
+    margin-bottom: 35px;
+    letter-spacing: -4px;
+    color: var(--text-primary);
 }
 
-.connect-lead {
-    font-size: 19px;
-    line-height: 1.7;
+.connect-hero-content h1 span {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-primary);
+    opacity: 0.3;
+}
+
+.connect-lead-cinematic {
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.6;
     color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto;
 }
 
-/* Booking Section - LIVE EXPERIENCE - REDESIGNED */
-.booking-section-live {
-    padding: 160px 0;
+/* COMPACT 1-to-1 SESSION REDESIGN - 70/30 GRID */
+.booking-section-compact {
+    padding: 100px 0;
     background-color: var(--white);
     position: relative;
-    overflow: hidden;
 }
 
-.booking-live-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(29, 56, 71, 0.03) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.booking-card-cinematic {
-    background: var(--bg-main);
+.sessions-split-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    /* Responsive split */
+    gap: 60px;
+    background-color: var(--bg-main);
     border: 1px solid var(--divider);
-    border-radius: 4px;
-    /* Sharp architectural corners */
-    position: relative;
-    z-index: 1;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 40px 100px rgba(29, 56, 71, 0.05);
 }
 
-/* LIVE STATUS HEADER */
-.booking-live-header {
-    padding: 24px 40px;
+/* Left Side (70%) */
+.sessions-main-content {
+    padding: 80px;
+    border-right: 1px solid var(--divider);
+    background-color: white;
+}
+
+.premium-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.sessions-compact-title {
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+.sessions-compact-desc {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 60px;
+    max-width: 600px;
+}
+
+.pillars-compact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.pillar-item-mini {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.pillar-icon-mini {
+    width: 24px;
+    height: 24px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.pillar-text-mini h4 {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.pillar-text-mini p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* Right Side (30%) */
+.sessions-action-hub {
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-main);
+}
+
+.action-hub-inner {
+    text-align: center;
+    max-width: 280px;
+}
+
+.live-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
     background: white;
-    border-bottom: 1px solid var(--divider);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
 }
 
-.status-indicator {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.pulsing-dot {
-    width: 10px;
-    height: 10px;
+.dot-pulse-mini {
+    width: 8px;
+    height: 8px;
     background: #10b981;
     border-radius: 50%;
     position: relative;
 }
 
-.pulsing-dot::after {
+.dot-pulse-mini::after {
     content: '';
     position: absolute;
     top: 0;
@@ -123,262 +204,87 @@
     height: 100%;
     background: inherit;
     border-radius: 50%;
-    animation: pulse-live 2s infinite;
+    animation: pulse-mini 2s infinite;
 }
 
-@keyframes pulse-live {
+@keyframes pulse-mini {
     0% {
         transform: scale(1);
         opacity: 0.8;
     }
 
     100% {
-        transform: scale(3.5);
+        transform: scale(3);
         opacity: 0;
     }
 }
 
-.status-label {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #065f46;
-}
-
-.social-proof-banner {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.proof-item {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-muted);
-}
-
-.proof-dot {
-    width: 4px;
-    height: 4px;
-    background: var(--divider);
-    border-radius: 50%;
-}
-
-/* INNER GRID */
-.booking-inner-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-}
-
-.booking-narrative {
-    padding: 80px;
-    border-right: 1px solid var(--divider);
-}
-
-.premium-accent-tag {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: var(--accent);
-    opacity: 0.6;
-    margin-bottom: 25px;
-    display: block;
-}
-
-.booking-narrative h2 {
-    font-size: 58px;
-    font-weight: 800;
-    letter-spacing: -3.5px;
-    margin-bottom: 35px;
-    line-height: 0.95;
-}
-
-.booking-narrative h2 span {
-    color: transparent;
-    -webkit-text-stroke: 1.2px var(--accent);
-}
-
-.narrative-text {
-    font-size: 19px;
-    line-height: 1.7;
-    color: var(--text-muted);
-    margin-bottom: 55px;
-    max-width: 500px;
-}
-
-.key-pillars {
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-}
-
-.pillar-node {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.node-icon-svg {
-    width: 28px;
-    height: 28px;
-    color: var(--accent);
-    flex-shrink: 0;
-}
-
-.node-info h4 {
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 4px;
-}
-
-.node-info p {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.6;
-}
-
-/* RIGHT: ACTION CARD */
-.booking-focus-box {
-    padding: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-}
-
-.glass-booking-card {
-    width: 100%;
-    text-align: center;
-    padding: 0;
-}
-
-.icon-main-ref {
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 35px;
-    color: var(--accent);
-    opacity: 0.3;
-}
-
-.glass-booking-card h3 {
+.action-hub-inner h3 {
     font-size: 28px;
     font-weight: 800;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
+    letter-spacing: -1.5px;
 }
 
-.glass-booking-card p {
-    font-size: 16px;
+.action-hub-inner p {
+    font-size: 15px;
     color: var(--text-muted);
-    margin-bottom: 45px;
+    margin-bottom: 40px;
+    line-height: 1.5;
 }
 
-.cta-book-ultimate {
+.btn-compact-book {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    padding: 18px 36px;
-    background: var(--accent);
+    padding: 18px 30px;
+    background-color: var(--accent);
     color: white;
     text-decoration: none;
     font-weight: 700;
     font-size: 15px;
-    border-radius: 999px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-    margin: 0 auto 30px;
-    max-width: fit-content;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
 }
 
-.cta-book-ultimate::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.8s;
+.btn-compact-book:hover {
+    background-color: #2d4a5a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(29, 56, 71, 0.2);
 }
 
-.cta-book-ultimate:hover::before {
-    left: 100%;
-}
-
-.cta-book-ultimate svg {
-    width: 22px;
-    height: 22px;
+.btn-compact-book svg {
     transition: transform 0.3s ease;
 }
 
-.cta-book-ultimate:hover svg {
-    transform: translateX(5px);
+.btn-compact-book:hover svg {
+    transform: translateX(4px);
 }
 
-.guarantee-line {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 12px;
-    font-weight: 800;
-    color: #059669;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.confidential-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    opacity: 0.5;
 }
-
-.guarantee-line svg {
-    width: 16px;
-    height: 16px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1200px) {
-    .booking-narrative h2 {
-        font-size: 46px;
-    }
-}
-
-@media (max-width: 992px) {
-    .booking-inner-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .booking-narrative {
-        border-right: none;
-        border-bottom: 1px solid var(--divider);
-        padding: 60px 40px;
-    }
-
-    .booking-focus-box {
-        padding: 60px 40px;
-    }
-
-    .booking-live-header {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-}
-
-/* REST OF THE CSS CONTINUES... */
 
 /* Social Section */
 .social-section {
-    padding: var(--spacing-2xl) 0;
+    padding: 120px 0;
     background-color: var(--bg-main);
 }
 
 .section-header-connect {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 80px;
 }
 
 .section-header-connect h2 {
     font-size: 42px;
-    margin-bottom: var(--spacing-sm);
+    letter-spacing: -2px;
+    margin-bottom: 15px;
 }
 
 .section-subtitle-connect {
@@ -389,153 +295,154 @@
 .social-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
-    max-width: 1100px;
-    margin: 0 auto;
+    gap: 30px;
 }
 
 .social-card {
     background-color: var(--white);
-    padding: var(--spacing-xl);
-    border-radius: 20px;
-    border: 2px solid var(--divider);
-    transition: all 0.4s ease-out;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--divider);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     display: flex;
     flex-direction: column;
 }
 
 .social-card:hover {
-    border-color: transparent;
-    transform: translateY(-8px);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 40px 80px rgba(29, 56, 71, 0.08);
 }
 
 .social-card-header {
     display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
-}
-
-.social-icon-wrapper {
-    flex-shrink: 0;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
 }
 
 .social-card-header h3 {
-    font-size: 22px;
-    margin-bottom: 4px;
-    color: var(--text-primary);
+    font-size: 20px;
+    margin-bottom: 2px;
 }
 
 .social-platform {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+    opacity: 0.4;
 }
 
 .social-description {
     font-size: 15px;
     line-height: 1.6;
     color: var(--text-muted);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 30px;
     flex-grow: 1;
 }
 
 .btn-social {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 24px;
+    padding: 16px 24px;
     color: white;
     text-decoration: none;
-    border-radius: 999px;
+    border-radius: 30px;
     font-size: 15px;
-    font-weight: 600;
-    transition: all 0.3s ease-out;
-    margin-top: auto;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.4s ease;
 }
 
-.btn-social:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-/* Why Reach Out Section */
+/* Why Reach Out Section - Editorial Refinement */
 .why-reach-section {
-    padding: var(--spacing-2xl) 0;
+    padding: 160px 0;
     background-color: var(--white);
+    position: relative;
+    overflow: hidden;
 }
 
 .why-reach-grid {
     display: grid;
-    grid-template-columns: 45% 55%;
-    gap: var(--spacing-xl);
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 100px;
     align-items: center;
 }
 
-.why-reach-image {
+.reach-portrait-frame {
     position: relative;
+    padding: 30px;
 }
 
-.reach-image {
+.reach-image-refined {
     width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(29, 56, 71, 0.2);
+    border-radius: 12px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 40px 100px rgba(29, 56, 71, 0.1);
 }
 
-.why-reach-content h2 {
-    font-size: 38px;
-    margin-bottom: var(--spacing-md);
+.reach-image-accent {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--accent);
+    opacity: 0.2;
+    border-radius: 12px;
+    z-index: 1;
 }
 
-.why-intro {
-    font-size: 16px;
+.why-reach-content-refined h2 {
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.why-intro-refined {
+    font-size: 19px;
     line-height: 1.7;
     color: var(--text-muted);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 60px;
+    max-width: 600px;
 }
 
-.why-reasons-architectural {
+.why-reasons-refined-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 30px;
 }
 
-.reason-node {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
+.reason-card-aesthetic {
+    padding: 40px;
     background-color: var(--bg-main);
     border: 1px solid var(--divider);
-    border-radius: 4px;
-    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    border-radius: 16px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
 }
 
-.reason-node:hover {
-    background: white;
-    border-color: var(--accent);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(29, 56, 71, 0.05);
-}
-
-.reason-icon-svg {
+.reason-icon-accent {
     width: 32px;
     height: 32px;
     color: var(--accent);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    opacity: 0.8;
 }
 
-.reason-text h4 {
-    font-size: 19px;
-    font-weight: 790;
-    margin-bottom: 10px;
+.reason-info-aesthetic h4 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 12px;
     letter-spacing: -0.5px;
 }
 
-.reason-text p {
+.reason-info-aesthetic p {
     font-size: 14px;
     line-height: 1.6;
     color: var(--text-muted);
@@ -543,142 +450,119 @@
 
 /* Final Section */
 .connect-final {
-    padding: var(--spacing-2xl) 0;
+    padding: 140px 0;
     background: linear-gradient(135deg, var(--accent) 0%, #2d4a5a 100%);
     text-align: center;
-}
-
-.final-content {
-    max-width: 700px;
-    margin: 0 auto;
+    color: white;
 }
 
 .final-content h2 {
-    font-size: 42px;
-    color: white;
-    margin-bottom: var(--spacing-md);
+    font-size: 56px;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
 }
 
 .final-text {
-    font-size: 19px;
-    color: rgba(255, 255, 255, 0.95);
-    line-height: 1.7;
-    margin-bottom: var(--spacing-sm);
+    font-size: 20px;
+    opacity: 0.9;
+    margin-bottom: 12px;
 }
 
 .final-subtext {
-    font-size: 17px;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    opacity: 0.6;
     font-style: italic;
-    margin: 0;
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
-    .connect-hero {
-        padding: 80px 0;
-        min-height: auto;
+@media (max-width: 1200px) {
+    .sessions-compact-title {
+        font-size: 42px;
     }
 
-    .connect-hero-content h1 {
-        font-size: 38px;
-        letter-spacing: -1.5px;
+    .sessions-main-content {
+        padding: 60px;
     }
 
-    .connect-badge {
-        font-size: 11px;
-        padding: 6px 15px;
+    .sessions-action-hub {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .sessions-split-layout {
+        grid-template-columns: 1fr;
     }
 
-    .connect-lead {
-        font-size: 16px;
-    }
-
-    .booking-section-live {
-        padding: 80px 0;
-    }
-
-    .booking-live-header {
-        padding: 20px;
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .social-proof-banner {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .booking-narrative {
-        padding: 40px 24px;
-    }
-
-    .booking-narrative h2 {
-        font-size: 36px;
-        letter-spacing: -2px;
-        margin-bottom: 25px;
-    }
-
-    .narrative-text {
-        font-size: 17px;
-        margin-bottom: 40px;
-    }
-
-    .booking-focus-box {
-        padding: 40px 24px;
-    }
-
-    .icon-main-ref {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 25px;
-    }
-
-    .glass-booking-card h3 {
-        font-size: 24px;
+    .sessions-main-content {
+        border-right: none;
+        border-bottom: 1px solid var(--divider);
     }
 
     .social-grid {
         grid-template-columns: 1fr;
     }
 
-    .why-reach-section {
-        padding: 80px 0;
-    }
-
     .why-reach-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .reach-image {
-        max-width: 100%;
     }
 
     .why-reach-image {
         order: -1;
     }
 
-    .why-reach-content h2 {
-        font-size: 32px;
-        letter-spacing: -1.5px;
-    }
-
     .why-reasons-architectural {
         grid-template-columns: 1fr;
     }
+}
 
-    .reason-node {
-        padding: 24px;
+@media (max-width: 768px) {
+    .connect-hero-content h1 {
+        font-size: 38px;
+    }
+
+    .booking-section-compact {
+        padding: 60px 0;
+    }
+
+    .sessions-main-content {
+        padding: 40px 24px;
+    }
+
+    .sessions-compact-title {
+        font-size: 32px;
+    }
+
+    .pillars-compact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .sessions-action-hub {
+        padding: 40px 24px;
+    }
+
+    .btn-compact-book {
+        width: 100%;
+    }
+
+    .social-section {
+        padding: 60px 0;
+    }
+
+    .social-card {
+        padding: 30px 24px;
+    }
+
+    .why-reach-section {
+        padding: 60px 0;
+    }
+
+    .why-reach-content h2 {
+        font-size: 32px;
     }
 
     .final-content h2 {
         font-size: 32px;
-        letter-spacing: -1.5px;
-    }
-
-    .final-text {
-        font-size: 16px;
     }
 }
