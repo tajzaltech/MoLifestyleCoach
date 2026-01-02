@@ -517,8 +517,17 @@
 }
 
 @media (max-width: 768px) {
+    .connect-hero {
+        padding: 80px 0;
+    }
+
     .connect-hero-content h1 {
         font-size: 38px;
+        letter-spacing: -1.5px;
+    }
+
+    .connect-lead-cinematic {
+        font-size: 17px;
     }
 
     .booking-section-compact {
@@ -531,6 +540,7 @@
 
     .sessions-compact-title {
         font-size: 32px;
+        letter-spacing: -1px;
     }
 
     .pillars-compact-grid {
@@ -558,11 +568,40 @@
         padding: 60px 0;
     }
 
-    .why-reach-content h2 {
+    .why-reach-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .why-reach-visual {
+        order: -1;
+    }
+
+    .why-reach-content-refined h2 {
         font-size: 32px;
+        letter-spacing: -1px;
+    }
+
+    .why-intro-refined {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .why-reasons-refined-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .reason-card-aesthetic {
+        padding: 30px 24px;
     }
 
     .final-content h2 {
         font-size: 32px;
+        letter-spacing: -1.5px;
+    }
+
+    .final-text {
+        font-size: 17px;
     }
 }

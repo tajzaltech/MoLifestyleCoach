@@ -20,10 +20,6 @@ const Navbar = () => {
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="container navbar-content">
-                <Link to="/" className="navbar-brand">
-                    MoLifestyle<span>Coach</span>
-                </Link>
-
                 <button
                     className={`navbar-toggle ${mobileMenuOpen ? 'active' : ''}`}
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -34,10 +30,28 @@ const Navbar = () => {
                     <span></span>
                 </button>
 
+                <Link to="/" className="navbar-brand">
+                    MoLifestyle<span>Coach</span>
+                </Link>
+
+                <button
+                    className={`zen-toggle-mini ${isZenMode ? 'active' : ''}`}
+                    onClick={toggleZenMode}
+                    title={isZenMode ? "Pause Stillness" : "Play Stillness"}
+                >
+                    {isZenMode ? (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="6" y="4" width="4" height="16" />
+                            <rect x="14" y="4" width="4" height="16" />
+                        </svg>
+                    ) : (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    )}
+                </button>
+
                 <div className={`navbar-menu ${mobileMenuOpen ? 'active' : ''}`}>
-                    {/* <Link to="/" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
-                        Home
-                    </Link> */}
                     <Link to="/about" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
                         About
                     </Link>
@@ -65,23 +79,6 @@ const Navbar = () => {
                     >
                         Work With Me
                     </a>
-
-                    <button
-                        className={`zen-toggle-mini ${isZenMode ? 'active' : ''}`}
-                        onClick={toggleZenMode}
-                        title={isZenMode ? "Pause Stillness" : "Play Stillness"}
-                    >
-                        {isZenMode ? (
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                <rect x="6" y="4" width="4" height="16" />
-                                <rect x="14" y="4" width="4" height="16" />
-                            </svg>
-                        ) : (
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                        )}
-                    </button>
                 </div>
             </div>
         </nav>

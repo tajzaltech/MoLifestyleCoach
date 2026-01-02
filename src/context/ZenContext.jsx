@@ -5,16 +5,25 @@ const ZenContext = createContext();
 export const ZenProvider = ({ children }) => {
     // Default to true as per user request (Auto-start)
     const [isZenMode, setIsZenMode] = useState(true);
-    const audioRef = useRef(new Audio('https://assets.mixkit.co/music/preview/mixkit-meditation-soft-bells-561.mp3'));
+    const audioRef = useRef(new Audio('public/zen sound.mp3'));
 
     useEffect(() => {
         audioRef.current.loop = true;
         audioRef.current.volume = 0.4;
 
+        // Better error handling for audio
+        audioRef.current.onerror = (e) => {
+            console.error("Zen Mode Audio Error:", e);
+        };
+
         // Browser policy: Autoplay only allowed after user interaction
         const handleInteraction = () => {
             if (isZenMode) {
-                audioRef.current.play().catch(e => console.log("Still blocked", e));
+                audioRef.current.play().catch(e => {
+                    if (e.name !== 'NotAllowedError') {
+                        console.error("Playback failed:", e);
+                    }
+                });
             }
             window.removeEventListener('click', handleInteraction);
             window.removeEventListener('scroll', handleInteraction);
@@ -35,7 +44,12 @@ export const ZenProvider = ({ children }) => {
     useEffect(() => {
         if (isZenMode) {
             document.body.classList.add('zen-mode');
-            audioRef.current.play().catch(e => console.log("Initial play blocked", e));
+            audioRef.current.play().catch(e => {
+                // NotAllowedError is expected before interaction
+                if (e.name !== 'NotAllowedError') {
+                    console.log("Initial play blocked or failed", e);
+                }
+            });
         } else {
             document.body.classList.remove('zen-mode');
             audioRef.current.pause();

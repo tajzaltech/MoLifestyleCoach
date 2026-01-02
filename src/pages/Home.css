@@ -244,9 +244,19 @@
         font-size: 11px;
     }
 
+    .kamal-hero-headline {
+        font-size: 38px;
+        letter-spacing: -1px;
+    }
+
+    .kamal-hero-lead {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
     .kamal-float-text {
-        font-size: 4rem;
-        bottom: 20px;
+        font-size: 3rem;
+        bottom: 10px;
     }
 }
 
@@ -1044,15 +1054,34 @@
         grid-template-columns: 1fr;
     }
 
+    .wisdom-title {
+        font-size: 32px;
+    }
+
+    .wisdom-card {
+        width: 280px;
+        height: 400px;
+    }
+
+    .wisdom-overlay p {
+        font-size: 16px;
+    }
+
+    .wisdom-quote-mark {
+        font-size: 50px;
+    }
+
     .cta-content h2 {
         font-size: 32px;
     }
 
     .cta-buttons-home {
         flex-direction: column;
+        gap: 15px;
     }
 
     .btn-lg {
         width: 100%;
+        padding: 16px 30px;
     }
 }

@@ -686,6 +686,42 @@
 }
 
 @media (max-width: 1024px) {
+    .editorial-headline-cinematic {
+        font-size: 42px;
+        letter-spacing: -2px;
+    }
+
+    .editorial-lead-cinematic {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .hero-editorial {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .editorial-text-side {
+        margin: 0 auto;
+    }
+
+    .aesthetic-badge-cinematic {
+        margin: 0 auto 30px;
+    }
+
+    .hero-signature-line {
+        margin: 30px auto;
+    }
+
+    .hero-scroll-indicator {
+        justify-content: center;
+    }
+
+    .framed-portrait-aesthetic {
+        justify-content: center;
+    }
+
     .youtube-card-vibrant {
         padding: 60px;
     }
@@ -693,10 +729,15 @@
     .vibrant-content-grid {
         gap: 60px;
         grid-template-columns: 1fr;
+        text-align: center;
     }
 
     .vibrant-text h2 {
-        font-size: 48px;
+        font-size: 42px;
+    }
+
+    .vibrant-text p {
+        margin: 0 auto 40px;
     }
 
     .yt-icon-massive {
@@ -706,21 +747,48 @@
 }
 
 @media (max-width: 768px) {
-    .about-youtube-vibrant {
+    .about-visual-story {
         padding: 100px 0;
     }
 
+    .story-header-centered h2 {
+        font-size: 32px;
+    }
+
+    .story-lead-max {
+        font-size: 16px;
+    }
+
+    .bento-overlay-content h3 {
+        font-size: 24px;
+    }
+
+    .bento-quote-inner p {
+        font-size: 24px;
+    }
+
+    .about-youtube-vibrant {
+        padding: 80px 0;
+    }
+
     .youtube-card-vibrant {
-        border-radius: 30px;
-        padding: 40px;
+        border-radius: 24px;
+        padding: 40px 24px;
     }
 
     .vibrant-text h2 {
-        font-size: 36px;
+        font-size: 32px;
     }
 
     .vibrant-text p {
-        font-size: 17px;
+        font-size: 16px;
+    }
+
+    .btn-vibrant-yt {
+        width: 100%;
+        justify-content: center;
+        padding: 18px 30px;
+        font-size: 16px;
     }
 }
 
