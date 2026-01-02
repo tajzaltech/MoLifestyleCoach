@@ -633,6 +633,200 @@
     .section-subtitle-large {
         font-size: 16px;
     }
+
+    .btn-youtube-full {
+        padding: 10px 0;
+        /* Reduced padding */
+        font-size: 13px;
+        /* Slightly smaller text */
+        width: 100%;
+        justify-content: center;
+        white-space: nowrap;
+        /* Prevent wrapping */
+    }
+}
+
+/* --- THE DISTINCTION: HORIZONTAL DRAG --- */
+.distinction-section {
+    padding: 180px 0;
+    background-color: var(--white);
+    position: relative;
+    overflow: hidden;
+    /* Hide default cursor for custom experience - REMOVED */
+}
+
+.distinction-header {
+    margin-bottom: 100px;
+    padding-left: 5vw;
+}
+
+.distinction-header h2 {
+    font-size: 100px;
+    line-height: 0.9;
+    letter-spacing: -4px;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+.distinction-header h2 span {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--accent);
+}
+
+.distinction-drag-wrapper {
+    width: 100%;
+    overflow: visible;
+    /* Let it flow out */
+    padding-left: 5vw;
+}
+
+.distinction-track {
+    display: flex;
+    gap: 40px;
+    cursor: grab;
+}
+
+.distinction-track:active {
+    cursor: grabbing;
+}
+
+/* Dark Premium Card Design */
+.distinction-card {
+    min-width: 340px;
+    height: 440px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+    /* Deep Luxury Gradient - Lighter Variation */
+    background: linear-gradient(145deg, #2c4a5c, #1a2f3d);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 32px;
+    position: relative;
+    overflow: hidden;
+
+    /* Deep Elevated Shadow */
+    box-shadow:
+        0 20px 40px -10px rgba(44, 74, 92, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Glassy Shine Overlay */
+.distinction-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.01) 40%,
+            transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Glow effect moving across on hover */
+.distinction-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.distinction-card:hover::after {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s ease;
+}
+
+.distinction-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow:
+        0 40px 80px -20px rgba(29, 56, 71, 0.6),
+        0 0 0 2px rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.distinction-content {
+    position: relative;
+    z-index: 2;
+}
+
+.distinction-content h3 {
+    font-size: 32px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+    color: #FFFFFF !important;
+    font-weight: 700;
+}
+
+.distinction-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-weight: 400;
+}
+
+/* Numbers removed per request, styles kept minimal or unused */
+.distinction-num {
+    display: none;
+}
+
+.distinction-content h3 {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.distinction-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .distinction-section {
+        cursor: auto;
+        /* Restore cursor on mobile */
+        padding: 100px 0;
+    }
+
+    .distinction-cursor {
+        display: none;
+        /* No custom cursor on touch */
+    }
+
+    .distinction-header h2 {
+        font-size: 48px;
+    }
+
+    .distinction-card {
+        min-width: 260px;
+        /* Smaller mobile width */
+        height: 340px;
+        padding: 24px;
+    }
 }
 
 /* Journey Preview Section */

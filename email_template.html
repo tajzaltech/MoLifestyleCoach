@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if mso]>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    <title>Welcome to MoLifestyle</title>
+    <style>
+        /* CSS Reset & Basics */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #FAFAF7;
+            /* var(--bg-main) */
+            margin: 0;
+            padding: 0;
+            -webkit-text-size-adjust: none;
+            color: #1F2933;
+            /* var(--text-primary) */
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Container */
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            background-color: #FAFAF7;
+            padding-bottom: 40px;
+        }
+
+        .main-content {
+            background-color: #FFFFFF;
+            margin: 0 auto;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 12px;
+            /* Smoother corners */
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            /* Softer shadow */
+        }
+
+        /* Header / Hero */
+        .header {
+            background-color: #1d3847;
+            /* var(--accent) */
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .header-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 10px;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        /* Body Content */
+        .content-body {
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 300;
+            /* Lighter weight for premium feel */
+            color: #1d3847;
+            margin-top: 0;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #525252;
+            margin-bottom: 24px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #525252;
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        /* Button */
+        .btn-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn {
+            background-color: #1d3847;
+            color: #FFFFFF !important;
+            padding: 16px 36px;
+            border-radius: 50px;
+            /* Pill shape */
+            font-weight: 600;
+            font-size: 15px;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(29, 56, 71, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #152a36;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #F5F5F5;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: #9CA3AF;
+            /* var(--text-muted) lighter */
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .footer-links a {
+            color: #1d3847;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0 8px;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background-color: #E5E7EB;
+            margin: 40px 0;
+            border: none;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 600px) {
+            .content-body {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div style="height: 40px;"></div> <!-- Top Spacer -->
+
+        <table align="center" border="0" cellpadding="0" cellspacing="0" class="main-content">
+            <!-- Header -->
+            <tr>
+                <td class="header">
+                    <div class="header-logo">MoLifestyle</div>
+                    <div class="header-subtitle">FIND YOUR CLARITY</div>
+                </td>
+            </tr>
+
+            <!-- Content -->
+            <tr>
+                <td class="content-body">
+                    <h1>Welcome, {{to_name}}</h1>
+
+                    <p>It’s a pleasure to welcome you to <strong>MoLifestyle</strong>. You’ve taken a meaningful step
+                        towards understanding yourself better and finding clarity in a complex world.</p>
+
+                    <p>We are a community dedicated to mindful living and psychological well-being. By joining us, you
+                        have opened the door to:</p>
+
+                    <ul>
+                        <li>✨ <strong>Weekly Insights:</strong> Deep dives into human behavior and purpose.</li>
+                        <li>🌿 <strong>Practical Tools:</strong> Actionable advice for your daily journey.</li>
+                        <li>🧘 <strong>Honest Reflection:</strong> A space to pause, breathe, and reset.</li>
+                    </ul>
+
+                    <div class="divider"></div>
+
+                    <p>We believe that clarity isn't found—it's created. We are here to help you create yours.</p>
+
+                    <div class="btn-container">
+                        <a href="https://molifestyle.coach" class="btn">Start Your Journey</a>
+                    </div>
+
+                    <p
+                        style="font-size: 14px; color: #9CA3AF; font-style: italic; text-align: center; margin-top: 40px;">
+                        "The unexamined life is not worth living." — Socrates
+                    </p>
+                </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+                <td class="footer">
+                    <div class="footer-links">
+                        <a href="https://molifestyle.coach">Website</a> •
+                        <a href="#">Instagram</a> •
+                        <a href="#">Twitter</a>
+                    </div>
+                    <p style="margin-top: 20px;">
+                        &copy; 2025 MoLifestyle Coach. All rights reserved.<br>
+                        123 Mindfulness Way, Clarity City, CC 90210
+                    </p>
+                    <p>
+                        You are receiving this email because you subscribed to our newsletter.<br>
+                        <a href="#" style="color: #9CA3AF; text-decoration: underline;">Unsubscribe</a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <div style="height: 40px;"></div> <!-- Bottom Spacer -->
+    </div>
+</body>
+
+</html>

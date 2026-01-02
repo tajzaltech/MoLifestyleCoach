@@ -10,6 +10,7 @@ import quote5 from '../assets/motivational_5.png';
 import quote6 from '../assets/motivational_6.png';
 import quote7 from '../assets/workspace.png';
 import './Home.css';
+import NewsletterPopup from '../components/NewsletterPopup';
 
 import { useState, useEffect } from 'react';
 
@@ -73,6 +74,7 @@ const Home = () => {
 
     return (
         <div className="home-page">
+            <NewsletterPopup />
             {/* Kamal Hero Section - Immersive Masterpiece */}
             <section className="hero-kamal-home">
                 <div className="kamal-home-overlay"></div>
@@ -217,65 +219,37 @@ const Home = () => {
             </section>
 
             {/* What Makes This Different - Premium Carousel Redesign */}
-            <section className="features-carousel-section dark-theme-section">
+            {/* The Distinction - Horizontal Drag Section */}
+            <section className="distinction-section">
+
                 <div className="container">
-                    <motion.div
-                        className="section-header-centered"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
+                    <div className="distinction-header">
                         <span className="aesthetic-badge-premium">THE DISTINCTION</span>
-                        <h2 className="premium-dark-heading">What Makes This <span>Different</span></h2>
-                        <p className="section-subtitle-large text-white-muted">
-                            Not motivational speaking. Not generic coaching. Not quick fixes.<br />
-                            This is psychology-informed guidance for people who are ready to go deeper.
-                        </p>
-                    </motion.div>
-
-                    <div className="premium-carousel-wrapper">
-                        <div className="premium-carousel-inner">
-                            {features.map((feature, i) => {
-                                // Calculate position relative to active index
-                                let position = i - activeFeatureIndex;
-                                if (position < -2) position = features.length + position;
-                                if (position > features.length - 3) position = position - features.length;
-
-                                return (
-                                    <motion.div
-                                        key={i}
-                                        className={`premium-glass-card feature-card ${i === activeFeatureIndex ? 'active' : ''}`}
-                                        animate={{
-                                            x: position * 420, // 400 width + 20 gap
-                                            scale: i === activeFeatureIndex ? 1.1 : 0.85,
-                                            opacity: Math.abs(position) > 1 ? (Math.abs(position) > 2 ? 0 : 0.1) : (i === activeFeatureIndex ? 1 : 0.4),
-                                            zIndex: i === activeFeatureIndex ? 10 : 1
-                                        }}
-                                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    >
-                                        <div className="card-glass-glow"></div>
-                                        <div className="card-content-refined">
-                                            <div className="card-top-indicator" style={{ backgroundColor: feature.accent }}></div>
-                                            <h3>{feature.title}</h3>
-                                            <p>{feature.description}</p>
-                                        </div>
-                                    </motion.div>
-                                );
-                            })}
-                        </div>
-
-                        {/* Carousel Indicators */}
-                        <div className="carousel-indicators-premium">
-                            {features.map((_, i) => (
-                                <button
-                                    key={i}
-                                    className={`indicator-dot ${i === activeFeatureIndex ? 'active' : ''}`}
-                                    onClick={() => setActiveFeatureIndex(i)}
-                                />
-                            ))}
-                        </div>
+                        <h2>What Makes This <span>Different</span></h2>
                     </div>
+                </div>
+
+                <div className="distinction-drag-wrapper">
+                    <motion.div
+                        className="distinction-track"
+                        animate={{ x: ["0%", "-50%"] }}
+                        transition={{
+                            ease: "linear",
+                            duration: 15, /* Faster scroll speed */
+                            repeat: Infinity
+                        }}
+                    >
+                        {/* Duplicate content for seamless loop */}
+                        {[...features, ...features].map((feature, i) => (
+                            <motion.div key={i} className="distinction-card">
+                                {/* Number removed per request */}
+                                <div className="distinction-content">
+                                    <h3>{feature.title}</h3>
+                                    <p>{feature.description}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
             </section>
 

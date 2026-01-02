@@ -10,6 +10,15 @@ const Footer = () => {
                         <p>Psychology-informed life guidance</p>
                     </div>
 
+                    <div className="footer-newsletter">
+                        <h4>Stay Connected</h4>
+                        <p>Join the inner circle for weekly insights.</p>
+                        <form className="footer-form" onSubmit={(e) => e.preventDefault()}>
+                            <input type="email" placeholder="Your email" required />
+                            <button type="submit">→</button>
+                        </form>
+                    </div>
+
                     <div className="footer-links">
                         <a href="https://youtube.com/@Molifestylecoach/videos" target="_blank" rel="noopener noreferrer" className="footer-social-link" title="YouTube">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
