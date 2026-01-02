@@ -41,10 +41,11 @@ const NewsletterPopup = () => {
             setLoading(true);
 
             // Prepare template parameters
-            // Assuming the template expects 'to_name' and 'user_email' based on our created HTML
+            // Prepare template parameters
             const templateParams = {
-                to_name: email.split('@')[0], // Use part of email as name
+                to_name: email.split('@')[0],
                 user_email: email,
+                reply_to: email, // Often required
                 message: 'New newsletter subscription',
             };
 
