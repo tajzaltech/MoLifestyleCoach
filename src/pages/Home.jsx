@@ -344,6 +344,48 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Daily Wisdom - Infinite Marquee Section */}
+            <section className="daily-wisdom-section">
+                <div className="daily-wisdom-header">
+                    <span className="aesthetic-badge-premium">Daily Reflection</span>
+                    <h2 className="wisdom-title">Elevate Your <span>Perspective</span></h2>
+                </div>
+
+                <div className="marquee-wrapper">
+                    <motion.div
+                        className="marquee-track"
+                        animate={{ x: [0, -1920] }}
+                        transition={{
+                            duration: 30,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    >
+                        {[
+                            { img: quote1, text: "Clarity is the precursor to transformation." },
+                            { img: quote2, text: "Meaning is discovered, not created." },
+                            { img: quote3, text: "Silence is the architecture of peace." },
+                            { img: quote4, text: "Your potential is limited only by your perspective." },
+                            { img: quote5, text: "Purpose anchors the soul in the storm." },
+                            { img: quote6, text: "Success without depth is an empty vessel." },
+                            { img: quote7, text: "The journey inward is the most important one." },
+                            // Duplicate for infinite effect
+                            { img: quote1, text: "Clarity is the precursor to transformation." },
+                            { img: quote2, text: "Meaning is discovered, not created." },
+                            { img: quote3, text: "Silence is the architecture of peace." }
+                        ].map((item, i) => (
+                            <div key={i} className="wisdom-card">
+                                <img src={item.img} alt="Wisdom" className="wisdom-img" />
+                                <div className="wisdom-overlay">
+                                    <div className="wisdom-quote-mark">"</div>
+                                    <p>{item.text}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Is This For You Section - Editorial Redesign */}
             <section className="for-you-premium">
                 <div className="container">
@@ -401,7 +443,6 @@ const Home = () => {
                                     <h3>{card.title}</h3>
                                     <p>{card.desc}</p>
                                     <div className="card-luxury-footer">
-                                        <span className="footer-label">Alignment Check</span>
                                         <div className="footer-line"></div>
                                     </div>
                                 </div>
@@ -411,47 +452,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Daily Wisdom - Infinite Marquee Section */}
-            <section className="daily-wisdom-section">
-                <div className="daily-wisdom-header">
-                    <span className="aesthetic-badge-premium">Daily Reflection</span>
-                    <h2 className="wisdom-title">Elevate Your <span>Perspective</span></h2>
-                </div>
 
-                <div className="marquee-wrapper">
-                    <motion.div
-                        className="marquee-track"
-                        animate={{ x: [0, -1920] }}
-                        transition={{
-                            duration: 30,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                    >
-                        {[
-                            { img: quote1, text: "Clarity is the precursor to transformation." },
-                            { img: quote2, text: "Meaning is discovered, not created." },
-                            { img: quote3, text: "Silence is the architecture of peace." },
-                            { img: quote4, text: "Your potential is limited only by your perspective." },
-                            { img: quote5, text: "Purpose anchors the soul in the storm." },
-                            { img: quote6, text: "Success without depth is an empty vessel." },
-                            { img: quote7, text: "The journey inward is the most important one." },
-                            // Duplicate for infinite effect
-                            { img: quote1, text: "Clarity is the precursor to transformation." },
-                            { img: quote2, text: "Meaning is discovered, not created." },
-                            { img: quote3, text: "Silence is the architecture of peace." }
-                        ].map((item, i) => (
-                            <div key={i} className="wisdom-card">
-                                <img src={item.img} alt="Wisdom" className="wisdom-img" />
-                                <div className="wisdom-overlay">
-                                    <div className="wisdom-quote-mark">"</div>
-                                    <p>{item.text}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </motion.div>
-                </div>
-            </section>
 
             {/* Final CTA */}
             <section className="home-cta">

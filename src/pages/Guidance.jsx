@@ -209,9 +209,8 @@ const Guidance = () => {
                             <span className="section-label-light">CORE PHILOSOPHY</span>
                             <h2>Depth Over <span>Distance.</span></h2>
                             <p>
-                                Grounded in <strong>Master's-level psychology</strong> and the wisdom
-                                of Logotherapy, we don't just solve problems; we find the
-                                meaning that anchors your soul.
+                                Grounded in <span className="highlight-text-premium"> Master's-level psychology</span>
+                                and the wisdom of Logotherapy, we don't just solve problems; we find the meaning that anchors your soul.
                             </p>
                             <div className="philosophy-pills-light">
                                 <span>Academic Rigor</span>
@@ -330,42 +329,73 @@ const Guidance = () => {
                     <div className="why-grid-kamal">
                         <motion.div
                             className="why-node"
-                            {...slideUp}
-                            transition={{ delay: 0.1 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.1 }}
+                            whileHover={{ y: -10 }}
                         >
                             <span className="node-num-art">01</span>
-                            <h3>Academic Foundation</h3>
+                            <div className="node-icon-premium">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                                </svg>
+                            </div>
+                            <h3>Academic Rigor</h3>
                             <p>
-                                Grounded in a **Master's in Counselling Psychology**, my approach
-                                blends clinical rigor with life-changing coaching strategies.
+                                Built upon a <span className="highlight-text-premium">Master’s in Counselling Psychology</span>, merging clinical depth with real-world strategic direction.
                             </p>
+                            <div className="node-glass-shine"></div>
                         </motion.div>
 
                         <motion.div
                             className="why-node featured"
-                            {...slideUp}
-                            transition={{ delay: 0.2 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            whileHover={{ y: -15, scale: 1.02 }}
                         >
                             <span className="node-num-art">02</span>
+                            <div className="node-icon-premium">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 2v20" />
+                                    <path d="M2 12h20" />
+                                    <path d="M12 7l-5 5 5 5 5-5-5-5z" />
+                                </svg>
+                            </div>
                             <h3>Existential Depth</h3>
                             <p>
-                                Based on **Logotherapy**, we don't just fix problems; we find the
-                                fundamental meaning that makes the solution obvious.
+                                Rooted in <span className="highlight-text-premium">Logotherapy</span>, we move beyond surface fixes to find the unshakeable meaning that anchors your life.
                             </p>
-                            <div className="node-aura"></div>
+                            <div className="node-aura-premium"></div>
+                            <div className="featured-light-sweep"></div>
                         </motion.div>
 
                         <motion.div
                             className="why-node"
-                            {...slideUp}
-                            transition={{ delay: 0.3 }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                            whileHover={{ y: -10 }}
                         >
                             <span className="node-num-art">03</span>
-                            <h3>Human Paradox</h3>
+                            <div className="node-icon-premium">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                            </div>
+                            <h3>The Human Paradox</h3>
                             <p>
-                                We embrace the complexity of being human. A space where
-                                **honesty is the primary tool** for transformation.
+                                We embrace your full complexity. A space where <span className="highlight-text-premium"> unfiltered honesty</span>  becomes the catalyst for true transformation.
                             </p>
+                            <div className="node-glass-shine"></div>
                         </motion.div>
                     </div>
 

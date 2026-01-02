@@ -5,7 +5,7 @@ const ZenContext = createContext();
 export const ZenProvider = ({ children }) => {
     // Default to true as per user request (Auto-start)
     const [isZenMode, setIsZenMode] = useState(true);
-    const audioRef = useRef(new Audio('public/zen sound.mp3'));
+    const audioRef = useRef(new Audio('/zen sound.mp3'));
 
     useEffect(() => {
         audioRef.current.loop = true;
