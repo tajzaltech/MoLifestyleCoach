@@ -1,27 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import Home from './pages/Home';
-import About from './pages/About';
-import Guidance from './pages/Guidance';
-import Connect from './pages/Connect';
+import AnimatedRoutes from './components/AnimatedRoutes';
+import ReflectionAI from './components/ReflectionAI';
+import { ZenProvider } from './context/ZenContext';
+import './ZenMode.css';
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/guidance" element={<Guidance />} />
-          <Route path="/connect" element={<Connect />} />
-        </Routes>
-      </main>
-      <Footer />
-    </Router>
+    <ZenProvider>
+      <Router>
+        <ScrollToTop />
+        <Navbar />
+        <main>
+          <AnimatedRoutes />
+        </main>
+        <Footer />
+        <ReflectionAI />
+        <div className="zen-indicator">Ambient Stillness Active</div>
+      </Router>
+    </ZenProvider>
   );
 }
 

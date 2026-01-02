@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import methodology1 from '../assets/peace-architecture-v3.jpg';
+import methodology2 from '../assets/motivational_3.png';
+import methodology3 from '../assets/motivational_4.png';
+import methodology4 from '../assets/peace-architecture-v4.jpg';
 import './Guidance.css';
 
 const Guidance = () => {
@@ -16,6 +20,7 @@ const Guidance = () => {
             size: 'large',
             title: 'The Psychological Audit',
             tag: '01. DISCOVERY',
+            img: methodology1,
             desc: 'We map out your internal architecture. Discovering the hidden scripts that govern your decisions and identifying precisely where the confusion originates.',
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -29,6 +34,7 @@ const Guidance = () => {
             size: 'small',
             title: 'Logotherapy Focus',
             tag: '02. MEANING',
+            img: methodology2,
             desc: 'Finding a "Why" that stands against any life challenge.',
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -41,6 +47,7 @@ const Guidance = () => {
             size: 'medium',
             title: 'Action Integration',
             tag: '03. SHIFT',
+            img: methodology3,
             desc: 'Converting profound realizations into repeatable, daily habits that stick.',
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -52,6 +59,7 @@ const Guidance = () => {
             size: 'medium',
             title: 'Sustained Growth',
             tag: '04. EVOLUTION',
+            img: methodology4,
             desc: 'Building a self-governing system of clarity and purpose for the long term.',
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -233,10 +241,19 @@ const Guidance = () => {
                             <motion.div
                                 key={i}
                                 className="youtube-wisdom-card"
-                                whileHover={{ y: -10 }}
+                                whileHover={{
+                                    y: -20,
+                                    scale: 1.02,
+                                    rotateX: 2,
+                                    boxShadow: "0 40px 100px rgba(220, 38, 38, 0.15)"
+                                }}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.1 }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 20
+                                }}
                                 viewport={{ once: true }}
                             >
                                 <div className="yt-card-top">
@@ -286,12 +303,16 @@ const Guidance = () => {
                                 transition={{ duration: 0.6, delay: i * 0.1 }}
                                 viewport={{ once: true }}
                             >
-                                <div className="bento-top-refined">
-                                    <span className="bento-num">{item.tag}</span>
-                                    <span className="bento-icon-ref">{item.icon}</span>
+                                <img src={item.img} alt={item.title} className="bento-bg-img" />
+                                <div className="bento-glass-overlay"></div>
+                                <div className="bento-content-kamal">
+                                    <div className="bento-top-refined">
+                                        <span className="bento-num">{item.tag}</span>
+                                        <span className="bento-icon-ref">{item.icon}</span>
+                                    </div>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.desc}</p>
                                 </div>
-                                <h3>{item.title}</h3>
-                                <p>{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>

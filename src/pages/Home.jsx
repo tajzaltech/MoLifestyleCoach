@@ -2,9 +2,20 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import lifestyleImage from '../assets/lifestyle-window.png';
 import heroMotivation from '../assets/hero-motivation.jpg';
+import quote1 from '../assets/motivational_1.png';
+import quote2 from '../assets/motivational_2.png';
+import quote3 from '../assets/motivational_3.png';
+import quote4 from '../assets/motivational_4.png';
+import quote5 from '../assets/motivational_5.png';
+import quote6 from '../assets/motivational_6.png';
+import quote7 from '../assets/workspace.png';
 import './Home.css';
 
+import { useState, useEffect } from 'react';
+
 const Home = () => {
+    const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+
     const fadeUp = {
         initial: { opacity: 0, y: 12 },
         animate: { opacity: 1, y: 0 },
@@ -48,9 +59,17 @@ const Home = () => {
         {
             title: 'Holistic Integration',
             description: 'We don\'t look at challenges in isolation. We integrate your professional ambitions, personal relationships, and mental well-being into a singular, cohesive architecture of life.',
-            accent: '#a48e6c'
+            accent: 'var(--accent)'
         }
     ];
+
+    // Auto-cycle features
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActiveFeatureIndex((prev) => (prev === features.length - 1 ? 0 : prev + 1));
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [features.length]);
 
     return (
         <div className="home-page">
@@ -197,8 +216,8 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* What Makes This Different - Infinite Carousel Redesign */}
-            <section className="features-carousel-section">
+            {/* What Makes This Different - Premium Carousel Redesign */}
+            <section className="features-carousel-section dark-theme-section">
                 <div className="container">
                     <motion.div
                         className="section-header-centered"
@@ -207,35 +226,56 @@ const Home = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <span className="aesthetic-badge-cinematic">THE DISTINCTION</span>
-                        <h2>What Makes This Different</h2>
-                        <p className="section-subtitle-large">
+                        <span className="aesthetic-badge-premium">THE DISTINCTION</span>
+                        <h2 className="premium-dark-heading">What Makes This <span>Different</span></h2>
+                        <p className="section-subtitle-large text-white-muted">
                             Not motivational speaking. Not generic coaching. Not quick fixes.<br />
                             This is psychology-informed guidance for people who are ready to go deeper.
                         </p>
                     </motion.div>
-                </div>
 
-                <div className="infinite-feature-wrapper">
-                    <motion.div
-                        className="feature-marquee-track"
-                        animate={{ x: ["0%", "-50%"] }}
-                        transition={{
-                            duration: 30,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                    >
-                        {[...features, ...features].map((feature, i) => (
-                            <div key={i} className="feature-carousel-card">
-                                <div className="carousel-card-content">
-                                    <h3>{feature.title}</h3>
-                                    <p>{feature.description}</p>
-                                    <div className="carousel-accent-line" style={{ backgroundColor: feature.accent }}></div>
-                                </div>
-                            </div>
-                        ))}
-                    </motion.div>
+                    <div className="premium-carousel-wrapper">
+                        <div className="premium-carousel-inner">
+                            {features.map((feature, i) => {
+                                // Calculate position relative to active index
+                                let position = i - activeFeatureIndex;
+                                if (position < -2) position = features.length + position;
+                                if (position > features.length - 3) position = position - features.length;
+
+                                return (
+                                    <motion.div
+                                        key={i}
+                                        className={`premium-glass-card feature-card ${i === activeFeatureIndex ? 'active' : ''}`}
+                                        animate={{
+                                            x: position * 420, // 400 width + 20 gap
+                                            scale: i === activeFeatureIndex ? 1.1 : 0.85,
+                                            opacity: Math.abs(position) > 1 ? (Math.abs(position) > 2 ? 0 : 0.1) : (i === activeFeatureIndex ? 1 : 0.4),
+                                            zIndex: i === activeFeatureIndex ? 10 : 1
+                                        }}
+                                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    >
+                                        <div className="card-glass-glow"></div>
+                                        <div className="card-content-refined">
+                                            <div className="card-top-indicator" style={{ backgroundColor: feature.accent }}></div>
+                                            <h3>{feature.title}</h3>
+                                            <p>{feature.description}</p>
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Carousel Indicators */}
+                        <div className="carousel-indicators-premium">
+                            {features.map((_, i) => (
+                                <button
+                                    key={i}
+                                    className={`indicator-dot ${i === activeFeatureIndex ? 'active' : ''}`}
+                                    onClick={() => setActiveFeatureIndex(i)}
+                                />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -304,56 +344,112 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Who This Is For */}
-            <section className="for-you-section">
+            {/* Is This For You Section - Editorial Redesign */}
+            <section className="for-you-premium">
                 <div className="container">
                     <motion.div
                         className="section-header-centered"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
                     >
-                        <h2>Is This For You?</h2>
-                        <p className="section-subtitle-large">
-                            This work is for people who are tired of surface-level solutions<br />
-                            and ready for real understanding.
+                        <span className="aesthetic-badge-premium">The Right Fit</span>
+                        <h2 className="premium-dark-heading">Is This <span>For You?</span></h2>
+                        <p className="text-white-muted">
+                            This work is for those who have moved beyond seeking answers <br />
+                            and are ready to find themselves.
                         </p>
                     </motion.div>
 
-                    <div className="for-you-grid">
+                    <div className="for-you-luxury-grid">
                         {[
                             {
-                                title: 'You Feel Stuck',
-                                desc: 'Life feels heavy. You\'re going through the motions but something\'s missing. You know there\'s more, but you can\'t quite see it.'
+                                title: 'The Stuck Visionary',
+                                desc: 'You are capable and driven, but your recent success feels hollow. You are seeking the "Why" that anchors your power.',
+                                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v20m10-10H2" /><circle cx="12" cy="12" r="3" /><path d="M17 7l-1.5 1.5M8.5 15.5L7 17M17 17l-1.5-1.5M8.5 8.5L7 7" /></svg>
                             },
                             {
-                                title: 'You Overthink Everything',
-                                desc: 'Your mind won\'t quiet down. Analysis paralysis keeps you from moving forward. You need clarity, not more information.'
+                                title: 'The Chronic Overthinker',
+                                desc: 'Your mind is your greatest tool, but lately, it has become your cage. You need clarity to turn noise into decisive action.',
+                                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76z" /><line x1="16" y1="8" x2="2" y2="22" /><line x1="17.5" y1="15" x2="9" y2="15" /></svg>
                             },
                             {
-                                title: 'You Want More Meaning',
-                                desc: 'Success doesn\'t feel like enough. You\'re searching for purpose, direction, and work that actually matters to you.'
+                                title: 'The Depth Seeker',
+                                desc: 'You have outgrown superficial self-help. You are ready for a grounded, philosophical approach to your life\'s architecture.',
+                                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM12 8v4m0 4h.01" /></svg>
                             },
                             {
-                                title: 'You\'re Ready for Depth',
-                                desc: 'You\'ve tried quick fixes and motivational content. Now you want real understanding and lasting change.'
+                                title: 'The Transition Architect',
+                                desc: 'You are at a crossroad. You need a trusted reflection to ensure your next move is aligned with your soul, not just your CV.',
+                                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 11l5-5 5 5M7 17l5-5 5 5" /></svg>
                             }
                         ].map((card, i) => (
                             <motion.div
                                 key={i}
-                                className="for-you-card"
-                                initial={{ opacity: 0, y: 20 }}
+                                className="for-you-card-luxury"
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ y: -10 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: i * 0.1 }}
+                                transition={{ duration: 0.8, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
                             >
-                                <div className="for-you-icon">→</div>
-                                <h3>{card.title}</h3>
-                                <p>{card.desc}</p>
+                                <div className="card-glass-glow"></div>
+                                <div className="card-luxury-content">
+                                    <div className="luxury-icon-wrapper">
+                                        {card.icon}
+                                    </div>
+                                    <h3>{card.title}</h3>
+                                    <p>{card.desc}</p>
+                                    <div className="card-luxury-footer">
+                                        <span className="footer-label">Alignment Check</span>
+                                        <div className="footer-line"></div>
+                                    </div>
+                                </div>
                             </motion.div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Daily Wisdom - Infinite Marquee Section */}
+            <section className="daily-wisdom-section">
+                <div className="daily-wisdom-header">
+                    <span className="aesthetic-badge-premium">Daily Reflection</span>
+                    <h2 className="wisdom-title">Elevate Your <span>Perspective</span></h2>
+                </div>
+
+                <div className="marquee-wrapper">
+                    <motion.div
+                        className="marquee-track"
+                        animate={{ x: [0, -1920] }}
+                        transition={{
+                            duration: 30,
+                            repeat: Infinity,
+                            ease: "linear"
+                        }}
+                    >
+                        {[
+                            { img: quote1, text: "Clarity is the precursor to transformation." },
+                            { img: quote2, text: "Meaning is discovered, not created." },
+                            { img: quote3, text: "Silence is the architecture of peace." },
+                            { img: quote4, text: "Your potential is limited only by your perspective." },
+                            { img: quote5, text: "Purpose anchors the soul in the storm." },
+                            { img: quote6, text: "Success without depth is an empty vessel." },
+                            { img: quote7, text: "The journey inward is the most important one." },
+                            // Duplicate for infinite effect
+                            { img: quote1, text: "Clarity is the precursor to transformation." },
+                            { img: quote2, text: "Meaning is discovered, not created." },
+                            { img: quote3, text: "Silence is the architecture of peace." }
+                        ].map((item, i) => (
+                            <div key={i} className="wisdom-card">
+                                <img src={item.img} alt="Wisdom" className="wisdom-img" />
+                                <div className="wisdom-overlay">
+                                    <div className="wisdom-quote-mark">"</div>
+                                    <p>{item.text}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </motion.div>
                 </div>
             </section>
 

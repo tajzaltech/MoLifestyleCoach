@@ -147,3 +147,51 @@
         transform: translateY(-6px) rotate(-45deg);
     }
 }
+
+/* Zen Toggle Mini - Icon Only */
+.zen-toggle-mini {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(29, 56, 71, 0.05);
+    border: 1px solid rgba(29, 56, 71, 0.1);
+    color: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-left: 10px;
+}
+
+.zen-toggle-mini:hover {
+    background: rgba(29, 56, 71, 0.1);
+    transform: scale(1.1);
+}
+
+.zen-toggle-mini.active {
+    background: var(--accent);
+    color: white;
+    border-color: transparent;
+    animation: zen-mini-pulse 4s infinite ease-in-out;
+}
+
+
+@keyframes zen-mini-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(29, 56, 71, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 15px rgba(29, 56, 71, 0.4);
+    }
+}
+
+@media (max-width: 991px) {
+    .zen-toggle-mini {
+        margin: 15px 0;
+        width: fit-content;
+    }
+}

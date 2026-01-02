@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import moazHero from '../assets/moaz-hero.png';
 import lifestyleImage from '../assets/peace-architecture-v3.jpg';
 import workspaceImage from '../assets/workspace.png';
@@ -7,6 +8,8 @@ import peaceArchitecture from '../assets/peace-architecture-v4.jpg';
 import './About.css';
 
 const About = () => {
+    const [activeCredIndex, setActiveCredIndex] = useState(0);
+
     const fadeUp = {
         initial: { opacity: 0, y: 15 },
         whileInView: { opacity: 1, y: 0 },
@@ -16,87 +19,147 @@ const About = () => {
 
     const credentials = [
         {
-            title: 'Masters in Counselling & Mental Health',
-            institution: 'University of Aberdeen',
+            title: 'University of Aberdeen',
             description: 'I hold a Master’s degree in Psychological Studies (Mental Health), with formal training in counselling, wellbeing, and human behaviour.'
         },
         {
-            title: 'Meaning-Centred Method (Not Motivation Talk)',
-            institution: 'MoLifestyle Approach',
+            title: 'MoLifestyle Approach',
             description: 'My work blends counselling, coaching, and logotherapy—focused on clarity, responsibility, and finding meaning in real life situations.'
         },
         {
-            title: 'Personalised Sessions Built Around You',
-            institution: 'Customized Stage of Life',
+            title: 'Customized Stage of Life',
             description: 'No fixed formula. Every session and plan is customised to your situation, goals, and current stage of life.'
         },
         {
             title: 'For Real-Life Struggles',
-            institution: 'Human Concerns',
             description: 'Career confusion, emotional overwhelm, relationships, identity, purpose, direction—this work is designed for everyday human struggles.'
         },
         {
             title: 'Human-Centred Practitioner',
-            institution: 'Global Recognition',
             description: 'Working with people across the world. The focus will be on you as a whole person, not just a problem — your life, your potential, and what truly matters to you.'
         },
         {
-            title: 'A Calm, Non-Judgemental Space',
-            institution: 'The Safe Space',
+            title: 'The Safe Space',
             description: 'No pressure. No labels. No rushing. Just a safe, respectful space to think, speak, and understand yourself better.'
         },
         {
-            title: 'Growth That Is Sustainable & Grounded',
-            institution: 'Long-Term Impact',
+            title: 'Long-Term Impact',
             description: 'This isn’t about quick fixes. It’s about building long-term clarity, emotional stability, and inner strength.'
         }
     ];
+
+    // Auto-cycle credentials
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setActiveCredIndex((prev) => (prev === credentials.length - 1 ? 0 : prev + 1));
+        }, 4000);
+        return () => clearInterval(timer);
+    }, [credentials.length]);
 
     return (
         <div className="about-page-new">
             {/* Cinematic Hero Section - Editorial Redesign */}
             <section className="about-hero-aesthetic">
+                {/* Immersive Background Elements */}
                 <div className="about-hero-glow"></div>
+                <div className="hero-orb-luxury orb-1"></div>
+                <div className="hero-orb-luxury orb-2"></div>
+
                 <div className="container">
                     <div className="hero-editorial">
-                        <div className="editorial-text-side">
-                            <motion.span
-                                className="aesthetic-badge-cinematic"
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8 }}
+                        <motion.div
+                            className="editorial-text-side"
+                            initial="initial"
+                            animate="animate"
+                            variants={{
+                                animate: {
+                                    transition: {
+                                        staggerChildren: 0.15
+                                    }
+                                }
+                            }}
+                        >
+                            <motion.div
+                                variants={{
+                                    initial: { opacity: 0, x: -20 },
+                                    animate: { opacity: 1, x: 0 }
+                                }}
+                                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             >
-                                The Heart Behind the Work
-                            </motion.span>
+                                <span className="aesthetic-badge-cinematic">
+                                    <span className="badge-dot"></span>
+                                    The Heart Behind the Work
+                                </span>
+                            </motion.div>
+
                             <motion.h1
                                 className="editorial-headline-cinematic"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.1 }}
+                                variants={{
+                                    initial: { opacity: 0, y: 30 },
+                                    animate: { opacity: 1, y: 0 }
+                                }}
+                                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                             >
                                 I don't give answers.<br />
-                                I help you find <span>yours.</span>
+                                I help you find <span className="italic-reveal">yours.</span>
                             </motion.h1>
+
+                            <motion.div
+                                className="hero-signature-line"
+                                variants={{
+                                    initial: { width: 0 },
+                                    animate: { width: "100px" }
+                                }}
+                                transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
+                            ></motion.div>
+
                             <motion.p
                                 className="editorial-lead-cinematic"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
+                                variants={{
+                                    initial: { opacity: 0, y: 20 },
+                                    animate: { opacity: 1, y: 0 }
+                                }}
+                                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                             >
                                 True guidance isn't about telling you what to do. It's about creating a safe,
-                                reflective space where your own clarity can finally emerge.
+                                <span className="highlight-text-premium"> reflective space</span> where your own clarity can finally emerge.
                             </motion.p>
-                        </div>
+
+                            <motion.div
+                                className="hero-scroll-indicator"
+                                variants={{
+                                    initial: { opacity: 0 },
+                                    animate: { opacity: 1 }
+                                }}
+                                transition={{ delay: 1, duration: 1 }}
+                            >
+                                <div className="scroll-line"></div>
+                                <span>SCROLL TO DISCOVER</span>
+                            </motion.div>
+                        </motion.div>
 
                         <motion.div
                             className="editorial-image-side"
-                            initial={{ opacity: 0, scale: 0.98, x: 20 }}
+                            initial={{ opacity: 0, scale: 0.9, x: 30 }}
                             animate={{ opacity: 1, scale: 1, x: 0 }}
-                            transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
+                            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                         >
                             <div className="framed-portrait-aesthetic">
-                                <img src={moazHero} alt="Moaz" className="portrait-img-refined" />
-                                <div className="portrait-frame-accent"></div>
+                                <motion.div
+                                    className="portrait-main-wrapper"
+                                    animate={{ y: [0, -15, 0] }}
+                                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                                >
+                                    <img src={moazHero} alt="Moaz" className="portrait-img-refined" />
+                                    <div className="portrait-glass-overlay"></div>
+                                </motion.div>
+                                <div className="portrait-frame-accent luxury-border"></div>
+                                <div className="portrait-floating-badge">
+                                    <span className="badge-icon">
+                                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+                                    </span>
+                                    <span className="badge-label">MoLifestyle</span>
+                                </div>
                             </div>
                         </motion.div>
                     </div>
@@ -234,25 +297,55 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Academic Foundation - Infinite Marquee */}
-            <section className="about-marquee-credentials">
-                <div className="marquee-header">
-                    <span className="aesthetic-badge">Expertise & Ethics</span>
-                    <h2>Foundational Academic Excellence</h2>
-                </div>
+            {/* Academic Foundation - Premium Carousel Redesign */}
+            <section className="about-marquee-credentials dark-theme-section">
+                <div className="container">
+                    <div className="marquee-header">
+                        <span className="aesthetic-badge-premium">Expertise & Ethics</span>
+                        <h2 className="premium-dark-heading">Foundational Academic <span>Excellence</span></h2>
+                    </div>
 
-                <div className="infinite-marquee-wrapper">
-                    <div className="marquee-track">
-                        {[...credentials, ...credentials].map((cred, i) => (
-                            <div key={i} className="marquee-card">
-                                <div className="card-inner">
-                                    <span className="card-number">{(i % credentials.length) + 1}</span>
-                                    <h3>{cred.title}</h3>
-                                    <p className="card-inst">{cred.institution}</p>
-                                    <p className="card-desc">{cred.description}</p>
-                                </div>
-                            </div>
-                        ))}
+                    <div className="premium-carousel-wrapper">
+                        <div className="premium-carousel-inner">
+                            {credentials.map((cred, i) => {
+                                // Calculate position relative to active index
+                                let position = i - activeCredIndex;
+                                if (position < -1) position = credentials.length + position;
+                                if (position > credentials.length - 2) position = position - credentials.length;
+
+                                return (
+                                    <motion.div
+                                        key={i}
+                                        className={`premium-glass-card ${i === activeCredIndex ? 'active' : ''}`}
+                                        animate={{
+                                            x: position * 340, // 320 width + 20 gap
+                                            scale: i === activeCredIndex ? 1.1 : 0.85,
+                                            opacity: Math.abs(position) > 1 ? 0 : (i === activeCredIndex ? 1 : 0.4),
+                                            zIndex: i === activeCredIndex ? 10 : 1
+                                        }}
+                                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    >
+                                        <div className="card-glass-glow"></div>
+                                        <div className="card-content-refined">
+                                            <h3>{cred.title}</h3>
+                                            {cred.institution && <p className="card-inst-premium">{cred.institution}</p>}
+                                            <p className="card-desc-premium">{cred.description}</p>
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Carousel Indicators */}
+                        <div className="carousel-indicators-premium">
+                            {credentials.map((_, i) => (
+                                <button
+                                    key={i}
+                                    className={`indicator-dot ${i === activeCredIndex ? 'active' : ''}`}
+                                    onClick={() => setActiveCredIndex(i)}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>

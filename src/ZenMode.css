@@ -1,0 +1,90 @@
+/* Zen Mode - Ambient Stillness Overrides */
+
+/* Typography Swap */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+body.zen-mode {
+    --bg-main: #f4f4f0;
+    /* Softer, slightly warmer */
+    --text-primary: #2c3e50;
+    --text-muted: #7f8c8d;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Playfair Display', serif;
+    transition: all 1.5s ease-in-out;
+    /* Slow, meditative transitions */
+}
+
+body.zen-mode .container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    transition: padding 2s ease-in-out;
+}
+
+/* De-clutter and Soften */
+body.zen-mode img,
+body.zen-mode .video-section,
+body.zen-mode .youtube-wisdom-card {
+    filter: sepia(0.2) contrast(0.9) brightness(1.05);
+    /* Dreamy, cohesive look */
+    transition: filter 2s ease-in-out;
+}
+
+body.zen-mode .btn-primary {
+    background-color: transparent;
+    border-color: var(--accent);
+    color: var(--accent);
+    font-style: italic;
+}
+
+body.zen-mode .navbar {
+    background: rgba(244, 244, 240, 0.8) !important;
+    backdrop-filter: blur(20px);
+}
+
+/* Zen Vignette Effect */
+body.zen-mode::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle, transparent 60%, rgba(29, 56, 71, 0.03) 100%);
+    z-index: 9999;
+    animation: zen-breath 8s infinite ease-in-out;
+}
+
+@keyframes zen-breath {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Floating "Stillness" HUD element */
+.zen-indicator {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: var(--accent);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+}
+
+body.zen-mode .zen-indicator {
+    opacity: 1;
+}
