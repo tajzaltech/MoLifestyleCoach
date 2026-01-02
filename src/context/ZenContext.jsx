@@ -3,9 +3,11 @@ import React, { createContext, useContext, useState, useEffect, useRef } from 'r
 const ZenContext = createContext();
 
 export const ZenProvider = ({ children }) => {
-    // Default to true as per user request (Auto-start)
-    const [isZenMode, setIsZenMode] = useState(true);
-    const audioRef = useRef(new Audio('/zen sound.mp3'));
+    // Default to false - user must click to enable
+    const [isZenMode, setIsZenMode] = useState(false);
+    const audioRef = useRef(new Audio('/Zen 1.mp3'));
+
+    const hasInteractedRef = useRef(false);
 
     useEffect(() => {
         audioRef.current.loop = true;
@@ -16,26 +18,34 @@ export const ZenProvider = ({ children }) => {
             console.error("Zen Mode Audio Error:", e);
         };
 
+        // Attempt to play immediately if Zen mode is on
+        if (isZenMode && !hasInteractedRef.current) {
+            audioRef.current.play().catch(() => {
+                // Silently fail - will retry on interaction
+            });
+        }
+
         // Browser policy: Autoplay only allowed after user interaction
         const handleInteraction = () => {
-            if (isZenMode) {
-                audioRef.current.play().catch(e => {
-                    if (e.name !== 'NotAllowedError') {
+            if (!hasInteractedRef.current) {
+                hasInteractedRef.current = true;
+                if (isZenMode) {
+                    audioRef.current.play().catch(e => {
                         console.error("Playback failed:", e);
-                    }
-                });
+                    });
+                }
             }
-            window.removeEventListener('click', handleInteraction);
-            window.removeEventListener('scroll', handleInteraction);
-            window.removeEventListener('keydown', handleInteraction);
         };
 
-        window.addEventListener('click', handleInteraction);
-        window.addEventListener('scroll', handleInteraction);
-        window.addEventListener('keydown', handleInteraction);
+        // Listen to multiple interaction types
+        window.addEventListener('click', handleInteraction, { once: true });
+        window.addEventListener('touchstart', handleInteraction, { once: true });
+        window.addEventListener('scroll', handleInteraction, { once: true });
+        window.addEventListener('keydown', handleInteraction, { once: true });
 
         return () => {
             window.removeEventListener('click', handleInteraction);
+            window.removeEventListener('touchstart', handleInteraction);
             window.removeEventListener('scroll', handleInteraction);
             window.removeEventListener('keydown', handleInteraction);
         };

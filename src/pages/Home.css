@@ -617,17 +617,21 @@
 
 @media (max-width: 768px) {
     .premium-glass-card {
-        width: 280px;
+        width: 220px;
         min-height: 300px;
-        padding: 30px;
+        padding: 30px 20px;
     }
 
     .premium-glass-card.feature-card {
-        width: 300px;
+        width: 220px;
     }
 
     .premium-dark-heading {
-        font-size: 36px;
+        font-size: 32px;
+    }
+
+    .section-subtitle-large {
+        font-size: 16px;
     }
 }
 
@@ -1052,6 +1056,55 @@
 
     .for-you-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Is This For You Section - Mobile */
+    .for-you-premium {
+        padding: 80px 0;
+    }
+
+    .premium-dark-heading {
+        font-size: 36px !important;
+        letter-spacing: -1.5px;
+    }
+
+    .text-white-muted {
+        font-size: 16px;
+    }
+
+    .text-white-muted br {
+        display: none;
+    }
+
+    .for-you-luxury-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .for-you-card-luxury {
+        padding: 40px 24px;
+    }
+
+    .for-you-card-luxury h3 {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+
+    .for-you-card-luxury p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .luxury-icon-wrapper {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 24px;
+    }
+
+    .luxury-icon-wrapper svg {
+        width: 28px;
+        height: 28px;
     }
 
     .wisdom-title {

@@ -391,8 +391,13 @@
     margin-bottom: 12px;
 }
 
+.bento-overlay-content h4 {
+    color: white;
+}
+
 .bento-overlay-content p {
     font-size: 16px;
+    color: white;
     opacity: 0.9;
     max-width: 400px;
 }
@@ -410,7 +415,7 @@
 }
 
 .bento-icon-gold {
-    color: var(--accent);
+    color: white;
     margin-bottom: 24px;
 }
 

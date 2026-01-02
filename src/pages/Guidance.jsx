@@ -318,7 +318,105 @@ const Guidance = () => {
                 </div>
             </section>
 
-            {/* 5. WHY MOLIFESTYLE? - EXTREME REDESIGN */}
+            {/* 5. THE PATH OF CLARITY - IMMERSIVE JOURNEY */}
+            <section className="path-of-clarity-section">
+                <div className="clarity-sticky-container">
+                    <div className="container">
+                        <motion.div className="clarity-header" {...slideUp}>
+                            <span className="ultimate-tag-light">THE ROADMAP</span>
+                            <h2>The Path of <span>Clarity</span></h2>
+                            <p>This is not a quick fix. It is a psychological reconstruction.</p>
+                        </motion.div>
+
+                        <div className="clarity-stages-wrapper">
+                            {/* Stage 1: The Fog */}
+                            <motion.div
+                                className="clarity-stage stage-fog"
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 1 }}
+                                viewport={{ margin: "-100px" }}
+                            >
+                                <div className="stage-visual visual-fog">
+                                    <div className="fog-layer layer-1"></div>
+                                    <div className="fog-layer layer-2"></div>
+                                    <div className="stage-number">01</div>
+                                </div>
+                                <div className="stage-content">
+                                    <h3>The Fog of Confusion</h3>
+                                    <p className="stage-subtitle">Current State</p>
+                                    <p className="stage-desc">
+                                        You feel stuck, but you don't know why. The external success is there, but the internal compass is spinning.
+                                        We identify the <strong>blind spots</strong> and hidden scripts running your life.
+                                    </p>
+                                    <div className="stage-actions">
+                                        <span><span>•</span> Identifying Patterns</span>
+                                        <span><span>•</span> Shadow Work</span>
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* Stage 2: The Ascent */}
+                            <motion.div
+                                className="clarity-stage stage-ascent"
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 1 }}
+                                viewport={{ margin: "-100px" }}
+                            >
+                                <div className="stage-content">
+                                    <h3>The Ascent</h3>
+                                    <p className="stage-subtitle">The Work</p>
+                                    <p className="stage-desc">
+                                        We climb. We test your values against reality. We strip away the "shoulds" to find the "musts".
+                                        This is where we separate <strong>who you are</strong> from who you were told to be.
+                                    </p>
+                                    <div className="stage-actions">
+                                        <span><span>•</span> Values alignment</span>
+                                        <span><span>•</span> Courageous Action</span>
+                                    </div>
+                                </div>
+                                <div className="stage-visual visual-ascent">
+                                    <div className="mountain-layer"></div>
+                                    <div className="ascent-particles"></div>
+                                    <div className="ascent-overlay"></div>
+                                    <div className="stage-number">02</div>
+                                </div>
+                            </motion.div>
+
+                            {/* Stage 3: The Vista */}
+                            <motion.div
+                                className="clarity-stage stage-vista"
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 1 }}
+                                viewport={{ margin: "-100px" }}
+                            >
+                                <div className="stage-visual visual-vista">
+                                    <div className="sun-rays"></div>
+                                    <div className="vista-clouds"></div>
+                                    <div className="vista-glow"></div>
+                                    <div className="stage-number">03</div>
+                                </div>
+                                <div className="stage-content">
+                                    <h3>The Vista</h3>
+                                    <p className="stage-subtitle">The Result</p>
+                                    <p className="stage-desc">
+                                        Unshakeable clarity. You know precisely where you are going and why.
+                                        Decisions become easy because they are grounded in your <strong>Ultimate Meaning</strong>.
+                                    </p>
+                                    <div className="stage-actions">
+                                        <span><span>•</span> Purpose Driven</span>
+                                        <span><span>•</span> Psychological Freedom</span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 6. WHY MOLIFESTYLE? - EXTREME REDESIGN */}
             <section className="why-molifestyle-extreme">
                 <div className="container">
                     <motion.div className="why-header-kamal" {...slideUp}>

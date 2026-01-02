@@ -153,7 +153,7 @@
 .ultimate-tag-light {
     display: inline-block;
     padding: 8px 20px;
-    background: var(--accent-light);
+    background: var(--white);
     border: 1px solid rgba(29, 56, 71, 0.1);
     border-radius: 4px;
     font-size: 11px;
@@ -282,7 +282,7 @@
 /* 3. YOUTUBE MEGA SECTION - REDDISH 3D REDESIGN */
 .youtube-mega-section {
     padding: 160px 0;
-    background: linear-gradient(135deg, #fffafa 0%, #fff0f0 100%);
+    background: linear-gradient(135deg, var(--accent-light) 0%, #ffe4e6 100%);
     border-top: 1px solid rgba(255, 0, 0, 0.05);
     position: relative;
     overflow: hidden;
@@ -639,6 +639,364 @@
 .bento-card-refined.large p {
     font-size: 18px;
     max-width: 450px;
+}
+
+/* 5. THE PATH OF CLARITY - IMMERSIVE JOURNEY */
+.path-of-clarity-section {
+    position: relative;
+    padding: 180px 0;
+    background-color: #0c1a22;
+    /* Deep base color */
+    color: white;
+    overflow: hidden;
+}
+
+.clarity-header {
+    text-align: center;
+    margin-bottom: 120px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clarity-header h2 {
+    font-size: 72px;
+    letter-spacing: -3px;
+    margin-bottom: 24px;
+    line-height: 1;
+}
+
+.clarity-header h2 span {
+    color: transparent;
+    -webkit-text-stroke: 1.5px white;
+    font-style: italic;
+    font-family: var(--font-heading);
+}
+
+.clarity-header p {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.clarity-stages-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    position: relative;
+}
+
+.clarity-stages-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.2) 10%,
+            rgba(255, 255, 255, 0.2) 90%,
+            rgba(255, 255, 255, 0) 100%);
+    z-index: 0;
+}
+
+.clarity-stage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Visually Alternating, but grid keeps DOM order simple */
+
+.stage-content {
+    padding: 40px;
+}
+
+.stage-content h3 {
+    font-size: 42px;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.stage-subtitle {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 100px;
+}
+
+.stage-desc {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+}
+
+.stage-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.stage-actions span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    opacity: 0.9;
+}
+
+.stage-actions span span {
+    color: var(--accent-light);
+}
+
+/* VISUAL CARDS - THE MAGIC */
+.stage-visual {
+    height: 400px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stage-number {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    font-size: 120px;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.1);
+    line-height: 1;
+    z-index: 10;
+    pointer-events: none;
+    font-family: var(--font-heading);
+}
+
+/* STAGE 1: THE FOG */
+.visual-fog {
+    background: linear-gradient(to bottom, #2c3e50, #000000);
+}
+
+.fog-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png") repeat-x;
+    background-size: cover;
+    opacity: 0.5;
+}
+
+.fog-layer.layer-1 {
+    animation: fog-anim 20s linear infinite;
+    z-index: 1;
+}
+
+.fog-layer.layer-2 {
+    animation: fog-anim 40s linear infinite reverse;
+    opacity: 0.3;
+    z-index: 2;
+    top: 30px;
+}
+
+@keyframes fog-anim {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* STAGE 2: THE ASCENT - LIVE */
+.visual-ascent {
+    background: linear-gradient(195deg, #2b32b2 0%, #1488cc 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.mountain-layer {
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    width: 120%;
+    height: 90%;
+    background: conic-gradient(from 180deg at 50% 100%, #0b101a 0deg, transparent 60deg, #0b101a 120deg, transparent 180deg);
+    background-size: 50% 100%;
+    opacity: 0.8;
+    z-index: 2;
+}
+
+/* Wind/Particle Effect */
+.ascent-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+    background-size: 50px 50px, 30px 30px;
+    background-position: 0 0;
+    animation: snow-wind 3s linear infinite;
+    opacity: 0.3;
+    z-index: 3;
+}
+
+.ascent-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+    z-index: 4;
+}
+
+@keyframes snow-wind {
+    0% {
+        background-position: 0 0, 0 0;
+        opacity: 0.2;
+    }
+
+    100% {
+        background-position: 50px 50px, 30px 30px;
+        opacity: 0.4;
+    }
+}
+
+/* STAGE 3: THE VISTA - LIVE */
+.visual-vista {
+    background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.sun-rays {
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, rgba(255, 255, 255, 0.4) 0deg, transparent 20deg, rgba(255, 255, 255, 0.4) 40deg, transparent 60deg, rgba(255, 255, 255, 0.4) 80deg, transparent 100deg, rgba(255, 255, 255, 0.4) 120deg, transparent 140deg, rgba(255, 255, 255, 0.4) 160deg, transparent 180deg, rgba(255, 255, 255, 0.4) 200deg, transparent 220deg, rgba(255, 255, 255, 0.4) 240deg, transparent 260deg, rgba(255, 255, 255, 0.4) 280deg, transparent 300deg, rgba(255, 255, 255, 0.4) 320deg, transparent 340deg, rgba(255, 255, 255, 0.4) 360deg);
+    opacity: 0.3;
+    animation: sun-rotate 60s linear infinite;
+    z-index: 1;
+}
+
+.vista-clouds {
+    position: absolute;
+    top: 20%;
+    left: -100%;
+    width: 300%;
+    height: 100%;
+    background: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png") repeat-x;
+    background-size: 50% 100%;
+    opacity: 0.6;
+    animation: cloud-drift 120s linear infinite;
+    mix-blend-mode: screen;
+    z-index: 2;
+}
+
+.vista-glow {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #fff 0%, rgba(255, 255, 210, 0.8) 20%, transparent 70%);
+    filter: blur(40px);
+    animation: sun-pulse 4s ease-in-out infinite;
+    z-index: 3;
+}
+
+@keyframes sun-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cloud-drift {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(50%);
+    }
+}
+
+@keyframes sun-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+    .path-of-clarity-section {
+        padding: 100px 0;
+    }
+
+    .clarity-header h2 {
+        font-size: 48px;
+    }
+
+    .clarity-stages-wrapper {
+        gap: 80px;
+    }
+
+    .clarity-stages-wrapper::before {
+        left: 20px;
+    }
+
+    .clarity-stage {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Reorder for mobile flow: Visual then Content */
+    .clarity-stage .stage-content {
+        order: 2;
+        padding: 0 0 0 50px;
+        /* Space for the line */
+    }
+
+    .clarity-stage .stage-visual {
+        order: 1;
+        height: 250px;
+        margin-left: 50px;
+        width: calc(100% - 50px);
+    }
 }
 
 /* 5. WHY MOLIFESTYLE - EXTREME ARCHITECTURAL REDESIGN */
