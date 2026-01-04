@@ -679,6 +679,8 @@ const Insights = () => {
                                     key={i}
                                     whileHover={{ y: -8 }}
                                     transition={{ type: "spring", stiffness: 300 }}
+                                    onClick={() => navigate(`/insights/article/${article.id}`)}
+                                    style={{ cursor: 'pointer' }}
                                 >
                                     <div className="article-image-compact">
                                         <div className="article-overlay-compact">
@@ -694,10 +696,7 @@ const Insights = () => {
                                             </span>
                                         </div>
                                         <h3>{article.title}</h3>
-                                        <button
-                                            className="btn-read-article"
-                                            onClick={() => navigate(`/insights/article/${article.id}`)}
-                                        >
+                                        <button className="btn-read-article">
                                             Read Article
                                         </button>
                                     </div>

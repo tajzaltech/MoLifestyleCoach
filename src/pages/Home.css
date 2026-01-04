@@ -692,7 +692,7 @@
     cursor: grabbing;
 }
 
-/* Dark Premium Card Design */
+/* unique "Hat Ka" Sculpted Card Design */
 .distinction-card {
     min-width: 340px;
     height: 440px;
@@ -700,65 +700,81 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 
-    /* Deep Luxury Gradient - Lighter Variation */
-    background: linear-gradient(145deg, #2c4a5c, #1a2f3d);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 32px;
+    /* Asymmetric Geometry */
+    background: var(--white);
+    border: 1.5px solid rgba(29, 56, 71, 0.05);
+    border-radius: 80px 20px 80px 20px;
+    /* Sculpted look */
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    /* To show floating border */
 
-    /* Deep Elevated Shadow */
+    /* Sculpted Depth */
     box-shadow:
-        0 20px 40px -10px rgba(44, 74, 92, 0.3),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
+        0 15px 35px rgba(29, 56, 71, 0.03),
+        inset 0 0 15px rgba(29, 56, 71, 0.02);
 }
 
-/* Glassy Shine Overlay */
+/* Floating Offset Border */
 .distinction-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.1) 0%,
-            rgba(255, 255, 255, 0.01) 40%,
-            transparent 100%);
-    z-index: 1;
+    top: -8px;
+    left: -8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid var(--accent);
+    border-radius: 80px 20px 80px 20px;
+    opacity: 0.15;
+    z-index: -1;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
-}
-
-/* Glow effect moving across on hover */
-.distinction-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.5s ease;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.distinction-card:hover::after {
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0.5s ease;
 }
 
 .distinction-card:hover {
-    transform: translateY(-12px) scale(1.02);
+    transform: translateY(-15px);
+    border-radius: 40px;
+    /* Soften geometry on hover */
+    background: #ffffff;
+    border-color: rgba(29, 56, 71, 0.1);
     box-shadow:
-        0 40px 80px -20px rgba(29, 56, 71, 0.6),
-        0 0 0 2px rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.2);
+        0 30px 60px rgba(29, 56, 71, 0.08),
+        inset 0 0 25px rgba(29, 56, 71, 0.01);
+}
+
+.distinction-card:hover::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 40px;
+    opacity: 0.3;
+    scale: 1.05;
+}
+
+/* Smart Accent Border Layer */
+.distinction-card::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--accent);
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    border-radius: 0 0 20px 0;
+    opacity: 0;
+    transform: translate(10px, 10px);
+    transition: all 0.4s ease;
+    z-index: 2;
+}
+
+.distinction-card:hover::after {
+    opacity: 0.8;
+    transform: translate(0, 0);
 }
 
 .distinction-content {
@@ -767,18 +783,18 @@
 }
 
 .distinction-content h3 {
-    font-size: 32px;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    letter-spacing: -1px;
-    color: #FFFFFF !important;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    color: var(--accent) !important;
     font-weight: 700;
 }
 
 .distinction-content p {
     font-size: 16px;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.75) !important;
+    color: var(--text-muted) !important;
     font-weight: 400;
 }
 

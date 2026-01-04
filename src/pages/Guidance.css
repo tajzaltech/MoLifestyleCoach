@@ -279,48 +279,92 @@
     color: var(--accent);
 }
 
-/* 3. YOUTUBE MEGA SECTION - REDDISH 3D REDESIGN */
+/* 3. YOUTUBE MEGA SECTION - 3D CINEMATIC REDESIGN */
 .youtube-mega-section {
     padding: 160px 0;
-    background: linear-gradient(135deg, var(--accent-light) 0%, #ffe4e6 100%);
-    border-top: 1px solid rgba(255, 0, 0, 0.05);
+    /* Match reference image: Deep navy-slate base with a dark maroon glow */
+    background: #111d25;
+    background: linear-gradient(135deg, #0a1118 0%, #111d25 50%, #1a0505 100%);
     position: relative;
     overflow: hidden;
 }
 
+/* 3D Floating Wisdom Orbs */
 .youtube-mega-section::before {
     content: '';
     position: absolute;
-    top: 20%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255, 0, 0, 0.03) 0%, transparent 70%);
-    filter: blur(80px);
-    pointer-events: none;
+    top: 10%;
+    left: 10%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent);
+    border-radius: 50%;
+    filter: blur(1px);
+    box-shadow:
+        inset -10px -10px 50px rgba(0, 0, 0, 0.5),
+        20px 20px 60px rgba(220, 38, 38, 0.05);
+    animation: orb-float 25s ease-in-out infinite;
+    z-index: 1;
 }
 
-.header-left-kamal {
-    max-width: 800px;
-    margin-bottom: 60px;
+.youtube-mega-section::after {
+    content: '';
+    position: absolute;
+    bottom: -5%;
+    right: 5%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle at center, rgba(139, 0, 0, 0.08) 0%, transparent 70%);
+    filter: blur(80px);
+    animation: orb-float 20s ease-in-out infinite reverse;
+    z-index: 1;
+}
+
+@keyframes orb-float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(30px, -50px) scale(1.05) rotate(10deg);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.95) rotate(-5deg);
+    }
+}
+
+.youtube-mega-section .container {
+    position: relative;
+    z-index: 10;
 }
 
 .youtube-mega-section .ultimate-tag-light {
-    background: rgba(220, 38, 38, 0.05);
-    color: #DC2626;
-    border-color: rgba(220, 38, 38, 0.15);
+    background: rgba(20, 30, 40, 0.6);
+    color: #ff3333;
+    border: 1px solid rgba(220, 38, 38, 0.3);
+    border-radius: 100px;
+    padding: 8px 24px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    backdrop-filter: blur(10px);
+    /* MATCH IMAGE: PREMIUM CONTENT BADGE */
 }
 
 .header-left-kamal h2 {
     font-size: 64px;
     letter-spacing: -3px;
-    margin: 10px 0 20px;
-    color: var(--text-primary);
+    margin: 10px 0 24px;
+    color: #ffffff;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .header-left-kamal h2 span {
-    color: #DC2626;
-    background: linear-gradient(90deg, #DC2626, #FF6B6B);
+    color: #ff3333;
+    background: linear-gradient(90deg, #ff1a1a, #ff6666);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -329,155 +373,162 @@
 .section-lead-max {
     font-size: 20px;
     line-height: 1.6;
-    color: rgba(29, 56, 71, 0.7);
+    color: rgba(255, 255, 255, 0.5);
     max-width: 650px;
+    border-left: 2px solid rgba(220, 38, 38, 0.3);
+    padding-left: 30px;
 }
 
 .youtube-wisdom-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 100px;
     perspective: 2000px;
 }
 
 .youtube-wisdom-card {
-    background: var(--white);
-    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    padding: 60px 45px;
     border-radius: 32px;
-    border: 1px solid rgba(255, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     flex-direction: column;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.02),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     z-index: 2;
 }
 
 .youtube-wisdom-card:hover {
-    transform: translateY(-15px) rotateX(2deg);
-    border-color: rgba(255, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(220, 38, 38, 0.4);
     box-shadow:
-        0 40px 100px rgba(220, 38, 38, 0.12),
-        0 0 0 1px rgba(220, 38, 38, 0.05);
-}
-
-.youtube-wisdom-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 80%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.5), transparent);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.youtube-wisdom-card:hover::after {
-    opacity: 1;
+        0 40px 100px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(220, 38, 38, 0.15);
 }
 
 .yt-card-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 .yt-tag {
     font-size: 10px;
-    font-weight: 900;
-    color: #DC2626;
-    background: rgba(220, 38, 38, 0.05);
-    padding: 6px 14px;
+    font-weight: 800;
+    color: #ff9e9e;
+    background: rgba(220, 38, 38, 0.2);
+    padding: 8px 16px;
     border-radius: 100px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 .yt-icon-play {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     background: #DC2626;
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 20px rgba(220, 38, 38, 0.3);
-    transition: all 0.4s ease;
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.4);
+    transition: all 0.5s ease;
 }
 
 .youtube-wisdom-card:hover .yt-icon-play {
-    transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 15px 30px rgba(220, 38, 38, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgba(220, 38, 38, 0.7);
 }
 
 .youtube-wisdom-card h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
+    font-size: 28px;
+    color: white;
+    margin-bottom: 18px;
     letter-spacing: -0.5px;
 }
 
 .youtube-wisdom-card p {
     font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin-bottom: 30px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 35px;
     flex-grow: 1;
 }
 
 .yt-link {
     font-size: 14px;
     font-weight: 800;
-    color: #DC2626;
+    color: #ff4d4d;
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
     margin-top: auto;
-    transition: gap 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .yt-link:hover {
     gap: 12px;
+    color: white;
 }
 
 .yt-channel-cta {
-    background: var(--accent);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
-    padding: 60px;
-    border-radius: 30px;
+    padding: 80px 60px;
+    border-radius: 40px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.yt-channel-cta::before {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.1), transparent 70%);
+    filter: blur(40px);
 }
 
 .cta-channel-box h4 {
-    font-size: 36px;
-    margin-bottom: 15px;
+    font-size: 42px;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
 }
 
 .cta-channel-box p {
-    font-size: 18px;
-    opacity: 0.8;
-    margin-bottom: 30px;
+    font-size: 20px;
+    opacity: 0.7;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-yt-sub {
     display: inline-block;
-    padding: 18px 40px;
-    background: white;
-    color: var(--accent);
+    padding: 20px 50px;
+    background: #DC2626;
+    color: white;
     text-decoration: none;
-    font-weight: 700;
-    border-radius: 8px;
-    transition: transform 0.3s;
+    font-weight: 800;
+    border-radius: 12px;
+    transition: all 0.4s;
+    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
 }
 
 .btn-yt-sub:hover {
-    transform: scale(1.05);
+    background: #ff3d3d;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(220, 38, 38, 0.5);
 }
 
 /* 4. BENTO METHODOLOGY - ARCHITECTURAL REFINE */
@@ -824,26 +875,65 @@
     }
 }
 
-/* STAGE 2: THE ASCENT - LIVE */
+/* STAGE 2: THE ASCENT - LIVE (Parallax Peaks & Glowing Path) */
 .visual-ascent {
-    background: linear-gradient(195deg, #2b32b2 0%, #1488cc 100%);
+    background: linear-gradient(195deg, #0f172a 0%, #1e293b 100%);
     position: relative;
     overflow: hidden;
 }
 
+/* Layered Parallax Mountains */
+.visual-ascent::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 60%;
+    background:
+        /* Back Peaks */
+        linear-gradient(45deg, #1e293b 25%, transparent 25%) -50px 0,
+        linear-gradient(-45deg, #1e293b 25%, transparent 25%) -50px 0,
+        /* Front Peaks */
+        linear-gradient(45deg, #0f172a 25%, transparent 25%),
+        linear-gradient(-45deg, #0f172a 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-position: 0 0;
+    animation: mountain-slide 30s linear infinite;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+/* Moving Clouds in Ascent */
 .mountain-layer {
     position: absolute;
-    bottom: -10%;
-    left: -10%;
-    width: 120%;
-    height: 90%;
-    background: conic-gradient(from 180deg at 50% 100%, #0b101a 0deg, transparent 60deg, #0b101a 120deg, transparent 180deg);
-    background-size: 50% 100%;
-    opacity: 0.8;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png") repeat-x;
+    background-size: 100% 50%;
+    opacity: 0.2;
+    animation: fog-anim 30s linear infinite;
     z-index: 2;
 }
 
-/* Wind/Particle Effect */
+/* The Glowing Path of Purpose */
+.visual-ascent::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 30%;
+    width: 2px;
+    height: 120%;
+    background: linear-gradient(to top, transparent, var(--accent), #fff);
+    box-shadow: 0 0 20px var(--accent);
+    transform: rotate(25deg);
+    animation: path-glow 3s ease-in-out infinite;
+    z-index: 3;
+    opacity: 0.6;
+}
+
 .ascent-particles {
     position: absolute;
     top: 0;
@@ -853,40 +943,61 @@
     background-image:
         radial-gradient(white 1px, transparent 1px),
         radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
-    background-size: 50px 50px, 30px 30px;
-    background-position: 0 0;
-    animation: snow-wind 3s linear infinite;
-    opacity: 0.3;
-    z-index: 3;
+    background-size: 100px 100px, 60px 60px;
+    animation: snow-wind 4s linear infinite;
+    opacity: 0.2;
+    z-index: 4;
 }
 
-.ascent-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
-    z-index: 4;
+@keyframes mountain-slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes path-glow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        filter: brightness(1.5);
+    }
 }
 
 @keyframes snow-wind {
     0% {
         background-position: 0 0, 0 0;
-        opacity: 0.2;
     }
 
     100% {
-        background-position: 50px 50px, 30px 30px;
-        opacity: 0.4;
+        background-position: -100px 200px, -60px 100px;
     }
 }
 
-/* STAGE 3: THE VISTA - LIVE */
+/* STAGE 3: THE VISTA - LIVE (Ethereal Shine & Wisdom Particles) */
 .visual-vista {
-    background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
     position: relative;
     overflow: hidden;
+}
+
+/* Shimmering Ethereal Glow */
+.visual-vista::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(45, 212, 191, 0.2) 0%, transparent 60%);
+    animation: vista-shimmer 8s ease-in-out infinite;
+    z-index: 0;
 }
 
 .sun-rays {
@@ -895,36 +1006,78 @@
     right: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(from 0deg, rgba(255, 255, 255, 0.4) 0deg, transparent 20deg, rgba(255, 255, 255, 0.4) 40deg, transparent 60deg, rgba(255, 255, 255, 0.4) 80deg, transparent 100deg, rgba(255, 255, 255, 0.4) 120deg, transparent 140deg, rgba(255, 255, 255, 0.4) 160deg, transparent 180deg, rgba(255, 255, 255, 0.4) 200deg, transparent 220deg, rgba(255, 255, 255, 0.4) 240deg, transparent 260deg, rgba(255, 255, 255, 0.4) 280deg, transparent 300deg, rgba(255, 255, 255, 0.4) 320deg, transparent 340deg, rgba(255, 255, 255, 0.4) 360deg);
-    opacity: 0.3;
-    animation: sun-rotate 60s linear infinite;
+    background: conic-gradient(from 0deg,
+            rgba(251, 191, 36, 0.1) 0deg,
+            transparent 15deg,
+            rgba(251, 191, 36, 0.1) 30deg);
+    background-size: 30% 30%;
+    opacity: 0.5;
+    animation: sun-rotate 40s linear infinite;
     z-index: 1;
+}
+
+/* Floating Wisdom Particles */
+.visual-vista::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--accent) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to top, transparent, black);
+    animation: particles-up 10s linear infinite;
+    opacity: 0.1;
+    z-index: 4;
 }
 
 .vista-clouds {
     position: absolute;
-    top: 20%;
-    left: -100%;
-    width: 300%;
-    height: 100%;
+    bottom: -10%;
+    left: 0;
+    width: 200%;
+    height: 40%;
     background: url("https://raw.githubusercontent.com/danielstuart14/CSS_FOG_ANIMATION/master/fog1.png") repeat-x;
     background-size: 50% 100%;
-    opacity: 0.6;
-    animation: cloud-drift 120s linear infinite;
-    mix-blend-mode: screen;
+    opacity: 0.4;
+    animation: fog-anim 60s linear infinite;
     z-index: 2;
+    filter: brightness(1.2);
 }
 
 .vista-glow {
     position: absolute;
-    top: 10%;
-    right: 10%;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, #fff 0%, rgba(255, 255, 210, 0.8) 20%, transparent 70%);
-    filter: blur(40px);
-    animation: sun-pulse 4s ease-in-out infinite;
+    top: 20%;
+    right: 20%;
+    width: 150px;
+    height: 150px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 100px #fbbf24, 0 0 200px rgba(251, 191, 36, 0.4);
+    animation: sun-pulse 6s ease-in-out infinite;
     z-index: 3;
+}
+
+@keyframes vista-shimmer {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes particles-up {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-40px);
+    }
 }
 
 @keyframes sun-rotate {
@@ -937,26 +1090,16 @@
     }
 }
 
-@keyframes cloud-drift {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(50%);
-    }
-}
-
 @keyframes sun-pulse {
 
     0%,
     100% {
         transform: scale(1);
-        opacity: 0.9;
+        opacity: 0.8;
     }
 
     50% {
-        transform: scale(1.1);
+        transform: scale(1.2);
         opacity: 1;
     }
 }
