@@ -93,7 +93,7 @@ const NewsletterPopup = () => {
 
                         <div className="newsletter-content">
                             <span className="newsletter-badge">Stay Connected</span>
-                            <h2>Unlock Your<br /><span>Hidden Clarity</span></h2>
+                            <h2>For when life<br /><span>feels confusing</span></h2>
                             <p>
                                 Join our community receiving weekly psychological insights,
                                 practical tools, and honest reflections on living with purpose.

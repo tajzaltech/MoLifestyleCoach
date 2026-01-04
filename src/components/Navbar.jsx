@@ -70,18 +70,13 @@ const Navbar = () => {
                     >
                         Watch
                     </a>
-                    <Link to="/connect" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
-                        Connect
-                    </Link>
-
-                    <a
-                        href="https://calendly.com/molifestylecoaching/30min"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        to="/connect"
                         className="btn btn-primary btn-nav"
+                        onClick={() => setMobileMenuOpen(false)}
                     >
                         Work With Me
-                    </a>
+                    </Link>
                 </div>
             </div>
         </nav>
