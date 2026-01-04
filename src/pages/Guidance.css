@@ -282,9 +282,8 @@
 /* 3. YOUTUBE MEGA SECTION - 3D CINEMATIC REDESIGN */
 .youtube-mega-section {
     padding: 160px 0;
-    /* Match reference image: Deep navy-slate base with a dark maroon glow */
-    background: #111d25;
-    background: linear-gradient(135deg, #0a1118 0%, #111d25 50%, #1a0505 100%);
+    /* 70% accent (dark navy) + 30% red gradient */
+    background: linear-gradient(135deg, var(--accent) 0%, #1d3847 40%, #2a1a1a 70%, #8B0000 100%);
     position: relative;
     overflow: hidden;
 }

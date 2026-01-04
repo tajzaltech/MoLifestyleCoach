@@ -7,8 +7,8 @@
     overflow-x: hidden;
 }
 
-/* --- Section 1: Light Mode 3D Hero --- */
-.insights-hero-light {
+/* --- Section 1: The Golden Synapse Hero --- */
+.insights-hero-synapse {
     position: relative;
     min-height: 90vh;
     background: #fafaf7;
@@ -16,103 +16,36 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 100px 40px;
+    padding: 120px 40px;
 }
 
-/* Glass Architecture Panes */
-.glass-pane {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(29, 56, 71, 0.08);
-    border-radius: 24px;
-    animation: floatGlass 20s infinite ease-in-out;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    z-index: 1;
-}
-
-.pane-1 {
-    width: 280px;
-    height: 180px;
-    top: 15%;
-    left: 5%;
-    transform: rotate(-10deg);
-}
-
-.pane-2 {
-    width: 220px;
-    height: 320px;
-    bottom: 10%;
-    right: 8%;
-    transform: rotate(15deg);
-    animation-delay: -5s;
-}
-
-.pane-3 {
-    width: 150px;
-    height: 150px;
-    top: 40%;
-    right: 20%;
-    transform: rotate(5deg);
-    animation-delay: -12s;
-}
-
-@keyframes floatGlass {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(var(--rot, 0deg));
-    }
-
-    50% {
-        transform: translateY(-30px) rotate(calc(var(--rot, 0deg) + 5deg));
-    }
-}
-
-/* Cinematic Light Streaks */
-.zen-light-streaks {
+.synapse-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 0;
+    pointer-events: auto;
+    /* Allow mouse interaction */
+}
+
+/* Ensure text is above canvas but doesn't block mouse too much (optional) */
+.relative-z {
+    position: relative;
+    z-index: 10;
     pointer-events: none;
-    overflow: hidden;
+    /* Let clicks pass through to canvas if needed, but here we want text selectable??
+                             Actually, we want the canvas to track mouse.
+                             If text blocks mouse events, the nodes behind text won't react.
+                             Let's keep text pointer-events: none for the container, and auto for buttons if any. */
 }
 
-.streak {
-    position: absolute;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(29, 56, 71, 0.1), transparent);
-    width: 60%;
-    animation: streakFlow 15s infinite linear;
-}
-
-.streak-1 {
-    top: 30%;
-    left: -20%;
-}
-
-.streak-2 {
-    top: 70%;
-    right: -20%;
-    animation-delay: -7.5s;
-}
-
-@keyframes streakFlow {
-    0% {
-        transform: translateX(-100%) skewX(-45deg);
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(200%) skewX(-45deg);
-        opacity: 0;
-    }
+.relative-z h1,
+.relative-z p,
+.relative-z .wisdom-badge {
+    pointer-events: auto;
+    /* Re-enable text selection */
 }
 
 /* Hero Content */
@@ -281,15 +214,101 @@
     padding: 80px 40px;
     background: #fafaf7;
     border-radius: 40px;
-    border: 1px solid rgba(29, 56, 71, 0.05);
+    border: 1px solid rgba(29, 56, 71, 0.2);
+    /* Lighter Accent Border */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     box-shadow:
-        0 30px 100px rgba(29, 56, 71, 0.05),
+        0 40px 120px -20px rgba(29, 56, 71, 0.4),
+        /* Heavy Accent Shadow */
         inset 0 1px 0 rgba(255, 255, 255, 1);
+    transition: all 0.5s ease;
+}
+
+/* --- MIDNIGHT MODE "MAZADAR" STYLES --- */
+.chamber-inner.midnight-mode {
+    background: linear-gradient(135deg, #020617 0%, #0f172a 40%, #000000 100%);
+    border-color: rgba(99, 102, 241, 0.15);
+    box-shadow:
+        0 40px 120px rgba(0, 0, 0, 0.4),
+        inset 0 0 60px rgba(99, 102, 241, 0.05);
+}
+
+/* Starry Background Effect */
+.chamber-inner.midnight-mode::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: 40px;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px, 100px 100px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+/* Midnight Label */
+.chamber-inner.midnight-mode .time-context-label {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+.chamber-inner.midnight-mode .pulse-dot {
+    background: #818cf8;
+    /* Indigo glow */
+    box-shadow: 0 0 10px #818cf8;
+}
+
+/* Clean White Quote with Glow */
+.chamber-inner.midnight-mode .chamber-quote {
+    color: #ffffff;
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+/* Glassy Midnight Button */
+.chamber-inner.midnight-mode .btn-mindful-pause {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.chamber-inner.midnight-mode .btn-mindful-pause:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Adjusted Orb for Midnight */
+.chamber-inner.midnight-mode .breathing-orb-liquid {
+    background: linear-gradient(135deg, #3730a3, #4f46e5);
+    /* Indigo/Purple */
+    opacity: 0.3;
+    filter: brightness(1.2);
+}
+
+.chamber-inner.midnight-mode .breathing-orb-glow {
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+}
+
+.chamber-inner.midnight-mode .visitor-pulse {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.chamber-inner.midnight-mode .visitor-pulse .count {
+    color: #818cf8;
 }
 
 /* Breathing Liquid Orb */
@@ -322,35 +341,62 @@
 .breathing-orb-container.supernova-zen {
     position: absolute;
     top: 35%;
-    /* Moved even higher as per request */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 380px;
-    /* Slight scale up for glow */
-    height: 380px;
+    width: 420px;
+    /* Larger presence */
+    height: 420px;
     z-index: 5;
     opacity: 1;
-    filter: brightness(1.3);
+    filter: brightness(1.1);
     pointer-events: none;
+    transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .supernova-zen .breathing-orb-liquid {
-    opacity: 1;
-    /* Celestial "Sukoon" Palette: Sunset Amber to Ethereal Mint */
-    background: linear-gradient(135deg, #fbbf24, #2dd4bf, #1d3847);
+    opacity: 0.9;
+    /* Celestial "Sukoon" Palette: Deep Indigo to Soft Teal */
+    background: linear-gradient(135deg, #4f46e5, #0ea5e9, #0f172a);
     box-shadow:
-        0 0 120px rgba(251, 191, 36, 0.4),
-        /* Golden Soul Glow */
-        0 0 60px rgba(45, 212, 191, 0.3);
-    filter: brightness(1.2);
+        inset -20px -20px 60px rgba(0, 0, 0, 0.5),
+        /* Inner Depth */
+        0 0 80px rgba(79, 70, 229, 0.4),
+        /* Indigo Glow */
+        0 0 140px rgba(14, 165, 233, 0.2);
+    /* Teal Atmosphere */
+    filter: blur(2px);
+    /* Soften edges */
+    animation: morphOrbSukoon 20s infinite alternate cubic-bezier(0.45, 0, 0.55, 1);
 }
 
 .supernova-zen .zen-lotus-aura {
-    width: 480px;
-    height: 480px;
-    border: 1px solid rgba(251, 191, 36, 0.25);
-    /* Golden Aura */
-    box-shadow: 0 0 60px rgba(251, 191, 36, 0.1);
+    width: 550px;
+    height: 550px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 80px rgba(79, 70, 229, 0.1);
+    animation: auraRotateSukoon 60s linear infinite;
+}
+
+@keyframes morphOrbSukoon {
+    0% {
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
+    }
+}
+
+@keyframes auraRotateSukoon {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 .breathing-orb-glow {
@@ -360,8 +406,8 @@
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(29, 56, 71, 0.15), transparent 70%);
-    filter: blur(60px);
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.2), transparent 70%);
+    filter: blur(80px);
 }
 
 .breathing-orb-liquid {
@@ -483,7 +529,7 @@
     font-weight: 800;
 }
 
-/* High Fidelity Pause Overlay */
+/* High Fidelity Pause Overlay - "Sukoon" Edition */
 .pause-overlay.high-fidelity {
     position: fixed;
     top: 0;
@@ -491,38 +537,32 @@
     width: 100%;
     height: 100%;
     z-index: 10000;
-    background: radial-gradient(circle at center, #020617 0%, #000000 100%);
-    animation: celestialMorphMidnight 20s infinite alternate ease-in-out;
-    backdrop-filter: blur(30px);
-    /* Lowered for performance */
+    /* Soft Deep Celestial Gradient */
+    background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+    animation: celestialPulseSukoon 30s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(40px);
     display: flex;
     flex-direction: column;
-    /* Ensure vertical stack */
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    perspective: 1500px;
+    perspective: 2000px;
+    /* Deeper Perspective */
     pointer-events: auto;
-    /* Allow button clicks but no mouse parallax */
     will-change: transform, opacity;
-    /* Force GPU */
 }
 
-@keyframes celestialMorphMidnight {
+@keyframes celestialPulseSukoon {
     0% {
-        background-color: #020617;
+        background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
     }
 
-    33% {
-        background-color: #0f172a;
-    }
-
-    66% {
-        background-color: #050505;
+    50% {
+        background: radial-gradient(circle at center, #172554 0%, #020617 100%);
     }
 
     100% {
-        background-color: #020617;
+        background: radial-gradient(circle at center, #0f172a 0%, #000000 100%);
     }
 }
 

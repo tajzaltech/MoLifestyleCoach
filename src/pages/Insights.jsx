@@ -18,7 +18,17 @@ const Insights = () => {
     const [mindfulStep, setMindfulStep] = useState(0);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [parallax, setParallax] = useState({ x: 0, y: 0 });
+    const [midnightQuoteIndex, setMidnightQuoteIndex] = useState(0);
     const audioRef = useRef(null);
+    const canvasRef = useRef(null);
+
+    const midnightQuotes = [
+        "The quiet of the night is where the soul finds its rhythm. Reflect, then rest.",
+        "In darkness, we find the light of our deepest thoughts.",
+        "The moon whispers secrets to those who listen in silence.",
+        "Midnight is not an end—it is a portal to your inner truth.",
+        "Stillness speaks louder than the chaos of daylight."
+    ];
 
     const mindfulMessages = [
         "Inhale slowly... hold the stillness.",
@@ -174,7 +184,11 @@ const Insights = () => {
         } else if (hour >= 17 && hour < 21) {
             setTimeContext({ label: 'Evening Detachment', quote: 'The world can wait. Reclaim your peace and prepare for deep reflection.' });
         } else {
-            setTimeContext({ label: 'Midnight Reflections', quote: 'The quiet of the night is where the soul finds its rhythm. Reflect, then rest.' });
+            // Midnight Reflections with rotating quotes
+            setTimeContext({
+                label: 'Midnight Reflections',
+                quote: midnightQuotes[midnightQuoteIndex]
+            });
         }
 
         // Simulate live visitor pulse
@@ -183,6 +197,19 @@ const Insights = () => {
         }, 3000);
 
         return () => clearInterval(interval);
+    }, [midnightQuoteIndex]);
+
+    // Rotate midnight quotes every 2 seconds
+    useEffect(() => {
+        const hour = new Date().getHours();
+        // Only rotate quotes during midnight hours (21:00 - 5:00)
+        if (hour >= 21 || hour < 5) {
+            const quoteInterval = setInterval(() => {
+                setMidnightQuoteIndex((prev) => (prev + 1) % midnightQuotes.length);
+            }, 5000); // Change every 5 seconds
+
+            return () => clearInterval(quoteInterval);
+        }
     }, []);
 
     // Typing animation effect for "Insights"
@@ -357,22 +384,129 @@ const Insights = () => {
 
     const extendedArticles = [...articles, ...articles]; // Double for longer scroll
 
+    // --- GOLDEN SYNAPSE ANIMATION LOGIC ---
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        let mouse = { x: null, y: null };
+
+        // resize
+        const handleResize = () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initParticles();
+        };
+
+        const initParticles = () => {
+            particles = [];
+            const particleCount = Math.min(Math.floor(window.innerWidth / 15), 100); // Responsive count
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.6, // Slow subtle movement
+                    vy: (Math.random() - 0.5) * 0.6,
+                    size: Math.random() * 2 + 1
+                });
+            }
+        };
+
+        const animate = () => {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw connections
+            particles.forEach((p, i) => {
+                // Move
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Bounce
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                // Draw Particle
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(29, 56, 71, 0.12)'; // Ultra-low opacity
+                ctx.fill();
+
+                // Connect to other particles
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(29, 56, 71, ${0.08 - dist / 120 * 0.08})`; // Barely visible connections
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+
+                // Connect to Mouse
+                if (mouse.x) {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(29, 56, 71, ${0.15 - dist / 150 * 0.15})`; // Subtle mouse reaction
+                        ctx.lineWidth = 0.8;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        };
+
+        // Mouse Listeners
+        const onMouseMove = (e) => {
+            // Adjust for canvas position if needed, usually e.clientX/Y works for full screen hero
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        };
+
+        const onMouseLeave = () => {
+            mouse.x = null;
+            mouse.y = null;
+        };
+
+        window.addEventListener('resize', handleResize);
+        canvas.addEventListener('mousemove', onMouseMove);
+        canvas.addEventListener('mouseleave', onMouseLeave);
+
+        handleResize(); // Init
+        animate();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            if (canvas) {
+                canvas.removeEventListener('mousemove', onMouseMove);
+                canvas.removeEventListener('mouseleave', onMouseLeave);
+            }
+        };
+    }, []);
+
     return (
         <div className="insights-page">
 
 
-            {/* HERO SECTION - LIGHT MODE 3D */}
-            <section className="insights-hero-light">
-                {/* 3D Floating Elements */}
-                <div className="glass-pane pane-1"></div>
-                <div className="glass-pane pane-2"></div>
-                <div className="glass-pane pane-3"></div>
-                <div className="zen-light-streaks">
-                    <div className="streak streak-1"></div>
-                    <div className="streak streak-2"></div>
-                </div>
+            {/* HERO SECTION - THE GOLDEN SYNAPSE */}
+            <section className="insights-hero-synapse">
+                <canvas ref={canvasRef} className="synapse-canvas" />
 
-                <div className="container">
+                <div className="container relative-z text-center">
                     <motion.div
                         className="hero-content-light"
                         initial={{ opacity: 0, y: 40 }}
@@ -409,28 +543,6 @@ const Insights = () => {
                             <br />
                             Your sanctuary for intellectual growth and peak performance.
                         </motion.p>
-
-                        <motion.div
-                            className="hero-stats-light"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.7, duration: 0.6 }}
-                        >
-                            <div className="stat-item">
-                                <div className="stat-number">6</div>
-                                <div className="stat-label">Deep Articles</div>
-                            </div>
-                            <div className="stat-divider"></div>
-                            <div className="stat-item">
-                                <div className="stat-number">8</div>
-                                <div className="stat-label">Book Summaries</div>
-                            </div>
-                            <div className="stat-divider"></div>
-                            <div className="stat-item">
-                                <div className="stat-number">3</div>
-                                <div className="stat-label">Free Resources</div>
-                            </div>
-                        </motion.div>
                     </motion.div>
                 </div>
             </section>
@@ -458,7 +570,18 @@ const Insights = () => {
                                 <span className="pulse-dot"></span>
                                 {timeContext.label}
                             </div>
-                            <h2 className="chamber-quote">"{timeContext.quote}"</h2>
+                            <AnimatePresence mode="wait">
+                                <motion.h2
+                                    key={timeContext.quote}
+                                    className="chamber-quote"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    "{timeContext.quote}"
+                                </motion.h2>
+                            </AnimatePresence>
 
                             <motion.button
                                 className={`btn-mindful-pause ${isMindfulPaused ? 'active' : ''}`}

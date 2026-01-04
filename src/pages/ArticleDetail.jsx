@@ -84,6 +84,108 @@ const ArticleDetail = () => {
             {/* Article Body */}
             <div className="article-body-container">
                 <div className="container article-layout-grid">
+
+                    {/* Right Sidebar - Moved Top for Float Layout */}
+                    <aside className="article-sidebar">
+                        <div className="sidebar-sticky-wrap">
+                            <motion.div
+                                className="sidebar-widget"
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.7 }}
+                                whileHover={{ y: -5 }}
+                            >
+                                <h4 className="widget-title">Explore More</h4>
+                                <div className="related-articles-mini">
+                                    {articles.filter(a => a.id !== id).slice(0, 2).map(item => (
+                                        <div
+                                            key={item.id}
+                                            className="related-item-mini"
+                                            onClick={() => navigate(`/insights/article/${item.id}`)}
+                                        >
+                                            <div className="mini-img-wrap">
+                                                <img src={item.image} alt={item.title} />
+                                            </div>
+                                            <div className="mini-info">
+                                                <span className="mini-tag">{item.tag}</span>
+                                                <h5>{item.title}</h5>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.div>
+
+                            <motion.div
+                                className="sidebar-widget reflection-widget"
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.8 }}
+                                whileHover={{ y: -5 }}
+                            >
+                                <div className="widget-header-flex">
+                                    <div className="widget-icon-small">✍️</div>
+                                    <h4 className="widget-title no-margin">Quick Reflection</h4>
+                                </div>
+                                <p className="reflection-prompt">How does this insight apply to your current situation?</p>
+                                <div className="reflection-input-area">
+                                    <textarea
+                                        className="reflection-textarea"
+                                        placeholder="Start typing your thoughts..."
+                                        value={reflection}
+                                        onChange={(e) => setReflection(e.target.value)}
+                                    />
+                                    {reflection && (
+                                        <button
+                                            className="btn-clear-reflection"
+                                            onClick={() => setReflection('')}
+                                        >
+                                            Clear Note
+                                        </button>
+                                    )}
+                                </div>
+                            </motion.div>
+
+                            <motion.div
+                                className="sidebar-widget wisdom-capsule-widget"
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.9 }}
+                                whileHover={{ y: -5 }}
+                            >
+                                <div className="capsule-icon">💠</div>
+                                <h4 className="widget-title">Wisdom Capsule</h4>
+                                <div className="capsule-content">
+                                    <p className="capsule-quote">"The best revenge is to be unlike him who performed the injury."</p>
+                                    <span className="capsule-author">— Marcus Aurelius</span>
+                                </div>
+                            </motion.div>
+
+                            <motion.div
+                                className="sidebar-widget coaching-cta-widget"
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7, delay: 1 }}
+                                whileHover={{ y: -5, scale: 1.02 }}
+                            >
+                                <div className="cta-widget-inner">
+                                    <div className="cta-icon-3d">✨</div>
+                                    <h4>Ready for Clarity?</h4>
+                                    <p>Work directly with Moaz to transform these insights into action.</p>
+                                    <button
+                                        className="btn-sidebar-cta"
+                                        onClick={() => navigate('/connect')}
+                                    >
+                                        Schedule a Session
+                                    </button>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </aside>
+
                     <motion.div
                         className="article-content-inner"
                         initial={{ opacity: 0 }}
@@ -177,104 +279,6 @@ const ArticleDetail = () => {
                             </motion.button>
                         </div>
                     </motion.div>
-
-                    {/* Right Sidebar */}
-                    <aside className="article-sidebar">
-                        <div className="sidebar-sticky-wrap">
-                            <motion.div
-                                className="sidebar-widget"
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.7 }}
-                                whileHover={{ y: -5 }}
-                            >
-                                <h4 className="widget-title">Explore More</h4>
-                                <div className="related-articles-mini">
-                                    {articles.filter(a => a.id !== id).slice(0, 2).map(item => (
-                                        <div
-                                            key={item.id}
-                                            className="related-item-mini"
-                                            onClick={() => navigate(`/insights/article/${item.id}`)}
-                                        >
-                                            <div className="mini-img-wrap">
-                                                <img src={item.image} alt={item.title} />
-                                            </div>
-                                            <div className="mini-info">
-                                                <span className="mini-tag">{item.tag}</span>
-                                                <h5>{item.title}</h5>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                className="sidebar-widget reflection-widget"
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.8 }}
-                                whileHover={{ y: -5 }}
-                            >
-                                <h4 className="widget-title">Quick Reflection</h4>
-                                <p>How does this insight apply to your current situation?</p>
-                                <div className="reflection-input-area">
-                                    <textarea
-                                        className="reflection-textarea"
-                                        placeholder="Record your thoughts here..."
-                                        value={reflection}
-                                        onChange={(e) => setReflection(e.target.value)}
-                                    />
-                                    {reflection && (
-                                        <button
-                                            className="btn-clear-reflection"
-                                            onClick={() => setReflection('')}
-                                        >
-                                            Clear
-                                        </button>
-                                    )}
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                className="sidebar-widget wisdom-capsule-widget"
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.9 }}
-                                whileHover={{ y: -5 }}
-                            >
-                                <div className="capsule-icon">💠</div>
-                                <h4 className="widget-title">Wisdom Capsule</h4>
-                                <div className="capsule-content">
-                                    <p className="capsule-quote">"The best revenge is to be unlike him who performed the injury."</p>
-                                    <span className="capsule-author">— Marcus Aurelius</span>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                className="sidebar-widget coaching-cta-widget"
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.7, delay: 1 }}
-                                whileHover={{ y: -5, scale: 1.02 }}
-                            >
-                                <div className="cta-widget-inner">
-                                    <div className="cta-icon-3d">✨</div>
-                                    <h4>Ready for Clarity?</h4>
-                                    <p>Work directly with Moaz to transform these insights into action.</p>
-                                    <button
-                                        className="btn-sidebar-cta"
-                                        onClick={() => navigate('/connect')}
-                                    >
-                                        Schedule a Session
-                                    </button>
-                                </div>
-                            </motion.div>
-                        </div>
-                    </aside>
                 </div>
             </div>
         </div>
