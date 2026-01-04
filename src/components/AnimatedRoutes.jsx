@@ -4,6 +4,8 @@ import Home from '../pages/Home';
 import About from '../pages/About';
 import Guidance from '../pages/Guidance';
 import Connect from '../pages/Connect';
+import Insights from '../pages/Insights';
+import ArticleDetail from '../pages/ArticleDetail';
 
 const PageWrapper = ({ children }) => {
     return (
@@ -30,6 +32,8 @@ const AnimatedRoutes = () => {
                 <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
                 <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
                 <Route path="/guidance" element={<PageWrapper><Guidance /></PageWrapper>} />
+                <Route path="/insights" element={<PageWrapper><Insights /></PageWrapper>} />
+                <Route path="/insights/article/:id" element={<PageWrapper><ArticleDetail /></PageWrapper>} />
                 <Route path="/connect" element={<PageWrapper><Connect /></PageWrapper>} />
             </Routes>
         </AnimatePresence>

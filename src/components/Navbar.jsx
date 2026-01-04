@@ -55,6 +55,9 @@ const Navbar = () => {
                     <Link to="/about" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
                         About
                     </Link>
+                    <Link to="/insights" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
+                        Insights
+                    </Link>
                     <Link to="/guidance" className="navbar-link" onClick={() => setMobileMenuOpen(false)}>
                         Guidance
                     </Link>
