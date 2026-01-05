@@ -25,9 +25,9 @@ export const decisionFatigue = {
 
         { type: 'h3', text: "The Decision Hierarchy Framework" },
         { type: 'p', text: "Not all decisions are created equal. Here's how to protect your cognitive reserves:" },
-        { type: 'p', text: "**Tier 1: Automate**. These are recurring, low-stakes decisions. Meal prep Sunday. Set a uniform. Automate bill payments. Never think about these again." },
-        { type: 'p', text: "**Tier 2: Delegate**. If someone else can make it 70% as well as you, let them. Your time is worth more solving Tier 3 problems." },
-        { type: 'p', text: "**Tier 3: Schedule**. High-stakes decisions deserve dedicated time slots when your mind is fresh—typically 9-11 AM. Never make life-altering choices after 6 PM when your prefrontal cortex is running on fumes." },
+        { type: 'p', text: "Tier 1: Automate. These are recurring, low-stakes decisions. Meal prep Sunday. Set a uniform. Automate bill payments. Never think about these again." },
+        { type: 'p', text: "Tier 2: Delegate. If someone else can make it 70% as well as you, let them. Your time is worth more solving Tier 3 problems." },
+        { type: 'p', text: "Tier 3: Schedule. High-stakes decisions deserve dedicated time slots when your mind is fresh—typically 9-11 AM. Never make life-altering choices after 6 PM when your prefrontal cortex is running on fumes." },
 
         { type: 'h3', text: "The Evening Rule" },
         { type: 'p', text: "Never make a major decision after sunset. Your decision-making quality plummets in the evening. That's when you sign bad contracts, send regrettable emails, or agree to commitments you'll later resent. If it's important, sleep on it. Morning clarity will either confirm your intuition or save you from a costly mistake." },

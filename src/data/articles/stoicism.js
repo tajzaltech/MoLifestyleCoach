@@ -23,9 +23,9 @@ export const stoicism = {
         { type: 'h3', text: "Applying Stoicism to Modern Leadership" },
         { type: 'p', text: "When a crisis hits—and it will—your team doesn't need a motivational speech. They need calm. They need a leader who's already internalized that setbacks are data, not catastrophes. Here's how to embody Stoic leadership:" },
 
-        { type: 'p', text: "**1. Premeditatio Malorum (Negative Visualization)**: Before a big decision, imagine the worst-case scenario. What if the product flops? What if the funding falls through? By pre-experiencing the fear, you defang it. When (not if) challenges arise, you're not blindsided—you're prepared." },
+        { type: 'p', text: "1. Premeditatio Malorum (Negative Visualization): Before a big decision, imagine the worst-case scenario. What if the product flops? What if the funding falls through? By pre-experiencing the fear, you defang it. When (not if) challenges arise, you're not blindsided—you're prepared." },
 
-        { type: 'p', text: "**2. Amor Fati (Love of Fate)**: Don't just accept what happens—embrace it. Your key employee just quit? Good. Now you can hire someone better. The deal fell through? Good. It wasn't the right fit. This isn't toxic positivity—it's strategic reframing. Every setback contains a lesson or a redirection." },
+        { type: 'p', text: "2. Amor Fati (Love of Fate): Don't just accept what happens—embrace it. Your key employee just quit? Good. Now you can hire someone better. The deal fell through? Good. It wasn't the right fit. This isn't toxic positivity—it's strategic reframing. Every setback contains a lesson or a redirection." },
 
         { type: 'img', src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format&fit=crop", caption: "Turn obstacles into advantages." },
 
@@ -36,9 +36,9 @@ export const stoicism = {
         { type: 'p', text: "Seneca advised: 'The greatest remedy for anger is delay.' Count to ten. Take a breath. Respond, don't react. The leader who can maintain composure when everyone else is panicking becomes the anchor. People don't follow the loudest voice in the room—they follow the calmest." },
 
         { type: 'h3', text: "Daily Stoic Practice" },
-        { type: 'p', text: "**Morning Reflection**: Before the day begins, remind yourself that challenges will arise. People will be difficult. Things won't go as planned. Prepare your mind." },
-        { type: 'p', text: "**Evening Review**: At day's end, reflect. Where did you lose your temper? Where did you waste energy on things you couldn't control? Don't judge—just observe. The goal is gradual improvement, not perfection." },
-        { type: 'p', text: "**Memento Mori (Remember You Will Die)**: Keep death in mind. Not to be morbid, but to prioritize. Life is finite. Don't waste it seething over a bad email or postponing important conversations out of fear." },
+        { type: 'p', text: "Morning Reflection: Before the day begins, remind yourself that challenges will arise. People will be difficult. Things won't go as planned. Prepare your mind." },
+        { type: 'p', text: "Evening Review: At day's end, reflect. Where did you lose your temper? Where did you waste energy on things you couldn't control? Don't judge—just observe. The goal is gradual improvement, not perfection." },
+        { type: 'p', text: "Memento Mori (Remember You Will Die): Keep death in mind. Not to be morbid, but to prioritize. Life is finite. Don't waste it seething over a bad email or postponing important conversations out of fear." },
 
         { type: 'h3', text: "The Stoic CEO" },
         { type: 'p', text: "Stoicism doesn't make you cold or unfeeling. It makes you unshakeable. You still care deeply—but you're not controlled by outcomes. You still feel anger—but you don't act from it. You still fear failure—but you move forward anyway. When a problem arises, you don't complain. You see it as data. You see it as an opportunity to practice patience, creativity, or courage. This is the mindset that builds empires that last." }

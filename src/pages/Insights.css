@@ -7,45 +7,271 @@
     overflow-x: hidden;
 }
 
-/* --- Section 1: The Golden Synapse Hero --- */
-.insights-hero-synapse {
+/* --- Section 1: The 3D Prism Hero (Accent Theme) --- */
+.insights-hero-3d {
     position: relative;
-    min-height: 90vh;
+    min-height: 100vh;
+    margin-top: 0;
     background: #fafaf7;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 120px 40px;
+    padding: 160px 40px 100px 40px;
+    perspective: 1500px;
 }
 
-.synapse-canvas {
+/* 3D Background Elements Container */
+/* 3D Background Elements Container */
+.hero-3d-elements {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Wisdom Gyroscope (The Insight Engine) */
+.wisdom-gyroscope {
+    position: relative;
+    width: 650px;
+    height: 650px;
+    transform-style: preserve-3d;
+    animation: floatGyro 6s ease-in-out infinite alternate;
+}
+
+.gyro-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    border: 1px solid rgba(29, 56, 71, 0.15);
+    /* Elegant Accent Border */
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 30px rgba(29, 56, 71, 0.02);
+}
+
+.gyro-ring.ring-1 {
     width: 100%;
     height: 100%;
-    z-index: 0;
-    pointer-events: auto;
-    /* Allow mouse interaction */
+    border-color: rgba(29, 56, 71, 0.1);
+    animation: rotateRing1 30s linear infinite;
 }
 
-/* Ensure text is above canvas but doesn't block mouse too much (optional) */
+.gyro-ring.ring-2 {
+    width: 75%;
+    height: 75%;
+    border-color: rgba(29, 56, 71, 0.2);
+    border-width: 1.5px;
+    animation: rotateRing2 20s linear infinite reverse;
+}
+
+.gyro-ring.ring-3 {
+    width: 50%;
+    height: 50%;
+    border-color: rgba(45, 212, 191, 0.3);
+    /* Teal Hint */
+    animation: rotateRing3 15s linear infinite;
+}
+
+.gyro-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 60px 20px rgba(29, 56, 71, 0.2);
+    animation: pulseCore 4s ease-in-out infinite alternate;
+}
+
+@keyframes rotateRing1 {
+    0% {
+        transform: translate(-50%, -50%) rotateX(60deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotateX(60deg) rotateY(360deg);
+    }
+}
+
+@keyframes rotateRing2 {
+    0% {
+        transform: translate(-50%, -50%) rotateX(-45deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotateX(-45deg) rotateY(360deg);
+    }
+}
+
+@keyframes rotateRing3 {
+    0% {
+        transform: translate(-50%, -50%) rotateX(30deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotateX(30deg) rotateY(360deg);
+    }
+}
+
+@keyframes pulseCore {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+@keyframes floatGyro {
+    0% {
+        transform: translateY(0px) rotateZ(-2deg);
+    }
+
+    100% {
+        transform: translateY(-20px) rotateZ(2deg);
+    }
+}
+
+/* Soft Mesh Background (Subtle Layer) */
+.hero-mesh-bg-soft {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(100px);
+    opacity: 0.5;
+}
+
+.mesh-orb {
+    position: absolute;
+    border-radius: 50%;
+    animation: meshFloat 25s infinite alternate ease-in-out;
+}
+
+.mesh-orb.orb-1 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(29, 56, 71, 0.08), transparent 70%);
+    /* Deep Navy Hint */
+    top: -20%;
+    left: 20%;
+}
+
+.mesh-orb.orb-2 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(45, 212, 191, 0.1), transparent 70%);
+    /* Soft Teal/Accent Light */
+    bottom: -10%;
+    right: 10%;
+    animation-delay: -5s;
+}
+
+@keyframes meshFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+}
+
+/* Premium Content Styling */
+.hero-content-premium {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.wisdom-badge-premium {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(29, 56, 71, 0.15);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 32px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(29, 56, 71, 0.05);
+    /* Slight accent shadow */
+}
+
+.sparkle-icon {
+    font-size: 14px;
+}
+
+.hero-title-premium {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+}
+
+.title-lead {
+    font-size: 4.5rem;
+    color: var(--text-primary);
+    display: block;
+    letter-spacing: -2px;
+}
+
+/* The "Liquid Accent" Text Effect */
+.text-liquid-accent {
+    font-size: 6.5rem;
+    background: linear-gradient(to right,
+            #1d3847 0%,
+            #334155 20%,
+            #0f172a 40%,
+            #1d3847 60%,
+            #334155 80%,
+            #0f172a 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: goldShimmer 8s linear infinite;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+@keyframes goldShimmer {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.hero-desc-premium {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #4b5563;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .relative-z {
     position: relative;
     z-index: 10;
-    pointer-events: none;
-    /* Let clicks pass through to canvas if needed, but here we want text selectable??
-                             Actually, we want the canvas to track mouse.
-                             If text blocks mouse events, the nodes behind text won't react.
-                             Let's keep text pointer-events: none for the container, and auto for buttons if any. */
-}
-
-.relative-z h1,
-.relative-z p,
-.relative-z .wisdom-badge {
-    pointer-events: auto;
-    /* Re-enable text selection */
+    /* Removed restrictive pointer-events */
 }
 
 /* Hero Content */
@@ -212,7 +438,7 @@
     margin: 0 auto;
     position: relative;
     padding: 80px 40px;
-    background: #fafaf7;
+    background: #ffffff;
     border-radius: 40px;
     border: 1px solid rgba(29, 56, 71, 0.2);
     /* Lighter Accent Border */
@@ -751,6 +977,38 @@
     box-shadow: 0 40px 80px rgba(45, 212, 191, 0.15);
 }
 
+.btn-close-zen {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 10002;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.btn-close-zen:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    transform: translateX(5px);
+}
+
+.btn-close-zen svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--accent);
+}
+
 .mindful-visualizer {
     position: absolute;
     bottom: 0;
@@ -852,10 +1110,45 @@
 /* Responsive Pause */
 @media (max-width: 768px) {
     .mindful-message-display {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
+        /* Smaller for mobile */
         padding: 0 20px;
+        white-space: normal;
+        /* Allow wrapping */
+        line-height: 1.3;
+    }
+
+    .mindful-message-container {
+        height: auto;
+        min-height: 200px;
+    }
+
+    .mindful-actions-v3 {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        padding: 0 40px;
+    }
+
+    .btn-connect-zen,
+    .btn-resume-magic {
+        width: fit-content;
+        min-width: 220px;
+        padding: 10px 24px;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+        text-align: center;
+    }
+
+    .btn-close-zen {
+        top: 20px;
+        left: 20px;
+        padding: 6px 12px;
+        font-size: 11px;
     }
 }
+
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -1031,6 +1324,56 @@
     color: var(--accent);
 }
 
+/* --- Premium Section Headers (Global) --- */
+.section-head-premium {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+}
+
+.section-badge-glass {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(29, 56, 71, 0.05);
+    border: 1px solid rgba(29, 56, 71, 0.1);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.section-title-premium {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.section-divider-center {
+    width: 80px;
+    height: 4px;
+    background: var(--accent);
+    margin: 0 auto 32px auto;
+    border-radius: 2px;
+    transform-origin: center;
+}
+
+.section-desc-premium {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #64748b;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* --- Section 2: Mental Architecture (Premium Carousel) --- */
 /* Heading Refinement */
 .section-head-mb h2 {
@@ -1119,6 +1462,14 @@
     box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 480px) {
+    .article-card-compact {
+        min-width: 280px;
+        width: 280px;
+    }
 }
 
 .article-image-compact {
@@ -2076,7 +2427,46 @@
 /* --- Mobile Responsiveness Overrides --- */
 @media (max-width: 768px) {
 
-    /* Hero Section */
+    /* Hero Section (Insights 3D) */
+    .insights-hero-3d {
+        min-height: 85vh;
+        margin-top: 10px;
+        padding: 100px 20px 40px 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 24px;
+    }
+
+    .wisdom-gyroscope {
+        width: 320px;
+        height: 320px;
+    }
+
+    .title-lead {
+        font-size: 1.8rem;
+        letter-spacing: -1px;
+    }
+
+    .text-liquid-accent {
+        font-size: 2.4rem;
+    }
+
+    .hero-desc-premium {
+        font-size: 1.1rem;
+        padding-top: 10px;
+    }
+
+    .mesh-orb.orb-1 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .mesh-orb.orb-2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Hero Section (Legacy/Light) */
     .insights-hero-light {
         min-height: 80vh;
         padding: 80px 20px;
@@ -2158,23 +2548,39 @@
         font-size: 11px !important;
     }
 
-    /* Insights Engine (Carousel) */
+    /* Insights Engine & Premium Headers */
     .curated-intelligence {
-        padding: 80px 0;
+        padding: 60px 0;
     }
 
-    .section-head-mb h2 {
-        font-size: 2.5rem;
-        letter-spacing: -1px;
+    .section-head-premium {
+        margin-bottom: 24px !important;
+    }
+
+    .section-title-premium {
+        font-size: 1.4rem !important;
+        letter-spacing: -0.5px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .section-desc-premium {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .section-badge-glass {
+        font-size: 8px !important;
+        padding: 4px 10px !important;
+        margin-bottom: 12px !important;
     }
 
     /* Mental Models */
     .mental-models-section {
-        padding: 80px 0;
+        padding: 60px 0;
     }
 
     .models-title {
-        font-size: 2.5rem;
+        font-size: 1.4rem !important;
     }
 
     .models-grid {

@@ -1,13 +1,15 @@
-/* Kamal Hero Section - Immersive Masterpiece */
 .hero-kamal-home {
     min-height: 100vh;
+    margin-top: 0;
     background-color: var(--accent);
     color: white;
     position: relative;
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding: var(--spacing-2xl) 0;
+    padding-top: 140px;
+    /* Reduced from 240px to move content up */
+    padding-bottom: 100px;
 }
 
 .kamal-home-overlay {
@@ -29,17 +31,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: var(--spacing-xl);
+    padding: 100px var(--spacing-xl) 40px var(--spacing-xl);
+    /* Increased top padding to move 'CLARITY' down */
     pointer-events: none;
     z-index: 0;
 }
 
 .kamal-float-text {
-    font-size: 15rem;
+    font-size: 11rem;
     font-weight: 900;
     color: white;
     line-height: 0.8;
     text-transform: uppercase;
+    opacity: 0.08;
 }
 
 .kamal-float-text.right {
@@ -73,10 +77,11 @@
 }
 
 .kamal-hero-headline {
-    font-size: 84px;
+    font-size: 82px;
+    /* Increased for impact */
     line-height: 0.95;
     font-weight: 800;
-    letter-spacing: -4px;
+    letter-spacing: -3.5px;
     margin-bottom: var(--spacing-md);
 }
 
@@ -89,7 +94,7 @@
 }
 
 .kamal-hero-divider {
-    width: 80px;
+    width: 60px;
     height: 2px;
     background: white;
     margin-bottom: var(--spacing-lg);
@@ -97,11 +102,12 @@
 }
 
 .kamal-hero-lead {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: var(--spacing-xl);
     font-weight: 400;
+    max-width: 600px;
 }
 
 .kamal-btn-group {
@@ -1170,6 +1176,38 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .hero-kamal-home {
+        min-height: 100vh;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0;
+        padding-top: 90px;
+        padding-bottom: 60px;
+    }
+
+    .kamal-hero-headline {
+        font-size: 42px !important;
+        letter-spacing: -2px !important;
+    }
+
+    .kamal-hero-lead {
+        font-size: 15px !important;
+    }
+
+    .kamal-badge {
+        padding: 6px 12px;
+        font-size: 9px;
+    }
+
+    .kamal-hero-divider {
+        width: 40px;
+    }
+
+    .kamal-float-text {
+        font-size: 5rem !important;
+    }
+
     .hero-grid-new {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);

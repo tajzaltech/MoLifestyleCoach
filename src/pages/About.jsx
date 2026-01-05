@@ -48,6 +48,16 @@ const About = () => {
         }
     ];
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const isMobile = windowWidth <= 768;
+
+    // Handle window resize for carousel responsiveness
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     // Auto-cycle credentials
     useEffect(() => {
         const timer = setInterval(() => {
@@ -318,8 +328,8 @@ const About = () => {
                                         key={i}
                                         className={`premium-glass-card ${i === activeCredIndex ? 'active' : ''}`}
                                         animate={{
-                                            x: position * 340, // 320 width + 20 gap
-                                            scale: i === activeCredIndex ? 1.1 : 0.85,
+                                            x: position * (isMobile ? 240 : 340), // Responsive gap
+                                            scale: i === activeCredIndex ? (isMobile ? 1 : 1.1) : 0.85,
                                             opacity: Math.abs(position) > 1 ? 0 : (i === activeCredIndex ? 1 : 0.4),
                                             zIndex: i === activeCredIndex ? 10 : 1
                                         }}

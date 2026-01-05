@@ -21,17 +21,17 @@ export const deepWork = {
         { type: 'h3', text: "The Four Disciplines of Deep Work" },
         { type: 'p', text: "Newport outlines four strategies to cultivate deep work:" },
 
-        { type: 'p', text: "**1. Work Deeply**: Decide in advance when you'll work deeply. Block the time. Treat it like a meeting with your most important client—yourself. No phone. No email. No 'quick checks.' Depth requires uninterrupted time." },
+        { type: 'p', text: "1. Work Deeply: Decide in advance when you'll work deeply. Block the time. Treat it like a meeting with your most important client—yourself. No phone. No email. No 'quick checks.' Depth requires uninterrupted time." },
 
-        { type: 'p', text: "**2. Embrace Boredom**: Stop reaching for your phone the moment you're in line at the coffee shop. Boredom is where ideas germinate. If you can't tolerate 60 seconds of mental stillness, you've trained your brain to reject deep focus." },
+        { type: 'p', text: "2. Embrace Boredom: Stop reaching for your phone the moment you're in line at the coffee shop. Boredom is where ideas germinate. If you can't tolerate 60 seconds of mental stillness, you've trained your brain to reject deep focus." },
 
-        { type: 'p', text: "**3. Quit Social Media**: Controversial, but true. Social media is engineered to be addictive. Every scroll triggers a dopamine hit. You're training your brain to crave shallow stimulation. If you can't quit entirely, at least set strict boundaries. No phone before noon. No social media during work hours." },
+        { type: 'p', text: "3. Quit Social Media: Controversial, but true. Social media is engineered to be addictive. Every scroll triggers a dopamine hit. You're training your brain to crave shallow stimulation. If you can't quit entirely, at least set strict boundaries. No phone before noon. No social media during work hours." },
 
         { type: 'quote', text: "Who you are, what you think, feel, and do, what you love—is the sum of what you focus on." },
 
         { type: 'img', src: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&auto=format&fit=crop", caption: "Focused attention creates excellence." },
 
-        { type: 'p', text: "**4. Drain the Shallows**: Shallow work—email, meetings, admin tasks—will expand to fill all available time if you let it. The solution? Ruthlessly batch it. Dedicate specific blocks to shallow work and protect the rest of your day for depth. Most meetings could be emails. Most emails could be ignored." },
+        { type: 'p', text: "4. Drain the Shallows: Shallow work—email, meetings, admin tasks—will expand to fill all available time if you let it. The solution? Ruthlessly batch it. Dedicate specific blocks to shallow work and protect the rest of your day for depth. Most meetings could be emails. Most emails could be ignored." },
 
         { type: 'h3', text: "The Grand Gesture" },
         { type: 'p', text: "J.K. Rowling checked into a luxury hotel to finish Harry Potter. Bill Gates takes 'Think Weeks'—a full week alone in a cabin with no distractions. These grand gestures signal to your brain: this matters. Sometimes you need to change your environment to escape the pull of distraction." },

@@ -382,17 +382,19 @@
     }
 
     .reflection-chat-container {
-        bottom: 5rem;
-        right: 1rem;
-        left: 1rem;
+        bottom: 5.5rem;
+        right: 1.5rem;
+        left: 1.5rem;
         width: auto;
         max-width: none;
         height: 500px;
         max-height: calc(100vh - 8rem);
+        border-radius: 20px;
     }
 
     .quick-prompts {
         grid-template-columns: 1fr;
+        padding-bottom: 0.5rem;
     }
 
     .message-content {
@@ -401,33 +403,87 @@
 }
 
 @media (max-width: 480px) {
+    .reflection-fab {
+        bottom: 1rem;
+        right: 1rem;
+        width: 52px;
+        height: 52px;
+    }
+
+    .reflection-chat-container {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        /* Full screen feel */
+        border: none;
+        z-index: 10000;
+        /* Above everything including nav if needed */
+    }
+
     .reflection-header {
-        padding: 1.25rem;
+        padding: 1rem 1.25rem;
+        padding-top: max(1rem, env(safe-area-inset-top));
+        /* Handle notch */
     }
 
     .header-avatar {
-        width: 38px;
-        height: 38px;
+        width: 36px;
+        height: 36px;
     }
 
     .header-text h3 {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .header-text p {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
 
     .reflection-messages {
-        padding: 1.25rem;
+        padding: 1rem;
+    }
+
+    .message {
+        gap: 0.5rem;
+    }
+
+    .message-avatar {
+        width: 30px;
+        height: 30px;
     }
 
     .message-content {
-        padding: 0.875rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.75rem 0.875rem;
+        font-size: 0.875rem;
+        max-width: 90%;
     }
 
     .reflection-input-area {
-        padding: 1rem 1.25rem;
+        padding: 1rem;
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+        /* Handle home indicator */
+    }
+
+    .reflection-input {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .send-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .quick-prompt-btn {
+        padding: 0.6rem 0.875rem;
+        font-size: 0.8rem;
+    }
+
+    .quick-prompts {
+        padding: 0 1rem 0.75rem;
     }
 }

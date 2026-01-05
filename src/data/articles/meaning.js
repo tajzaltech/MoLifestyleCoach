@@ -25,9 +25,9 @@ export const meaning = {
 
         { type: 'h3', text: "The Three Pillars of Meaning" },
         { type: 'p', text: "Frankl identified three primary ways humans derive meaning:" },
-        { type: 'p', text: "**1. Creative Work**: What you give to the world. This could be art, innovation, service, or craftsmanship. It's about contribution." },
-        { type: 'p', text: "**2. Love & Relationships**: What you receive from the world through connection. Deep bonds with others anchor us to something larger than our individual existence." },
-        { type: 'p', text: "**3. Attitude Toward Suffering**: How you face the unavoidable pain of life. This is where true character is forged. When you can't change your circumstances, you can still choose your response." },
+        { type: 'p', text: "1. Creative Work: What you give to the world. This could be art, innovation, service, or craftsmanship. It's about contribution." },
+        { type: 'p', text: "2. Love & Relationships: What you receive from the world through connection. Deep bonds with others anchor us to something larger than our individual existence." },
+        { type: 'p', text: "3. Attitude Toward Suffering: How you face the unavoidable pain of life. This is where true character is forged. When you can't change your circumstances, you can still choose your response." },
 
         { type: 'h3', text: "The Practical Application" },
         { type: 'p', text: "Start defining your life not by what you enjoy, but by what you are willing to suffer for. What pain would you endure? What would you sacrifice sleep, comfort, and security for? That is where your meaning lies." },

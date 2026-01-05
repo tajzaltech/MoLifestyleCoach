@@ -31,18 +31,18 @@ const Insights = () => {
     ];
 
     const mindfulMessages = [
-        "Inhale slowly... hold the stillness.",
-        "Exhale... release the weight.",
-        "Deep breath in... feel the life within.",
-        "Soft breath out... let go of everything.",
-        "The noise of the world is fading away.",
-        "You are exactly where you need to be.",
-        "Focus on the gentle pulse of existence.",
-        "Your vision is becoming crystal clear.",
-        "Peace is not a destination, it is your nature.",
-        "Feel the heartbeat of your own potential.",
-        "The world is waiting for your best self.",
-        "Carry this clarity into your next chapter."
+        "🌬️ Inhale slowly... hold the stillness.",
+        "🍂 Exhale... release the weight.",
+        "🌿 Deep breath in... feel the life within.",
+        "🕊️ Soft breath out... let go of everything.",
+        "🌌 The noise of the world is fading away.",
+        "🧘‍♂️ You are exactly where you need to be.",
+        "💓 Focus on the gentle pulse of existence.",
+        "💎 Your vision is becoming crystal clear.",
+        "🌊 Peace is not a destination, it is your nature.",
+        "❤️‍🔥 Feel the heartbeat of your own potential.",
+        "🌏 The world is waiting for your best self.",
+        "🌅 Carry this clarity into your next chapter."
     ];
 
     const stopAudio = () => {
@@ -174,22 +174,63 @@ const Insights = () => {
         return () => window.removeEventListener('popstate', handlePopState);
     }, [isMindfulPaused]);
 
-    // Determines the time context for the user
+    // --- Dynamic Quotes Database ---
+    const morningQuotes = [
+        "The first hour of your day belongs to your mind. Protect it ruthlessly.",
+        "Win the morning, win the day. Your momentum starts now.",
+        "Clarity comes from silence. Embrace the quiet start.",
+        "Set your intention. Today is a canvas awaiting your stroke."
+    ];
+
+    const afternoonQuotes = [
+        "Deep focus is a superpower. Channel your energy.",
+        "Momentum is built one focused block at a time.",
+        "Avoid the noise. Seek the signal.",
+        "Your best work happens when you are fully present."
+    ];
+
+    const eveningQuotes = [
+        "The world can wait. Reclaim your peace.",
+        "Reflect on what went well. Learn from what didn't.",
+        "Disconnect to reconnect with yourself.",
+        "Prepare your mind for deep rest."
+    ];
+
+    const allDayQuotes = {
+        morning: morningQuotes,
+        afternoon: afternoonQuotes,
+        evening: eveningQuotes,
+        midnight: midnightQuotes
+    };
+
+    // Determines the Time Context & Active Quote Pool
     useEffect(() => {
         const hour = new Date().getHours();
+        let currentLabel = '';
+        let currentPool = [];
+
         if (hour >= 5 && hour < 12) {
-            setTimeContext({ label: 'Mornings of Impact', quote: 'The first hour of your day belongs to your mind. Protect it ruthlessly.' });
+            currentLabel = 'Mornings of Impact';
+            currentPool = morningQuotes;
         } else if (hour >= 12 && hour < 17) {
-            setTimeContext({ label: 'Afternoon Clarity', quote: 'Deep focus is a superpower. Channel your peak energy into what actually matters.' });
+            currentLabel = 'Afternoon Clarity';
+            currentPool = afternoonQuotes;
         } else if (hour >= 17 && hour < 21) {
-            setTimeContext({ label: 'Evening Detachment', quote: 'The world can wait. Reclaim your peace and prepare for deep reflection.' });
+            currentLabel = 'Evening Detachment';
+            currentPool = eveningQuotes;
         } else {
-            // Midnight Reflections with rotating quotes
-            setTimeContext({
-                label: 'Midnight Reflections',
-                quote: midnightQuotes[midnightQuoteIndex]
-            });
+            currentLabel = 'Midnight Reflection';
+            currentPool = midnightQuotes;
         }
+
+        // Set initial or rotated quote
+        // Use modulus to cycle through the specific pool based on the shared index
+        const quoteToShow = currentPool[midnightQuoteIndex % currentPool.length];
+
+        setTimeContext({
+            label: currentLabel,
+            quote: quoteToShow
+        });
 
         // Simulate live visitor pulse
         const interval = setInterval(() => {
@@ -197,19 +238,15 @@ const Insights = () => {
         }, 3000);
 
         return () => clearInterval(interval);
-    }, [midnightQuoteIndex]);
+    }, [midnightQuoteIndex]); // Updates whenever index changes (every 4s)
 
-    // Rotate midnight quotes every 2 seconds
+    // Global Rotation Timer (Run 24/7)
     useEffect(() => {
-        const hour = new Date().getHours();
-        // Only rotate quotes during midnight hours (21:00 - 5:00)
-        if (hour >= 21 || hour < 5) {
-            const quoteInterval = setInterval(() => {
-                setMidnightQuoteIndex((prev) => (prev + 1) % midnightQuotes.length);
-            }, 5000); // Change every 5 seconds
+        const quoteInterval = setInterval(() => {
+            setMidnightQuoteIndex((prev) => prev + 1); // Just increment indefinitely, we mod it above
+        }, 4000); // Requested: Every 4 seconds
 
-            return () => clearInterval(quoteInterval);
-        }
+        return () => clearInterval(quoteInterval);
     }, []);
 
     // Typing animation effect for "Insights"
@@ -502,46 +539,56 @@ const Insights = () => {
         <div className="insights-page">
 
 
-            {/* HERO SECTION - THE GOLDEN SYNAPSE */}
-            <section className="insights-hero-synapse">
-                <canvas ref={canvasRef} className="synapse-canvas" />
+            {/* HERO SECTION - THE 3D PRISM (ACCENT THEME) */}
+            <section className="insights-hero-3d">
+                {/* 3D Background Layer */}
+                <div className="hero-3d-elements">
+                    <div className="wisdom-gyroscope">
+                        <div className="gyro-ring ring-1"></div>
+                        <div className="gyro-ring ring-2"></div>
+                        <div className="gyro-ring ring-3"></div>
+                        <div className="gyro-core"></div>
+                    </div>
+                </div>
+
+                {/* Light Mesh for Softness */}
+                <div className="hero-mesh-bg-soft">
+                    <div className="mesh-orb orb-1"></div>
+                    <div className="mesh-orb orb-2"></div>
+                </div>
 
                 <div className="container relative-z text-center">
                     <motion.div
-                        className="hero-content-light"
-                        initial={{ opacity: 0, y: 40 }}
+                        className="hero-content-premium"
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <motion.div
-                            className="wisdom-badge"
-                            initial={{ scale: 0.8, opacity: 0 }}
+                            className="wisdom-badge-premium"
+                            initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 0.2, duration: 0.6 }}
+                            transition={{ delay: 0.2, duration: 0.8 }}
                         >
-                            <span className="badge-shine"></span>
+                            <span className="sparkle-icon"></span>
                             The Wisdom Vault
                         </motion.div>
 
-                        <h1 className="hero-title-light">
-                            Premium{' '}
-                            <span className="typed-text">
-                                {typedText}
-                                <span className="cursor-blink">|</span>
-                            </span>
+                        <h1 className="hero-title-premium">
+                            <span className="title-lead">Curated Wisdom</span>
                             <br />
-                            <span className="gradient-text">for Ambitious Minds</span>
+                            <span className="text-liquid-accent">For The Ambitious</span>
                         </h1>
 
                         <motion.p
-                            className="hero-desc-light"
+                            className="hero-desc-premium"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5, duration: 0.8 }}
+                            transition={{ delay: 0.6, duration: 1 }}
                         >
-                            Dive into curated psychological frameworks, mental models, and transformative essays.
+                            A sanctuary for intellectual growth.
                             <br />
-                            Your sanctuary for intellectual growth and peak performance.
+                            Explore mental models, psychology, and peak performance.
                         </motion.p>
                     </motion.div>
                 </div>
@@ -574,10 +621,10 @@ const Insights = () => {
                                 <motion.h2
                                     key={timeContext.quote}
                                     className="chamber-quote"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -20 }}
-                                    transition={{ duration: 0.5 }}
+                                    initial={{ opacity: 0, y: 10, filter: 'blur(10px)' }}
+                                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                    exit={{ opacity: 0, y: -10, filter: 'blur(10px)' }}
+                                    transition={{ duration: 0.8, ease: "easeInOut" }}
                                 >
                                     "{timeContext.quote}"
                                 </motion.h2>
@@ -605,6 +652,22 @@ const Insights = () => {
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                 >
+                                    {/* Precision Back/Close Button for Mobile/Desktop */}
+                                    <motion.button
+                                        className="btn-close-zen"
+                                        onClick={handleEndSession}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 1 }}
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.9 }}
+                                    >
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                                            <polyline points="12 19 5 12 12 5"></polyline>
+                                        </svg>
+                                        <span>Back</span>
+                                    </motion.button>
                                     {/* Central 3D Soul (Orb moved here for perfect centering and layering) */}
                                     <motion.div
                                         className="breathing-orb-container supernova-zen"
@@ -738,10 +801,10 @@ const Insights = () => {
                                             <AnimatePresence mode="wait">
                                                 <motion.div
                                                     key={mindfulStep}
-                                                    initial={{ y: 20, opacity: 0 }}
-                                                    animate={{ y: 0, opacity: 1 }}
-                                                    exit={{ y: -20, opacity: 0 }}
-                                                    transition={{ duration: 0.8 }}
+                                                    initial={{ y: 15, opacity: 0, filter: 'blur(12px)', scale: 0.95 }}
+                                                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)', scale: 1 }}
+                                                    exit={{ y: -15, opacity: 0, filter: 'blur(12px)', scale: 1.05 }}
+                                                    transition={{ duration: 1.2, ease: "easeInOut" }}
                                                     className="mindful-message-display"
                                                 >
                                                     {mindfulMessages[mindfulStep]}
@@ -750,7 +813,6 @@ const Insights = () => {
                                                         animate={{ scale: [1, 1.15, 1] }}
                                                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                                                     >
-                                                        💖
                                                     </motion.span>
                                                 </motion.div>
                                             </AnimatePresence>
@@ -787,11 +849,40 @@ const Insights = () => {
             {/* CURATED ARTICLES */}
             <section className="curated-intelligence">
                 <div className="container">
-                    <div className="section-head-mb">
-                        <span className="section-label">CURATED WISDOM</span>
-                        <h2>The Insights Engine</h2>
-                        <div className="section-divider"></div>
-                        <p className="section-sub">A high-fidelity collection of psychological principles and deep-performance frameworks.</p>
+                    <div className="section-head-premium text-center mb-16">
+                        <motion.span
+                            className="section-badge-glass"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            CURATED WISDOM
+                        </motion.span>
+                        <motion.h2
+                            className="section-title-premium"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                        >
+                            The Insights Engine
+                        </motion.h2>
+                        <motion.div
+                            className="section-divider-center"
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2, duration: 0.8 }}
+                        ></motion.div>
+                        <motion.p
+                            className="section-desc-premium"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                        >
+                            A high-fidelity collection of psychological principles and deep-performance frameworks.
+                        </motion.p>
                     </div>
 
                     <div className="intelligence-carousel-wrapper">
@@ -837,10 +928,40 @@ const Insights = () => {
             {/* 3D LIBRARY SHELF */}
             <section className="library-section">
                 <div className="container">
-                    <div className="library-header">
-                        <span className="section-label">THE FOUNDATION</span>
-                        <h2>Interactive Library</h2>
-                        <p>Tap on a book to open and read the summary.</p>
+                    <div className="section-head-premium text-center mb-16">
+                        <motion.span
+                            className="section-badge-glass"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            THE FOUNDATION
+                        </motion.span>
+                        <motion.h2
+                            className="section-title-premium"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                        >
+                            Interactive Library
+                        </motion.h2>
+                        <motion.div
+                            className="section-divider-center"
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2, duration: 0.8 }}
+                        ></motion.div>
+                        <motion.p
+                            className="section-desc-premium"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                        >
+                            Tap on a book to unlock its core insights and apply them to your life.
+                        </motion.p>
                     </div>
 
                     <div className="book-shelf-3d">
@@ -932,14 +1053,6 @@ const Insights = () => {
                                     </div>
 
                                     <div className="reader-actions">
-                                        <button
-                                            className="btn-mark-read"
-                                            onClick={() => setActiveBook(null)}
-                                        >
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
-                                            I've Internalized This
-                                        </button>
-
                                         {activeBook.amazonLink && (
                                             <a
                                                 href={activeBook.amazonLink}
@@ -962,19 +1075,41 @@ const Insights = () => {
                 {/* STRATEGIC FRAMEWORKS GALLERY */}
                 <section className="mental-models-section">
                     <div className="container">
-                        <motion.div
-                            className="models-header"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <span className="section-badge-accent">INTELLECTUAL ARCHITECTURE</span>
-                            <h2 className="models-title">Strategic Frameworks for Peak Performance</h2>
-                            <p className="models-desc">
+                        <div className="section-head-premium text-center mb-16">
+                            <motion.span
+                                className="section-badge-glass"
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                            >
+                                INTELLECTUAL ARCHITECTURE
+                            </motion.span>
+                            <motion.h2
+                                className="section-title-premium"
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 }}
+                            >
+                                Strategic Frameworks
+                            </motion.h2>
+                            <motion.div
+                                className="section-divider-center"
+                                initial={{ scaleX: 0 }}
+                                whileInView={{ scaleX: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2, duration: 0.8 }}
+                            ></motion.div>
+                            <motion.p
+                                className="section-desc-premium"
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.3 }}
+                            >
                                 Reconstruct your strategic backbone with the analytical tools used by history's most effective minds.
-                            </p>
-                        </motion.div>
+                            </motion.p>
+                        </div>
 
                         <div className="models-grid">
                             <motion.div

@@ -29,10 +29,10 @@ export const comfort = {
 
         { type: 'h3', text: "Practical Discomfort Training" },
         { type: 'p', text: "You don't need to run ultramarathons. But you do need to deliberately introduce discomfort into your life. Here's how:" },
-        { type: 'p', text: "**Cold Exposure**: End your shower with 30 seconds of cold water. It sucks. Do it anyway. You're training your nervous system to stay calm under acute stress." },
-        { type: 'p', text: "**Early Mornings**: Wake up one hour earlier than necessary. Use that hour for something that matters—reading, exercise, planning. You're stealing time back from entropy." },
-        { type: 'p', text: "**Difficult Conversations**: Stop avoiding conflict. That conversation you've been postponing? Schedule it today. Growth lives on the other side of awkward." },
-        { type: 'p', text: "**Physical Challenge**: Sign up for something that scares you. A marathon. A Spartan Race. A boxing match. Give yourself a non-negotiable deadline to train for." },
+        { type: 'p', text: "Cold Exposure: End your shower with 30 seconds of cold water. It sucks. Do it anyway. You're training your nervous system to stay calm under acute stress." },
+        { type: 'p', text: "Early Mornings: Wake up one hour earlier than necessary. Use that hour for something that matters—reading, exercise, planning. You're stealing time back from entropy." },
+        { type: 'p', text: "Difficult Conversations: Stop avoiding conflict. That conversation you've been postponing? Schedule it today. Growth lives on the other side of awkward." },
+        { type: 'p', text: "Physical Challenge: Sign up for something that scares you. A marathon. A Spartan Race. A boxing match. Give yourself a non-negotiable deadline to train for." },
 
         { type: 'h3', text: "The Weekly Audit" },
         { type: 'p', text: "Look at your week. Where are you avoiding friction? That's exactly where you must go. If you're comfortable, you're stagnating. If you're stagnating, you're dying. Not physically—spiritually. Your potential is rotting from disuse." },

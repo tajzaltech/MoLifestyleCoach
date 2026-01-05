@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useZen } from '../context/ZenContext';
 import './Navbar.css';
@@ -7,6 +7,9 @@ const Navbar = () => {
     const { isZenMode, toggleZenMode } = useZen();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
+
+    const isHome = location.pathname === '/';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,7 +21,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isHome ? 'is-home' : ''}`}>
             <div className="container navbar-content">
                 <button
                     className={`navbar-toggle ${mobileMenuOpen ? 'active' : ''}`}

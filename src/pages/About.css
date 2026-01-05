@@ -528,13 +528,18 @@
 @media (max-width: 992px) {
     .motivation-bento-grid {
         grid-auto-rows: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .tile-main,
     .tile-vertical,
-    .tile-horizontal {
+    .tile-horizontal,
+    .tile-quote {
         grid-column: span 12;
         grid-row: auto;
+        min-height: 300px;
     }
 
     .bento-sub-img {
@@ -1484,9 +1489,10 @@
         min-height: auto;
     }
 
-    .editorial-headline {
+    .editorial-headline-cinematic {
         font-size: 38px;
         letter-spacing: -1.5px;
+        line-height: 1.1;
     }
 
     .editorial-lead {
@@ -1537,31 +1543,48 @@
         text-align: left;
     }
 
-    .youtube-editorial-card {
-        padding: 40px 24px;
+    .youtube-card-vibrant {
+        padding: 60px 24px;
+        border-radius: 24px;
+    }
+
+    .vibrant-content-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
         text-align: center;
     }
 
-    .youtube-editorial-content h2 {
-        font-size: 32px;
+    .vibrant-text h2 {
+        font-size: 36px;
+        letter-spacing: -1px;
     }
 
-    .youtube-editorial-content p {
+    .vibrant-text p {
         margin: 0 auto 30px;
     }
 
-    .btn-youtube-aesthetic {
+    .btn-vibrant-yt {
         width: 100%;
         justify-content: center;
+    }
+
+    .vibrant-visual-side {
+        order: -1;
     }
 
     .marquee-header h2 {
         font-size: 32px;
     }
 
-    .marquee-card {
-        width: 260px;
+    .premium-glass-card {
+        width: 280px;
+        padding: 32px 24px;
+        min-height: 340px;
+    }
+
+    .premium-carousel-wrapper {
+        height: 450px;
+        margin-top: 40px;
     }
 
     .about-kamal-finale {
@@ -1578,6 +1601,7 @@
         font-size: 42px;
         letter-spacing: -2px;
         margin-bottom: 25px;
+        line-height: 1;
     }
 
     .kamal-line {
