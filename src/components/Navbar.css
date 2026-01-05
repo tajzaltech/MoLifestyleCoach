@@ -138,50 +138,49 @@
     transition: all 0.3s ease-out;
 }
 
-/* --- Home Page Hero State (High Contrast) --- */
-.navbar.is-home:not(.scrolled) .navbar-brand {
+/* --- Cinematic Hero State (High Contrast) --- */
+.navbar.has-hero:not(.scrolled) .navbar-brand {
     color: white;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar.is-home:not(.scrolled) .navbar-brand span {
+.navbar.has-hero:not(.scrolled) .navbar-brand span {
     color: rgba(255, 255, 255, 0.85);
-    /* Increased for better visibility */
 }
 
-.navbar.is-home:not(.scrolled) .navbar-toggle span {
+.navbar.has-hero:not(.scrolled) .navbar-toggle span {
     background-color: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.navbar.is-home:not(.scrolled) .zen-toggle-mini {
+.navbar.has-hero:not(.scrolled) .zen-toggle-mini {
     color: white;
     background: rgba(255, 255, 255, 0.15);
     border-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
 }
 
-.navbar.is-home:not(.scrolled) .zen-toggle-mini:hover {
+.navbar.has-hero:not(.scrolled) .zen-toggle-mini:hover {
     background: rgba(255, 255, 255, 0.25);
 }
 
-.navbar.is-home:not(.scrolled) .navbar-link {
+.navbar.has-hero:not(.scrolled) .navbar-link {
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
-.navbar.is-home:not(.scrolled) .navbar-link:hover {
+.navbar.has-hero:not(.scrolled) .navbar-link:hover {
     color: white;
     background: rgba(255, 255, 255, 0.15);
 }
 
-.navbar.is-home:not(.scrolled) .btn-nav {
+.navbar.has-hero:not(.scrolled) .btn-nav {
     background-color: white;
     color: var(--accent);
     border-color: white;
 }
 
-.navbar.is-home:not(.scrolled) .btn-nav:hover {
+.navbar.has-hero:not(.scrolled) .btn-nav:hover {
     background-color: transparent;
     color: white;
     border-color: white;
@@ -190,18 +189,18 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
 
-    /* Force dark links and toggle in mobile menu regardless of home state */
-    .navbar.is-home:not(.scrolled) .navbar-menu .navbar-link {
+    /* Force dark links and toggle in mobile menu regardless of hero state */
+    .navbar.has-hero:not(.scrolled) .navbar-menu .navbar-link {
         color: var(--accent);
         text-shadow: none;
     }
 
-    .navbar.is-home:not(.scrolled) .navbar-toggle.active span {
+    .navbar.has-hero:not(.scrolled) .navbar-toggle.active span {
         background-color: var(--accent);
     }
 
-    /* Ensure visibility on Home Hero on mobile exactly as reported */
-    .navbar.is-home:not(.scrolled) {
+    /* Ensure transparency on Hero on mobile */
+    .navbar.has-hero:not(.scrolled) {
         background-color: transparent;
     }
 

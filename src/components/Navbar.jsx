@@ -9,7 +9,13 @@ const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
 
-    const isHome = location.pathname === '/';
+    // Pages that have a cinematic hero and need transparent/light navbar
+    const hasCinematicHero = [
+        '/',
+        '/about',
+        '/guidance',
+        '/connect'
+    ].includes(location.pathname);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,7 +27,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isHome ? 'is-home' : ''}`}>
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${hasCinematicHero ? 'has-hero' : ''}`}>
             <div className="container navbar-content">
                 <button
                     className={`navbar-toggle ${mobileMenuOpen ? 'active' : ''}`}
