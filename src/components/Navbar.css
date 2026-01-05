@@ -92,19 +92,19 @@
     }
 
     .navbar-link:hover {
-        background: rgba(29, 56, 71, 0.04);
-        color: var(--accent);
+        background-color: white !important;
+        color: var(--accent) !important;
     }
 
     .navbar-link:hover .nav-icon {
         opacity: 1;
         width: 18px;
-        /* Expand icon space */
         transform: scale(1) translateX(0);
+        color: var(--accent) !important;
     }
 
     .navbar-link:hover .nav-text {
-        color: var(--accent);
+        color: var(--accent) !important;
     }
 }
 
@@ -139,6 +139,10 @@
 }
 
 /* --- Cinematic Hero State (High Contrast) --- */
+.navbar.has-hero:not(.scrolled) {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, transparent 100%);
+}
+
 .navbar.has-hero:not(.scrolled) .navbar-brand {
     color: white;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);

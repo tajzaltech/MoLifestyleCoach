@@ -374,6 +374,52 @@ const Insights = () => {
         }
     ];
 
+    const dailyChallenges = [
+        {
+            id: 1,
+            title: "The Digital Minimalist",
+            task: "Switch your phone to grayscale for the next 4 hours.",
+            psychology: "Grayscale reduces the dopamine hit from vibrant app icons, lowering the urge for mindless scrolling.",
+            label: "Dopamine Detox"
+        },
+        {
+            id: 2,
+            title: "The Negative Inversion",
+            task: "Identify one goal and write down exactly how to fail at it.",
+            psychology: "Inversion reveals hidden risks and self-sabotaging behaviors that logical planning often misses.",
+            label: "Mental Modeling"
+        },
+        {
+            id: 3,
+            title: "The Zero-Option Block",
+            task: "Go 60 minutes without any external input (no music, podcasts, or scrolling).",
+            psychology: "Default Mode Network activation allows the brain to process unresolved thoughts and spark creativity.",
+            label: "Cognitive Depth"
+        },
+        {
+            id: 4,
+            title: "The Observation Anchor",
+            task: "Watch a single object in your room for 2 full minutes without judgement.",
+            psychology: "Strengthens the prefrontal cortex by training voluntary attention against habitual distraction.",
+            label: "Mindful Focus"
+        },
+        {
+            id: 5,
+            title: "The Courageous No",
+            task: "Say 'no' to one minor request that doesn't align with your priority.",
+            psychology: "Boundaries are a form of psychological hygiene, reducing resentment and preserving focused energy.",
+            label: "Priority Alignment"
+        }
+    ];
+
+    const [challengeOfDay, setChallengeOfDay] = useState(dailyChallenges[0]);
+    const [challengeState, setChallengeState] = useState('idle'); // idle, in-progress, completed
+
+    useEffect(() => {
+        const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+        setChallengeOfDay(dailyChallenges[dayOfYear % dailyChallenges.length]);
+    }, []);
+
     const handleDownload = () => {
         alert("To access this premium resource, please join our newsletter if you haven't already. \n\n(Starting download...)");
     };
@@ -1070,7 +1116,133 @@ const Insights = () => {
                         </motion.div>
                     </motion.div>
                 )}
+{/* THE DAILY MICRO-CHALLENGE (ACTIONABLE WISDOM) */}
+                <section className="daily-challenge-section">
+                    <div className="container">
+                        <AnimatePresence mode="wait">
+                            {challengeState === 'idle' && (
+                                <motion.div
+                                    key="idle"
+                                    className="challenge-premium-card"
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 1.05 }}
+                                    transition={{ duration: 0.6 }}
+                                >
+                                    <div className="challenge-card-glow"></div>
+                                    <div className="challenge-header">
+                                        <div className="live-badge-premium">
+                                            <span className="pulse-chip"></span>
+                                            Challenge of the Day
+                                        </div>
+                                        <span className="challenge-pillar-label">{challengeOfDay.label}</span>
+                                    </div>
+                                    <div className="challenge-body">
+                                        <h2 className="challenge-title-main">{challengeOfDay.title}</h2>
+                                        <p className="challenge-task-instruction">{challengeOfDay.task}</p>
+                                        <div className="psychology-insight-box">
+                                            <div className="insight-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                                                    <path d="M12 16h.01M12 8h.01M12 12h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+                                                </svg>
+                                            </div>
+                                            <div className="insight-text">
+                                                <strong>The Science:</strong> {challengeOfDay.psychology}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="challenge-footer">
+                                        <motion.button
+                                            className="btn-complete-challenge"
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.98 }}
+                                            onClick={() => setChallengeState('in-progress')}
+                                        >
+                                            Accept Challenge
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                                                <path d="M5 12l5 5L20 7" />
+                                            </svg>
+                                        </motion.button>
+                                    </div>
+                                </motion.div>
+                            )}
 
+                            {challengeState === 'in-progress' && (
+                                <motion.div
+                                    key="in-progress"
+                                    className="challenge-premium-card in-progress-mode"
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 1.05 }}
+                                    transition={{ duration: 0.6 }}
+                                >
+                                    <div className="focus-bg-animation"></div>
+                                    <div className="challenge-header">
+                                        <div className="focus-badge-premium">
+                                            <span className="breathing-dot"></span>
+                                            Focus Mode Active
+                                        </div>
+                                        <button className="btn-cancel-challenge" onClick={() => setChallengeState('idle')}>Cancel</button>
+                                    </div>
+                                    <div className="challenge-body">
+                                        <span className="focus-target-label">YOUR MISSION</span>
+                                        <h2 className="challenge-title-focus">{challengeOfDay.task}</h2>
+                                        <div className="focus-motivation-box">
+                                            "Flow is the result of focused intention. You are currently reconstructive your neural pathways."
+                                        </div>
+                                    </div>
+                                    <div className="challenge-footer">
+                                        <motion.button
+                                            className="btn-finish-challenge"
+                                            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.3)" }}
+                                            whileTap={{ scale: 0.95 }}
+                                            onClick={() => setChallengeState('completed')}
+                                        >
+                                            Mission Accomplished
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                                                <path d="M20 6L9 17L4 12" />
+                                            </svg>
+                                        </motion.button>
+                                    </div>
+                                </motion.div>
+                            )}
+
+                            {challengeState === 'completed' && (
+                                <motion.div
+                                    key="completed"
+                                    className="challenge-premium-card success-state"
+                                    initial={{ opacity: 0, scale: 0.8, rotate: -2 }}
+                                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                                    transition={{ type: "spring", damping: 12 }}
+                                >
+                                    <div className="success-confetti-bg"></div>
+                                    <div className="success-content text-center">
+                                        <div className="success-icon-wrapper">
+                                            <motion.div
+                                                className="success-checkmark"
+                                                initial={{ pathLength: 0 }}
+                                                animate={{ pathLength: 1 }}
+                                                transition={{ duration: 0.8, delay: 0.2 }}
+                                            >
+                                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                                                    <motion.path d="M20 6L9 17L4 12" />
+                                                </svg>
+                                            </motion.div>
+                                        </div>
+                                        <h2 className="success-title">Elite Mindset Unlocked</h2>
+                                        <p className="success-msg">You didn't just read wisdom—you lived it. That is the distinction of an elite mind.</p>
+                                        <div className="impact-earned-badge">
+                                            +1 Cognitive Resilience
+                                        </div>
+                                        <button className="btn-reset-challenge" onClick={() => setChallengeState('idle')}>
+                                            Back to Vault
+                                        </button>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                </section>
 
                 {/* STRATEGIC FRAMEWORKS GALLERY */}
                 <section className="mental-models-section">
@@ -1222,6 +1394,8 @@ const Insights = () => {
                         </div>
                     </div>
                 </section>
+
+                
             </AnimatePresence>
         </div>
     );

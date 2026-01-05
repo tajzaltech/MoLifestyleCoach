@@ -68,12 +68,14 @@ const About = () => {
 
     return (
         <div className="about-page-new">
-            {/* Cinematic Hero Section - Editorial Redesign */}
+            {/* Editorial Grain Overlay */}
+            <div className="editorial-grain-overlay"></div>
+
+            {/* Cinematic Hero Section - Editorial Masterpiece */}
             <section className="about-hero-aesthetic">
                 {/* Immersive Background Elements */}
                 <div className="about-hero-glow"></div>
-                <div className="hero-orb-luxury orb-1"></div>
-                <div className="hero-orb-luxury orb-2"></div>
+                <div className="hero-liquid-accent"></div>
 
                 <div className="container">
                     <div className="hero-editorial">
@@ -98,7 +100,7 @@ const About = () => {
                             >
                                 <span className="aesthetic-badge-cinematic">
                                     <span className="badge-dot"></span>
-                                    The Heart Behind the Work
+                                    The Bespoke Narrative
                                 </span>
                             </motion.div>
 
@@ -114,14 +116,37 @@ const About = () => {
                                 I help you find <span className="italic-reveal">yours.</span>
                             </motion.h1>
 
-                            <motion.div
-                                className="hero-signature-line"
-                                variants={{
-                                    initial: { width: 0 },
-                                    animate: { width: "100px" }
-                                }}
-                                transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
-                            ></motion.div>
+                            {/* Self-Drawing Calligraphy Signature */}
+                            <div className="hero-signature-wrapper">
+                                <svg width="240" height="80" viewBox="0 0 240 80" fill="none" className="editorial-signature-svg">
+                                    <motion.path
+                                        d="M10 50 Q 50 10, 100 50 T 230 40"
+                                        stroke="var(--accent)"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        initial={{ pathLength: 0, opacity: 0 }}
+                                        animate={{ pathLength: 1, opacity: 0.6 }}
+                                        transition={{ duration: 2, delay: 1, ease: "easeInOut" }}
+                                    />
+                                    <motion.path
+                                        d="M40 65 Q 120 75, 200 60"
+                                        stroke="var(--accent)"
+                                        strokeWidth="1"
+                                        strokeLinecap="round"
+                                        initial={{ pathLength: 0, opacity: 0 }}
+                                        animate={{ pathLength: 1, opacity: 0.4 }}
+                                        transition={{ duration: 1.5, delay: 2, ease: "easeInOut" }}
+                                    />
+                                </svg>
+                                <motion.span
+                                    className="signature-subtext"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 2.5, duration: 1 }}
+                                >
+                                    The MoLifestyle Philosophy
+                                </motion.span>
+                            </div>
 
                             <motion.p
                                 className="editorial-lead-cinematic"

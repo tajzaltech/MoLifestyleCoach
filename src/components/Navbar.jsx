@@ -12,9 +12,7 @@ const Navbar = () => {
     // Pages that have a cinematic hero and need transparent/light navbar
     const hasCinematicHero = [
         '/',
-        '/about',
-        '/guidance',
-        '/connect'
+        '/guidance'
     ].includes(location.pathname);
 
     useEffect(() => {

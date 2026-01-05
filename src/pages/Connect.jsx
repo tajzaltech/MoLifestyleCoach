@@ -1,13 +1,36 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import workspaceImage from '../assets/workspace.png';
 import './Connect.css';
 
+const LiveClock = () => {
+    const [time, setTime] = useState(new Date());
+
+    useEffect(() => {
+        const timer = setInterval(() => setTime(new Date()), 1000);
+        return () => clearInterval(timer);
+    }, []);
+
+    return (
+        <div className="live-clock-bento">
+            <span className="clock-time">
+                {time.toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    timeZone: 'Europe/London'
+                })}
+            </span>
+            <span className="clock-zone">GMT • UK</span>
+        </div>
+    );
+};
+
 const Connect = () => {
     const fadeUp = {
-        initial: { opacity: 0, y: 12 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true },
-        transition: { duration: 0.6, ease: 'easeOut' }
+        initial: { opacity: 0, y: 15 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
     };
 
     const sessionPillars = [
@@ -120,35 +143,73 @@ const Connect = () => {
 
     return (
         <div className="connect-page-new">
-            {/* Hero Section - Cinematic Entry */}
-            <section className="connect-hero">
-                <div className="connect-hero-glow"></div>
+            {/* World-Class Connect Bento Hero */}
+            <section className="connect-hero-bento">
                 <div className="container">
-                    <div className="connect-hero-content">
-                        <motion.span
-                            className="connect-badge-cinematic"
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: 'easeOut' }}
+                    <div className="bento-hero-grid">
+
+                        {/* THE HEADLINE TILE (Large) */}
+                        <motion.div
+                            className="bento-tile-cinematic tile-hero-main"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            Let's Connect
-                        </motion.span>
-                        <motion.h1
+                            <span className="aesthetic-badge-minimal">Gateway to Clarity</span>
+                            <h1>Let's Bridge the <span className="stroke-text">Gap.</span></h1>
+                            <p className="bento-lead">
+                                Your journey to an unshakeable sense of meaning starts with a single, honest conversation.
+                            </p>
+                        </motion.div>
+
+                        {/* LIVE AVAILABILITY TILE */}
+                        <motion.div
+                            className="bento-tile-cinematic tile-availability"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
+                            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            You Don’t Have to<br /><span>Do This Alone</span>
-                        </motion.h1>
-                        <motion.p
-                            className="connect-lead-cinematic"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+                            <div className="availability-status">
+                                <div className="pulse-dot active"></div>
+                                <span>Accepting New Clients</span>
+                            </div>
+                            <LiveClock />
+                        </motion.div>
+
+                        {/* MASTER BOOKING TILE (Call to Action) */}
+                        <motion.div
+                            className="bento-tile-cinematic tile-master-cta"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            Whether you're seeking clarity, have questions about guidance,
-                            or just want to start a conversation — I am here to listen.
-                        </motion.p>
+                            <div className="cta-icon-float">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                    <path d="M12 2v20M2 12h20" />
+                                </svg>
+                            </div>
+                            <h3>Private Consultation</h3>
+                            <p>Bespoke 1-to-1 session designed for your personal evolution.</p>
+                            <a href="https://wa.me/441234567890" target="_blank" rel="noopener noreferrer" className="btn-bento-primary">
+                                Secure Your Slot
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </motion.div>
+
+                        {/* PHILOSOPHY SNAP TILE */}
+                        <motion.div
+                            className="bento-tile-cinematic tile-philosophy"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <div className="quote-icon">“</div>
+                            <p>Clarity isn't found; it's architected.</p>
+                            <span className="philosophy-tag">The MoLifestyle Creed</span>
+                        </motion.div>
+
                     </div>
                 </div>
             </section>

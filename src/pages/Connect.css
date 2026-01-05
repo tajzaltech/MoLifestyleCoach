@@ -1,76 +1,284 @@
-/* Connect Page - World-Class Design */
+/* Connect Page - Interactive Bento Redesign */
 
 .connect-page-new {
-    background-color: var(--bg-main);
+    background-color: #fafaf7;
     color: var(--text-primary);
     overflow-x: hidden;
 }
 
-/* Hero Section - Cinematic Entry */
-.connect-hero {
-    min-height: 80vh;
+.connect-hero-bento {
+    padding: 160px 0 100px;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     position: relative;
     background-color: #fafaf7;
-    overflow: hidden;
-    padding: 120px 0;
 }
 
-.connect-hero-glow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(29, 56, 71, 0.04) 0%, transparent 70%);
-    z-index: 0;
+.bento-hero-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 24px;
+    grid-template-areas:
+        "main main avail cta"
+        "main main philos cta";
 }
 
-.connect-hero-content {
+.bento-tile-cinematic {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 32px;
+    padding: 40px;
     position: relative;
-    z-index: 1;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
 }
 
-.connect-badge-cinematic {
-    display: inline-block;
-    padding: 10px 24px;
-    background-color: white;
-    color: var(--accent);
-    border: 1px solid var(--divider);
-    border-radius: 40px;
-    font-size: 11px;
+.bento-tile-cinematic:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(29, 56, 71, 0.08);
+    border-color: rgba(29, 56, 71, 0.1);
+}
+
+/* THE HEADLINE TILE */
+.tile-hero-main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(135deg, white 0%, #f8fafc 100%);
+}
+
+.aesthetic-badge-minimal {
+    font-size: 10px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.connect-hero-content h1 {
-    font-size: clamp(48px, 8vw, 84px);
+.tile-hero-main h1 {
+    font-size: 72px;
     line-height: 0.95;
     font-weight: 800;
-    margin-bottom: 35px;
-    letter-spacing: -4px;
+    letter-spacing: -3px;
+    margin-bottom: 24px;
     color: var(--text-primary);
 }
 
-.connect-hero-content h1 span {
+.stroke-text {
     color: transparent;
     -webkit-text-stroke: 1px var(--text-primary);
     opacity: 0.3;
 }
 
-.connect-lead-cinematic {
-    font-size: clamp(18px, 2vw, 22px);
+.bento-lead {
+    font-size: 20px;
     line-height: 1.6;
     color: var(--text-muted);
-    max-width: 650px;
-    margin: 0 auto;
+    max-width: 500px;
+}
+
+/* LIVE AVAILABILITY TILE */
+.tile-availability {
+    grid-area: avail;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--accent);
+    color: white;
+    border: none;
+}
+
+.availability-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pulse-dot.active {
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4ade80;
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+.live-clock-bento {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.clock-time {
+    font-size: 32px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -1px;
+}
+
+.clock-zone {
+    font-size: 10px;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+/* MASTER BOOKING TILE */
+.tile-master-cta {
+    grid-area: cta;
+    background: var(--text-primary);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+}
+
+.cta-icon-float {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tile-master-cta h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.tile-master-cta p {
+    font-size: 15px;
+    opacity: 0.7;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.btn-bento-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 24px;
+    background: white;
+    color: var(--text-primary);
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-bento-primary:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.02);
+}
+
+/* PHILOSOPHY TILE */
+.tile-philosophy {
+    grid-area: philos;
+    background: #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quote-icon {
+    font-size: 60px;
+    font-family: serif;
+    color: var(--accent);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: -10px;
+}
+
+.tile-philosophy p {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.philosophy-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+    .bento-hero-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "main main"
+            "avail philos"
+            "cta cta";
+    }
+}
+
+@media (max-width: 768px) {
+    .connect-hero-bento {
+        padding: 120px 0 60px;
+    }
+
+    .bento-hero-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "main"
+            "avail"
+            "cta"
+            "philos";
+        gap: 16px;
+    }
+
+    .tile-hero-main h1 {
+        font-size: 42px;
+        letter-spacing: -2px;
+    }
+
+    .bento-tile-cinematic {
+        padding: 30px;
+    }
 }
 
 /* COMPACT 1-to-1 SESSION REDESIGN - PREMIUM ARCHITECTURAL */
